@@ -1,0 +1,81 @@
+<div class="overlay-holder sso-container" id="ssoOverlayContent" data-ng-if="nextPage">
+    <div class="overlay sso-overlay">
+        <div class="overlay-header fs-md">
+            <strong>Sign in -</strong> Book faster, manage bookings &amp; save more!
+            <span class="ico-close" ng-click="close()">X</span>
+        </div>
+
+        <section class="login-container overlay-content clearfix">
+            <section class="login-content">
+                <section class="left-panel">
+                    <div>
+                        <form name="userForm" class="user-form" novalidate="">
+                            <div class="row">
+                                <input type="text" name="email" ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/" ng-model="email" value="" placeholder="Email Address" ng-minlength="5" ng-maxlength="35" required="" autocomplete="off">
+                                <span class="error-msg ng-hide" ng-show="userForm.email.$error.pattern  &amp;&amp; loginGuestSubmitted">Please provide valid email address.</span>
+                                <span class="error-msg ng-hide" ng-show="loginGuestSubmitted &amp;&amp; userForm.email.$error.required">Please provide email address.</span>
+                                <span class="label-text">Your booking details will be sent to this email address</span>
+                            </div>
+                            <div class="row">
+                                <span class="align-checkbox">
+		  <span>
+			<input type="checkbox" name="isRegistered" ng-model="registered" value="no">
+		  </span>
+                                <!--<span class="account-msg" ng-click="yatraAccountCheck()"> I have a Yatra Account</span>-->
+                                Existing User? Sign In to use your account
+                                </span>
+                            </div>
+                            <div class="row ng-hide" id="regUserDiv" ng-show="registered">
+                                <input type="password" name="password" placeholder="Password" ng-model="password" ng-maxlength="40" ng-required="registered" ng-minlength="1" ng-disabled="isHff.isReprice" class="ng-pristine ng-untouched ng-valid ng-valid-minlength ng-valid-maxlength ng-valid-required">
+                                <span class="error-msg ng-hide" ng-show="loginGuestSubmitted &amp;&amp; userForm.password.$error.required">Password is required.</span>
+                                <span class="error-msg ng-hide" ng-show="userForm.password.$error.maxlength">Password too long</span>
+                            </div>
+
+                            <div class="row" ng-show="!registered">
+                                <div class="align-width">
+                                    <span class="select-wrapper">
+<select name="stdNum" ng-disabled="isHff.isReprice" id="intlStdCode" class="telInput ng-pristine ng-untouched ng-valid" ng-model="stdNum" ng-change="setTextBoxLength()">
+      <option value="91">+91</option>
+      <option value="93">+93</option>
+	  <option value="355">+355</option>
+	  <option value="213">+213</option>
+</select>
+</span>
+                                    <input type="text" ng-model="mobile" value="" name="mobile" ng-readonly="readonlyfbMobile" ng-minlength="10" ng-maxlength="10" ng-required="!registered" maxlength="10" placeholder="Mobile Number" ng-keypress="onlyNumbers($event)" autocomplete="off" ng-disabled="isHff.isReprice" class="ng-pristine ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength ng-touched" required="required">
+                                </div>
+                                <!-- mobile number ends here -->
+                                <span class="error-msg ng-hide" ng-show="(userForm.stdNum.$error.required || userForm.mobile.$error.required) &amp;&amp; loginGuestSubmitted">Please provide mobile number</span>
+                                <span class="error-msg ng-hide" ng-show="(userForm.mobile.$error.minlength || userForm.mobile.$error.maxlength) &amp;&amp; loginGuestSubmitted">Please provide valid mobile number</span>
+                                <span class="label-text">We'll use this number to send possible update alerts.</span>
+                                <!-- ngIf: otp.isOtp -->
+                            </div>
+
+                            <div class="row">
+                                <button class="button primary rounded" ng-model="userType">Book As Guest</button>
+                                <a class="fp-link under-link  ng-hide" ng-show="registered" ng-click="submitForgotPassword(userForm.email.$error)">Forgot Password?</a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="right-panel">
+                    <span class="vert-or">OR</span>
+                    <div>
+
+                        <div>
+
+                            <button type="button" ng-click="fbLogin()" ng-hide="isLoggedIn" class="paymentSprite fb"></button>
+                        </div>
+                    </div>
+
+
+                </section>
+
+                <section>
+
+
+                </section>
+            </section>
+        </section>
+    </div>
+</div>

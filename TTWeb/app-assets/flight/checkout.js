@@ -10,6 +10,10 @@
 			$scope.promo = function(){
 				$scope.selectPromo = !$scope.selectPromo;
 			};
+			$scope.nextPage = false;
+			$scope.continueToNextPage = function(){
+				$scope.nextPage = true;
+			};
         }];
 
         return {

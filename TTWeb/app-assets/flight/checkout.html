@@ -129,6 +129,10 @@
                     </div>
                 </div>
             </div>
+            <div class="center-block text-center mt-1 mb-1 sticky-sm-bottom hide-under-overlay">
+                <button class="button primary" ng-click="continueToNextPage();">Continue
+					  </button>
+            </div>
         </div>
         <aside class="col-lg-3 col-md-3">
             <!-- fare details -->
@@ -167,46 +171,8 @@
 
 
                     </div>
-
-                    <!--fareRulepopup-->
-                    <div class="fareruleContainer overlay-holder ng-hide" ng-show="showFareRules" id="fareRulesPopup">
-                        <div class="overlay nominee-modal">
-                            <div class="overlay-header fs-md">
-                                Fare Rules
-                                <span class="ico-close" ng-click="hideFareRulesPopup()">X</span>
-                            </div>
-                            <div class="overlay-content">
-                                <div class="far_rulepop">
-                                    <i ng-show="ajaxLoad" class="loader-dot ng-hide"></i></div>
-                                <div class="fare-error-container ng-hide" ng-show="fare_err">
-                                    <div class="error-msg">Resources are not available</div>
-                                </div>
-                                <div class="fare-rules-container" ng-hide="YTHELPER.isEmptyObject(fareRulesObj.fareRules)" ng-show="fare_contshow">
-                                    <!-- dom farerules table-->
-                                    <!-- ngIf: isDom -->
-                                    <table class="ng-scope" width="100%" cellspacing="0" cellpadding="0" style="position:relative;table-layout: fixed;" ng-if="isDom">
-                                        <thead>
-                                            <tr>
-                                                <th class="no-right-border bold">Sector</th>
-                                                <th class="tr bold"></th>
-                                            </tr>
-                                        </thead>
-
-
-                                        <tbody>
-                                            <tr>
-                                                <td class="borderless"><span class="asterisk">*</span>Per person per sector </td>
-                                            </tr>
-                                        </tbody>
-
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
-
+                <login-popup next-page="nextPage"></login-popup>
 
 
         </aside>
