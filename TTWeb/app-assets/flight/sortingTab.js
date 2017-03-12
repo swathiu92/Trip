@@ -7,12 +7,17 @@
             $scope.sorting = "asc";
             $scope.sortFltsEvent = function (event) {
                 $scope.selectedTab = event.currentTarget.id;
+				$scope.sortby = $scope.selectedTab;
+				$scope.sorted = !$scope.sorted;
                 $("#" + event.currentTarget.id).find('i').toggleClass('fa-angle-down fa-angle-up');
             }
         }];
 
         return {
-            scope: {},
+            scope: {
+				sortby:'=',
+				sorted: '='
+			},
             restrict: 'E',
             templateUrl: 'app-assets/flight/sortingtab.html',
             controller: controller,

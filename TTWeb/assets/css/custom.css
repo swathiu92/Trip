@@ -216,7 +216,7 @@ ul.search-tabs li a {
 }
 
 .listing-style3 .box, .listing-style3.box {
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 }
 
 /*sort table header*/
@@ -265,9 +265,10 @@ ul.search-tabs li a {
 }
  /* logo sprite*/
 .logo, .logo-s, .logo_sm {
-    background-image: url(../images/logoSprite-1.png);
-    width: 30px;
-    height: 30px;
+    background-image: url(../images/DFL.png);
+    background-size: 280px 56px;
+    width: 28px;
+    height: 28px;
     display: inline-block;
 }
 
@@ -397,4 +398,29 @@ ul.search-tabs li a {
 
 .L2S_sm {
     background-position: -390px 0;
+}
+
+/* Flight row styling */
+.flight-details {
+	background-color: #e2e2e2;
+    border-radius: 0 0 3px 3px;
+    margin-bottom: 15px;
+}
+.indigo {
+	background-position: -56px -0px;
+}
+.airindia {
+	background-position: -84px -0px;
+}
+.jetairways {
+	background-position: -28px -0px;
+}
+.spicejet {
+	background-position: -140px -0px;
+}
+.goair {
+	background-position: -112px -0px;
+}
+.airasia {
+	background-position: -28px -28px;
 }
