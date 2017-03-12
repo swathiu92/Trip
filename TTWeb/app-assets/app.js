@@ -117,6 +117,10 @@
             controller: 'SearchResultCtrl',
             templateUrl: 'app-assets/flight/searchresult.html',
         })
+		.state('flightdetails', {
+            url: '/flightdetails',
+            templateUrl: 'app-assets/flight/flightDetails.html',
+        })
        
         .state('cruise', {
             url: '/cruise'

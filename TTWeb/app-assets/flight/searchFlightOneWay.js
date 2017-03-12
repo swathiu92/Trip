@@ -2,15 +2,18 @@
     "use strict";
     angular.module("common.services")
     .directive('searchFlightOneWay', function () {
-        var controller = ['$scope', '$state', 'flightService', '$log', function ($scope, $state, flightService, $log) {
+        var controller = ['$scope', '$state', 'flightService','ShareDataService', '$log', function ($scope, $state, flightService, ShareDataService, $log) {
             $scope.displayText = "Departing On";
             $scope.leftMargin = -50;
 			$scope.city = {};
-
+			$scope.dateTime = {};
             $scope.search = function () {
+				$scope.city.departure = $scope.dateTime;
                 flightService.mode = 1;
 				$scope.submitted = true;
-				console.log($scope.city);
+				ShareDataService.setSharedData({
+					city: $scope.city
+	            }, 'city');
 				if($scope.city.from && $scope.city.to){
 					$state.go('searchflight');
 				}

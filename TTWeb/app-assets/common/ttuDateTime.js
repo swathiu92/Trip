@@ -2,12 +2,6 @@
     "use strict";
     angular.module("common.services")
     .directive('ttuDateTime', function () {
-        var template = '<div class=" form-group">' +
-            '<label for="ttuDateTime" class="control-label" ng-bind="displayText"></label>' +
-                '<div class="input-group margin-bottom-20"><span class="input-group-addon rounded-left"><i class="fa fa-calendar color-blue"></i></span>' +
-                    '<input type="text" class="form-control rounded-right" readonly="readonly" name="ttuDateTime" id="ttuDateTime" ng-model="dateTime" uib-datepicker-popup="{{format}}" is-open="popup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-keypress="onEnter($event)" ng-click="open()">' +
-                '</div>'+
-            '</div>';
 
         var controller = ['$scope', '$log', function ($scope, $log) {
             $scope.onEnter = function (keyEvent) {
@@ -101,7 +95,7 @@
                 displayText: "=",
                 dateTime: "="
             },
-            template: template,
+            templateUrl: 'app-assets/common/ttuDateTime.html',
             controller: controller,
         }
     });

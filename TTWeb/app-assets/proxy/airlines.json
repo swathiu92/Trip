@@ -1,7 +1,17 @@
 {
     "travel": {
-        "origin": "Hyderabad",
-        "destination": "Bangalore"
+		"originSummary" :{
+			"origin":"Hyderabad",
+			"originCode":"HYD",
+			"country": "India",
+			"airport":"Shamshabad Rajiv Gandhi"
+		},
+		"destinationSummary":{
+			"destination": "Bangalore",
+			"destinationCode":"BLR",
+			"country":"India",
+			"airport":"Bengaluru"
+		}
     },
     "oneway": [
         {

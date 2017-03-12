@@ -1,9 +1,8 @@
-﻿(function () {
-	"use strict";
-	var commonApp = angular.module("common.services", ["ngResource"]);
-commonApp 		
-    .factory('ShareDataService',
-    function ShareDataService(){ 
+(function () {
+    var app = angular.module("ttuApp");
+    app.factory('ShareDataService', ["$http", "$q", "$log", ShareDataService]);
+
+    function ShareDataService(){
     	var dataObject = {};
     	
 
@@ -26,5 +25,5 @@ commonApp
         		setSharedDataForKey:setSharedDataForKey
             };
         return service;
-    });
-}());
+    }
+})();
