@@ -1,0 +1,36 @@
+﻿<div class="container content-md">
+    <div class="row">
+        <div class="col-md-8 col-sm-8 col-xs-12 equal-height-column tag-box tag-box-v7" style="padding:20px;">
+            <form method="post" id="registerCompanyForm" class="sky-form sky-changes-3">
+                <div class="headline"><h2>Add Company</h2></div>
+                <fieldset>
+                    <section>
+                        <label for="Name" class="control-label">Name</label>
+                        <div class="input-group margin-bottom-20">
+                            <span class="input-group-addon rounded-left"><i class="fa fa-building color-blue"></i></span>
+                            <input type="text" class="form-control rounded-right" name="name" id="Name" ng-model="company.name" placeholder="Name" autocomplete="off">
+                        </div>
+                    </section>
+                    <section>
+                        <label class="label">Description</label>
+                        <label class="textarea">
+                            <i class="icon-prepend fa fa-comment color-blue"></i>
+                            <textarea rows="3" class="rounded" placeholder="short description" ng-model="company.Description"></textarea>
+                        </label>
+                    </section>
+
+                    <section>
+                        <ttu-date-time display-text="displayText" date-time="company.registrationDate"></ttu-date-time>
+                    </section>
+                    <div class="clearfix pull-right">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+                                <button type="button" class="btn btn-u btn-u-dark rounded" ng-disabled="status" ng-click="addCompany(company)" ng-bind="actionText"></button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

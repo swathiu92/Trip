@@ -1,0 +1,30 @@
+<div class="col-md-4">
+    <div class="form-group">
+        <label for="flyingFrom">Flying From </label>
+        <div class="input-group margin-bottom-20">
+            <span class="input-group-addon rounded-left"><i class="fa fa-plane fa-lg color-blue"></i></span>
+            <input type="text" ng-model="city.from" class="form-control rounded-right" id="flyingFrom" placeholder="Leaving From (city, distirct or specific airpot)" />
+        </div>
+        <div ng-show="submitted && !city.from">Please enter from city</div>
+    </div>
+</div>
+<div class="col-md-1 col-lg-1 hidden-sm hidden-xs text-center" style="margin-top:5px;"><label for="flyingTo">&nbsp;</label> <i class="fa fa-2x fa-arrow-circle-right fa-inverse"></i></div>
+<div class="col-md-4 col-sm-12 col-lg-4 hidden-xs hidden-sm">
+    <div class="form-group">
+        <label for="flyingTo">Flying To</label>
+        <div class="input-group margin-bottom-20">
+            <span class="input-group-addon rounded-left"><i class="fa fa-plane fa-lg fa-rotate-90 color-blue"></i></span>
+            <input type="text" ng-model="city.to" class="form-control rounded-right" id="flyingTo" placeholder="Going To (city, distirct or specific airpot)" />
+        </div>
+    </div>
+    <div ng-show="submitted && !city.to">Please enter from to</div>
+</div>
+<div class="col-sm-12 col-xs-12 hidden-lg hidden-md">
+    <div class="form-group">
+        <label for="flyingTo">Flying To</label>
+        <div class="input-group margin-bottom-20">
+            <span class="input-group-addon rounded-left"><i class="fa fa-plane fa-lg fa-rotate-90 color-blue"></i></span>
+            <input type="text" ng-model="city.to" class="form-control rounded-right" id="flyingTo" placeholder="Going To (city, distirct or specific airpot)" />
+        </div>
+    </div>
+</div>

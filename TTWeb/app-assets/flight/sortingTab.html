@@ -1,0 +1,28 @@
+﻿<div class="hidden-xs visible-stb margin-bottom-10">
+    <div class="clearfix split_sorting_tabs">
+        <span class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+            <a class="row segmented_btn" ng-class="{'active':selectedTab === 'departure'}" id="departure" ng-click="sortFltsEvent($event)" href="avascript:void(0);">
+                DEPARTURE <i ng-if="selectedTab === 'departure'" class="fa fa-lg fa-angle-down color-blue"></i>
+            </a>
+        </span>
+        <span class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+            <a class="row segmented_btn" ng-class="{'active':selectedTab === 'arrival'}" id="arrival" ng-click="sortFltsEvent($event)" href="avascript:void(0);">
+                ARRIVAL <i ng-if="selectedTab === 'arrival'" class="fa fa-lg fa-angle-down color-blue"></i>
+            </a>
+        </span>
+        <span class="col-lg-3 col-md-3 col-sm-3 col-xs-2 hidden-xs">
+            <a class="row segmented_btn first" ng-class="{'active':selectedTab === 'duration'}" id="duration" ng-click="sortFltsEvent($event)" href="avascript:void(0);">
+                DURATION <i ng-if="selectedTab === 'duration'" class="fa fa-lg fa-angle-down color-blue"></i>
+            </a>
+        </span>
+        <span class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+            <a class="row segmented_btn last" ng-class="{'active':selectedTab === 'price'}" id="price" ng-click="sortFltsEvent($event)" href="avascript:void(0);">
+                PRICE <i ng-if="selectedTab === 'price'" class="fa fa-lg fa-angle-down color-blue"></i>
+            </a>
+        </span>
+        <!--<span class="col-xs-2 col-md-2 col-sm-2 hidden-xs">
+            <a class="row segmented_btn last" href="avascript:void(0);">
+            </a>
+        </span>-->
+    </div>
+</div>

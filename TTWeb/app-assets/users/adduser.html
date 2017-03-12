@@ -1,0 +1,36 @@
+﻿<div class="container content-md">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 tag-box tag-box-v7" style="padding:20px;">
+            <form method="post" id="registerUserForm">
+                <div class="headline"><h2>Add New User Account</h2></div>
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon rounded-left"><i class="icon-user color-blue"></i></span>
+                    <input type="text" class="form-control rounded-right" name="name" id="Name" ng-model="user.name" placeholder="Name" autocomplete="off">
+                </div>
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon rounded-left"><i class="icon-user color-blue"></i></span>
+                    <input type="text" class="form-control rounded-right" name="email" id="Email" placeholder="Email" ng-model="user.email" autocomplete="false">
+                </div>
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon rounded-left"><i class="icon-lock color-blue"></i></span>
+                    <input type="password" class="form-control rounded-right" name="password" id="Password" ng-model="user.password" placeholder="Password" autocomplete="false">
+                </div>
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon rounded-left"><i class="icon-lock color-blue"></i></span>
+                    <input type="password" class="form-control rounded-right" name="confirmPassword" id="ConfirmPassword" ng-model="user.confirmPassword" placeholder="Confirm Password" autocomplete="off">
+                </div>
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon rounded-left"><i class=" icon-screen-smartphone color-blue"></i></span>
+                    <input type="text" class="form-control" name="contactNumber" id="ContactNumber" ng-model="user.contactNumber" placeholder="Contact Number" autocomplete="off">
+                </div>
+                <div class="clearfix pull-right">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn btn-u btn-u-dark rounded" ng-disabled="status" id="createUser" ng-click="addUser(user)" ng-bind="actionText"></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

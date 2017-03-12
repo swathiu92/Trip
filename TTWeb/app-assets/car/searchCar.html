@@ -1,0 +1,42 @@
+﻿
+<form method="post" id="searchCar" style="padding-left:30px; padding-right:30px;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group">
+                <label for="flyingFrom">Picking up </label>
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon rounded-left"><i class=" fa fa-map-marker fa-lg color-blue"></i></span>
+                    <input type="text" class="form-control rounded-right" placeholder="Pick Up (city, distirct or specific airpot)" />
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group">
+                <label for="flyingFrom">Dropping off </label>
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon rounded-left"><i class=" fa fa-map-marker fa-lg color-blue"></i></span>
+                    <input type="text" class="form-control rounded-right" placeholder="Pick Up (city, distirct or specific airpot)" />
+                </div>
+            </div>
+        </div>>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
+            <ttu-date-time display-text="pickupDate" date-time="travel.pickupDate"></ttu-date-time>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
+            <ttu-time display-text="pickupTime" date-time="travel.pickupTime"></ttu-time>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
+            <ttu-date-time display-text="dropOffDate" date-time="travel.dropOffDate"></ttu-date-time>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
+            <ttu-time display-text="dropOffTime" date-time="travel.dropOffTime"></ttu-time>
+        </div>
+    </div>
+    <div class="row margin-bottom-20">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 margin-top-20">
+            <button class="btn btn-u btn-u-orange rounded">SERACH CARS</button>
+        </div>
+    </div>
+</form>

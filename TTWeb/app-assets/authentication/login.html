@@ -1,0 +1,43 @@
+﻿<!--=== Style Switcher ===-->
+<div class="style-switcher animated fadeInRight" ng-style="display:block">
+    <div class="style-swticher-header">
+        <div class="style-switcher-heading">Login</div>
+        <div class="theme-close" ng-click="closeDialog()"><i class="icon-close"></i></div>
+    </div>
+
+    <div class="style-swticher-body">
+        <!-- Layout Styles -->
+        <div class="style-switcher-heading">Email Id</div>
+        <div class="row no-col-space margin-bottom-20">
+            <div class="col-xs-12">
+                <input type="text" class="form-control" name="email" id="email" autocomplete="off" ng-model="user.email" size="30" />
+            </div>
+        </div>
+
+        <hr>
+        <!-- Layout Styles -->
+        <div class="style-switcher-heading">Password</div>
+        <div class="row no-col-space margin-bottom-20">
+            <div class="col-xs-12">
+                <input type="password" class="form-control" name="Password" id="Password" ng-model="user.password" autocomplete="off" size="30" />
+            </div>
+        </div>
+
+        <hr>
+        <div class="row no-col-space">
+            <div class="col-xs-6">
+                <a href="#" class="btn btn-u btn-u-md btn-u-dark btn-block" id="loginUser" ng-click="loginUser(user)">Login</a>
+            </div>
+            <div class="col-xs-6">
+                <a href="#" class="btn btn-u btn-u-md btn-u-dark btn-block" type="reset" id="resetUser" ng-click="resetUser(user)">Reset</a>
+            </div>
+        </div>
+
+    </div>
+</div><!--/style-switcher-->
+<!--=== End Style Switcher ===-->
+<script type="text/javascript">
+    jQuery('.theme-close').click(function () {
+        jQuery('.style-switcher').hide();
+    });
+</script>
