@@ -2,14 +2,17 @@
     "use strict";
     angular.module("common.services")
     .directive('flightRowRound', function () {
-        var controller = ['$scope', '$log', 'ShareDataService', function ($scope, $log, ShareDataService) {
+        var controller = ['$scope', '$log', '$state', 'ShareDataService', function ($scope, $log, $state, ShareDataService) {
 			$scope.sorting = function(result) {
 				var sort = 0;
 				sort = result[$scope.sortby];
 				return sort	;
 			};
 			$scope.cityDetails = ShareDataService.getSharedData().city;
-			$scope.bookFlight = function(booked){
+			$scope.flightSelected = function(details, status, index){
+				var booked = [];
+				booked.push(details);
+				booked.push($scope.data[status][index]);
 				ShareDataService.setSharedData({
 					travel: $scope.data.travel
 	            }, 'travel');

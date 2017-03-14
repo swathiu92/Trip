@@ -407,7 +407,7 @@ ul.search-tabs li a {
 	background-color: #e2e2e2;
     border-radius: 0 0 3px 3px;
     margin-bottom: 15px;
-	font-size: .714em;
+	font-size: .714em !important;
 }
 .indigo {
 	background-position: -56px -0px;
