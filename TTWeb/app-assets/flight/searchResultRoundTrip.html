@@ -25,15 +25,15 @@
                 <div class="col-lg-9 col-sm-9 col-md-9 col-xs-12">
                     <div class="row">
                         <div class="col-xs-12 col-sm-6, col-md-6 col-lg-6">
-                            <sorting-tab></sorting-tab>
+                            <sorting-tab sortby="sortby" sorted="sorted"></sorting-tab>
                             <div class="flight-list listing-style3 flight">
-                                <flight-row-round></flight-row-round>
+                                <flight-row-round data="results.origin" sortby="sortby" sorted="sorted" status="origin"></flight-row-round>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6, col-md-6 col-lg-6">
-                            <sorting-tab></sorting-tab>
+                            <sorting-tab sortby="sortby" sorted="sorted"></sorting-tab>
                             <div class="flight-list listing-style3 flight">
-                                <flight-row-round></flight-row-round>
+                                <flight-row-round data="results.destination" sortby="sortby" sorted="sorted" status="destination"></flight-row-round>
                             </div>
                         </div>
                     </div>

@@ -1,16 +1,16 @@
 ﻿
 <div class="row">
-    <travel-location city="city"></travel-location>
+    <travel-location city="city" submitted="submitted"></travel-location>
 </div>
 <div class="row">
     <div class="col-md-2">
-        <ttu-date-time display-text="departing" date-time="travel.Departing"></ttu-date-time>
+        <ttu-date-time display-text="departing" date-time="departureDate"></ttu-date-time>
     </div>
     <div class="col-md-2">
-        <ttu-date-time display-text="returning" date-time="travel.Returning"></ttu-date-time>
+        <ttu-date-time display-text="returning" date-time="arrivalDate"></ttu-date-time>
     </div>
     <div class="col-md-1"> </div>
-    <traveler-detail></traveler-detail>
+    <traveler-detail city="city" submitted="submitted"></traveler-detail>
 </div>
 <div class="row margin-bottom-20">
     <div class="col-xs-3 margin-top-20">

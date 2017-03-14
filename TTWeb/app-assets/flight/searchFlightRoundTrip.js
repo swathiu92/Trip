@@ -2,7 +2,7 @@
     "use strict";
     angular.module("common.services")
     .directive('searchFlightRoundTrip', function () {
-        var controller = ['$scope', '$state', 'flightService', '$log', function ($scope, $state, flightService, $log) {
+        var controller = ['$scope', '$state', 'flightService', 'ShareDataService', '$log', function ($scope, $state, flightService, ShareDataService, $log) {
             $scope.leftMargin = -50;
             $scope.departing = "Depating On";
             $scope.returning = "Returing On";
@@ -10,7 +10,9 @@
 
             $scope.search = function () {
                 flightService.mode = 2
-				console.log($scope.city);
+				ShareDataService.setSharedData({
+					city: $scope.city
+	            }, 'city');
                 $state.go('searchflight');
             }
         }];

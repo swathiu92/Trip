@@ -18,7 +18,6 @@
 				else{
 					 data.oneway[key].duration = ((duration-duration%60)/60 + 'h' + ' ' + duration%60 + 'm');
 				}
-				console.log(data.oneway[key].duration);
 			 });
 			 $scope.results = data;
           }, function(rejection) {
