@@ -6,6 +6,7 @@
 			$scope.results = {};
 			$scope.sortby = '';
 			$scope.sorted = '';
+			$scope.cityDetails = ShareDataService.getSharedData().city;
 			flightService.getAirlines().then(function(data) {
 			 angular.forEach(data.round.origin, function(value, key){
 				 var duration = data.round.origin[key].duration;

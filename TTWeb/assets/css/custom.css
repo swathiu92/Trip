@@ -509,6 +509,7 @@ ul.search-tabs li a {
 }
 .acc-title .review-title {
     text-align: center;
+	margin-left:12px;
 }
 .review-title {
     background-color: #e2e2e2;
@@ -838,4 +839,16 @@ input[type="checkbox"], input[type="radio"] {
     z-index: 0;
     border-radius: 2px;
     border: 1px solid transparent;
+}
+.round-price {
+	opacity: 1;
+    background: #EA2330;
+    border: 1px solid #EA2330;
+    color: #fff;
+    padding: 7px 15px;
+    border-radius: 3px;
+	cursor:pointer;
+}
+.padding-bottom {
+	padding-bottom: 50px;
 }

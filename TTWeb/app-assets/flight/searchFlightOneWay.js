@@ -14,7 +14,7 @@
 				ShareDataService.setSharedData({
 					city: $scope.city
 	            }, 'city');
-				if($scope.city.from && $scope.city.to){
+				if($scope.city.from && $scope.city.to && ($scope.city.adult || $scope.city.infant || $scope.city.child) && $scope.dateTime){
 					$state.go('searchflight');
 				}
             }

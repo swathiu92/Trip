@@ -3,8 +3,8 @@
         <div class="col-sm-9">
             <h3 class="fs-md bold inlineblock">
                 <i class="fa fa-plane gray-light"></i>
-                <span>{{travelDetails.originSummary.origin}}</span> &nbsp;
-                <i class="fa fa-exchange ng-scope fa-long-arrow-right"></i>{{travelDetails.destination}}
+                <span>{{cityDetails.from.name}}</span> &nbsp;
+                <i class="fa fa-exchange ng-scope fa-long-arrow-right"></i>{{cityDetails.to.name}}
             </h3>
             &nbsp;
             <p class="fs-base inlineblock">
@@ -40,18 +40,18 @@
                     </h3>
                     <div class="box-content">
                         <div class="accordion-sm">
-                            <div class="acc-title clearfix">
-                                <h3 class="pull-left bold fs-xs text-uppercase review-title gray ng-binding">
-                                    <i class="fa fa-plane"></i>DEPARTURE</h3>
-                                <p class="pull-right ng-binding">Total Time: 1h 15m </p>
-                            </div>
-                            <div class="acc-content">
+                            <div class="acc-content" data-ng-repeat="booked in bookedDetails track by $index">
                                 <article class="row review-article">
+								<div class="acc-title clearfix">
+									<h3 class="pull-left bold fs-xs text-uppercase review-title gray ng-binding">
+										<i class="fa fa-plane"></i>DEPARTURE</h3>
+									<p class="pull-right ng-binding">Total Time: {{booked.duration}} </p>
+								</div>
                                     <div class="text-sm-center col-sm-2 text-xs-left">
                                         <p>
-                                            <i class="L6E_sm logo pull-left {{bookedDetails.alias}}" style="float: none !important;display: inline-block;"></i>
-                                            <span class="inlineblock ng-binding">{{bookedDetails.airlines}} <br>
-												<span class="fs-xs gray">{{bookedDetails.flightno}}</span>
+                                            <i class="L6E_sm logo pull-left {{booked.alias}}" style="float: none !important;display: inline-block;"></i>
+                                            <span class="inlineblock ng-binding">{{booked.airlines}} <br>
+												<span class="fs-xs gray">{{booked.flightno}}</span>
                                             </span>
                                             <br class="hidden-xs-down">
                                         </p>
@@ -60,14 +60,14 @@
                                         <div class="row">
                                             <div class="col-xs-6 col-md-3">
                                                 <p class="ng-binding">{{travelDetails.originSummary.origin}}, {{travelDetails.originSummary.country}}</p>
-                                                <h3 class="fs-base bold gray-dark ng-binding">{{travelDetails.originSummary.originCode}}<span class="normal gray-light">&nbsp;|&nbsp;</span>{{bookedDetails.departure}}</h3>
+                                                <h3 class="fs-base bold gray-dark ng-binding">{{travelDetails.originSummary.originCode}}<span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.departure}}</h3>
                                                 <p class="fs-sm gray ng-binding">{{cityDetails.departureDate | date : "dd MMM yyyy"}}<br><span class="ng-binding">{{travelDetails.originSummary.airport}}</span></p>
                                             </div>
                                             <div class="col-xs-6 col-md-push-6 col-md-3 sm-border-left">
                                                 <p class="ng-binding">{{travelDetails.destinationSummary.destination}}, {{travelDetails.destinationSummary.country}}</p>
                                                 <h3 class="fs-base bold gray-dark">
                                                     {{travelDetails.destinationSummary.destinationCode}}
-                                                    <span class="normal gray-light">&nbsp;|&nbsp;</span>{{bookedDetails.arrival}}
+                                                    <span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.arrival}}
                                                 </h3>
                                                 <p class="fs-sm gray ng-binding">{{cityDetails.departureDate | date : "dd MMM yyyy"}}<br>
                                                     <span>{{travelDetails.destinationSummary.airport}}</span>
@@ -75,19 +75,19 @@
                                             </div>
                                             <div class="col-sm-12 text-center col-md-pull-3 col-md-6">
                                                 <p>
-                                                    <i class="fa fa-clock-o"></i> &nbsp; {{bookedDetails.duration}} &nbsp;|&nbsp; Non Stop
+                                                    <i class="fa fa-clock-o"></i> &nbsp; {{booked.duration}} &nbsp;|&nbsp; Non Stop
                                                     <p class="hidden-sm-down two-dots">
                                                         <i class="fa fa-plane"></i>
                                                     </p>
                                                     <p>
-                                                        Economy&nbsp;|&nbsp;<span class="ref-ui">{{bookedDetails.refundable === true?'Refundable':'Non Refundable'}}</span>
-                                                        <span data-ng-if="bookedDetails.freemeals===true"> | Free Meals</span>
+                                                        Economy&nbsp;|&nbsp;<span class="ref-ui">{{booked.refundable === true?'Refundable':'Non Refundable'}}</span>
+                                                        <span data-ng-if="booked.freemeals===true"> | Free Meals</span>
                                                     </p>
                                             </div>
                                         </div>
                                     </div>
                                 </article>
-
+							<hr></hr>
                             </div>
                         </div>
                     </div>
@@ -136,26 +136,64 @@
         </div>
         <aside class="col-lg-3 col-md-3">
             <!-- fare details -->
-            <div class="checkoutbox">
+            <div class="checkoutbox padding-bottom">
                 <h3 class="box-title normal clearfix ">
                     <span class="pull-left fs-md">Fare Details</span>
                 </h3>
                 <div class="box-content ">
 
                     <div>
-                        <ul class="list list-border">
+					
+					  <div class="panel-body">
+						<div class="list-group">
+						  <div class="list-group-item">
+							<div>
+							<span data-ng-if="cityDetails.adult && cityDetails.adult !== 0">Adult x {{cityDetails.adult}}</span>
+							<span class="pull-right" style="display:inline">{{adultprice | currency : '&#8377;'}}</span>
+							</div>
+							
+						  </a>
+						</div>
+						<div class="list-group-item">
+							<div>
+							<span data-ng-if="cityDetails.child && cityDetails.child !== 0">Child x {{cityDetails.child}}</span>
+							<span class="pull-right" style="display:inline">{{childprice | currency : '&#8377;'}}</span>
+							</div>
+							
+						  </a>
+						</div>
+						<div class="list-group-item">
+							<div>
+							<span data-ng-if="cityDetails.infant && cityDetails.infant !== 0">Infant x {{cityDetails.infant}}</span>
+							<span class="pull-right" style="display:inline">{{infantprice | currency : '&#8377;'}}</span>
+							</div>
+							
+						  </a>
+						</div>
+					  </div>
+					</div>
+					
+                        <!-- <ul class="list list-border">
                             <li>
-                                <span class="pull-left cursor-pointer">
-						Adult x 1
-						
-					</span>
-                                <span class="pull-right tr alignment"> <i class="rs">Rs.</i><span class="ng-binding">1,854</span> <br> </span>
-
-
-
-
-
+                                <span class="pull-left cursor-pointer" data-ng-if="cityDetails.adult && cityDetails.adult !== 0">
+								Adult x {{cityDetails.adult}}
+								</span>
+								 
+                                <span class="pull-right tr alignment"> <i class="rs">Rs.</i><span class="ng-binding">{{adultprice}}</span> <br> </span>
+								
                             </li>
+							<li>
+							<span class="pull-left cursor-pointer" data-ng-if="cityDetails.child && cityDetails.child !== 0">
+								Child x {{cityDetails.child}}
+								</span>
+								<span class="pull-right tr alignment"> <i class="rs">Rs.</i><span class="ng-binding">{{childprice}}</span> <br> </span>
+							</li>
+							<li>
+							 <span class="pull-left cursor-pointer" data-ng-if="cityDetails.infant && cityDetails.infant !== 0">
+								Infant x {{cityDetails.infant}}
+								</span>
+								<span class="pull-right tr alignment"> <i class="rs">Rs.</i><span class="ng-binding">{{infantprice}}</span> <br> </span>
+								</li>
                             <li>
                                 <span class="pull-left cursor-pointer ng-binding under-link" ng-class="{'under-link': fareNode.hasBreakup}">
 						<a href="javascript:void(0)" ng-show="fareNode.hasBreakup">
@@ -167,10 +205,14 @@
                                 </span>
                             </li>
 
-                        </ul>
+                        </ul> -->
 
 
-                    </div>
+                    
+					<div class="pull-right">
+					<span>You Pay</span>
+					<h2>{{totalPrice | currency : '&#8377;'}}</h2>
+					</div>
                 </div>
                 <login-popup next-page="nextPage"></login-popup>
 

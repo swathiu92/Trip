@@ -1,15 +1,29 @@
 ﻿<div class="row">
+<div class="col-md-6">
+            <h3 class="fs-md bold inlineblock">
+                <i class="fa fa-plane gray-light"></i>
+                <span>{{cityDetails.from.name}}</span> &nbsp;
+                <i class="fa fa-exchange ng-scope fa-long-arrow-right"></i>{{cityDetails.to.name}}
+            </h3>
+</div>
+<div class="col-md-6">
+            <h3 class="fs-md bold inlineblock">
+                <i class="fa fa-plane gray-light"></i>
+                <span>{{cityDetails.to.name}}</span> &nbsp;
+                <i class="fa fa-exchange ng-scope fa-long-arrow-right"></i>{{cityDetails.from.name}}
+            </h3>
+</div>
+</div>
+<div class="row">
     <div class="col-xs-12 col-sm-6, col-md-6 col-lg-6">
         <sorting-tab sortby="sortby" sorted="sorted"></sorting-tab>
         <div class="flight-list listing-style3 flight">
-            <div ng-repeat="originResult in data.origin">
+            <div ng-repeat="originResult in data.origin | orderBy:sorting:sorted">
                 <div class="box shadow_genrator">
                     <div class="col-lg-3 col-sm-3 col-md-3 col-xs-4">
                         <div class="row">
                             <div class="col-lg-12 icon">
                                 <i class="fa fa-plane yellow-color"></i><span class="skin-color timeF">&nbsp;&nbsp;{{originResult.departure}}</span>
-                            </div>
-                            <div class="col-lg-12" data-ng-bind="(status === 'origin')?cityDetails.from.name:cityDetails.to.name">
                             </div>
                         </div>
                     </div>
@@ -17,8 +31,6 @@
                         <div class="row">
                             <div class="icon col-lg-12">
                                 <i class="fa fa-plane yellow-color fa-rotate-90"></i><span class="skin-color timeF">&nbsp;&nbsp; {{originResult.arrival}}</span>
-                            </div>
-                            <div class="col-lg-12" data-ng-bind="(status === 'origin')?cityDetails.to.name:cityDetails.from.name">
                             </div>
                         </div>
                     </div>
@@ -37,7 +49,7 @@
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4 text-center">
                         <div class="row">
                             <div class="col-lg-12">
-                                <span class="price margin-bottom-10" data-ng-bind="originResult.price | currency : '&#8377;'"></span>
+                                <span class="price round-price margin-bottom-10" data-ng-bind="originResult.adultprice | currency : '&#8377;'" data-ng-click="flightSelected(originResult, 'destination', $index)"></span>
                             </div>
                         </div>
                     </div>
@@ -50,9 +62,6 @@
                 <span class="logo_name">{{originResult.airlines}}</span>
                             <span class="block logo_name">{{originResult.flightno}}</span>
                             </span>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
-                            <a href="" ng-click="flightSelected(originResult, 'destination', $index)" class="btn-u btn-u-xs btn-u-red">Select</a>
                         </div>
                     </div>
 
@@ -72,16 +81,14 @@
         </div>
     </div>
     <div class="col-xs-12 col-sm-6, col-md-6 col-lg-6">
-        <sorting-tab sortby="sortby" sorted="sorted"></sorting-tab>
+        <sorting-tab sortby="sortby1" sorted="sorted1"></sorting-tab>
         <div class="flight-list listing-style3 flight">
-            <div ng-repeat="destinationResult in data.destination">
+            <div ng-repeat="destinationResult in data.destination | orderBy:sorting1:sorted1">
                 <div class="box shadow_genrator">
                     <div class="col-lg-3 col-sm-3 col-md-3 col-xs-4">
                         <div class="row">
                             <div class="col-lg-12 icon">
                                 <i class="fa fa-plane yellow-color"></i><span class="skin-color timeF">&nbsp;&nbsp;{{destinationResult.departure}}</span>
-                            </div>
-                            <div class="col-lg-12" data-ng-bind="(status === 'origin')?cityDetails.from.name:cityDetails.to.name">
                             </div>
                         </div>
                     </div>
@@ -89,8 +96,6 @@
                         <div class="row">
                             <div class="icon col-lg-12">
                                 <i class="fa fa-plane yellow-color fa-rotate-90"></i><span class="skin-color timeF">&nbsp;&nbsp; {{destinationResult.arrival}}</span>
-                            </div>
-                            <div class="col-lg-12" data-ng-bind="(status === 'origin')?cityDetails.to.name:cityDetails.from.name">
                             </div>
                         </div>
                     </div>
@@ -109,7 +114,7 @@
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4 text-center">
                         <div class="row">
                             <div class="col-lg-12">
-                                <span class="price margin-bottom-10" data-ng-bind="destinationResult.price | currency : '&#8377;'"></span>
+                                <span class="price round-price margin-bottom-10" data-ng-bind="destinationResult.adultprice | currency : '&#8377;'" data-ng-click="flightSelected(destinationResult, 'origin', $index)"></span>
                             </div>
                         </div>
                     </div>
@@ -122,9 +127,6 @@
                 <span class="logo_name">{{destinationResult.airlines}}</span>
                             <span class="block logo_name">{{destinationResult.flightno}}</span>
                             </span>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
-                            <a ng-click="flightSelected(destinationResult, 'origin', $index)" href="" class="btn-u btn-u-xs btn-u-red">Select</a>
                         </div>
                     </div>
 

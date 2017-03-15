@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-lg-12 icon">
                     <i class="fa fa-plane yellow-color"></i>
-					<span class="skin-color timeF">&nbsp;&nbsp;{{results.departure}}</span>
+					<span class="skin-color timeF">&nbsp;&nbsp;{{cityDetails.from.name}}</span>
                 </div>
                 <div class="col-lg-12" data-ng-bind="data.travel.originSummary.origin">
                 </div>
@@ -29,7 +29,7 @@
         <div class="col-lg-3 col-sm-3 col-md-3 col-xs-4  text-center">
             <div class="row">
                 <div class="icon col-lg-12">
-                    <i class="fa fa-plane yellow-color fa-rotate-90"></i><span class="skin-color timeF">&nbsp;&nbsp; {{results.arrival}}</span>
+                    <i class="fa fa-plane yellow-color fa-rotate-90"></i><span class="skin-color timeF">&nbsp;&nbsp; {{cityDetails.to.name}}</span>
                 </div>
                 <div class="col-lg-12" data-ng-bind="data.travel.destinationSummary.destination">
                 </div>
@@ -49,12 +49,12 @@
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4 text-center">
             <div class="row">
                 <div class="col-lg-12">
-                    <span class="price margin-bottom-10" data-ng-bind="results.price | currency : '&#8377;'"></span>
+                    <span class="price margin-bottom-10" data-ng-bind="results.adultprice | currency : '&#8377;'"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <a href="flight-detailed.html" class="btn-u btn-u-xs btn-u-red" ng-click="bookFlight(results)">Book</a>
+                    <a href="" class="btn-u btn-u-xs btn-u-red" ng-click="bookFlight(results)">Book</a>
                 </div>
             </div>
         </div>
