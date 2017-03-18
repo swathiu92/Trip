@@ -10,6 +10,8 @@
 
             $scope.search = function () {
                 flightService.mode = 2
+				$scope.city.from.key = $scope.city.from.name.substring(0, 3);
+				$scope.city.to.key = $scope.city.to.name.substring(0, 3);
 				ShareDataService.setSharedData({
 					city: $scope.city
 	            }, 'city');

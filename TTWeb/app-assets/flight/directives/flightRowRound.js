@@ -13,17 +13,17 @@
 				sort = result[$scope.sortby];
 				return sort	;
 			};
-			$scope.cityDetails = ShareDataService.getSharedData().city;
+			$scope.travelDetails = ShareDataService.getSharedData().city;
 			$scope.flightSelected = function(details, status, index){
-				var bookDetails = [];
-				bookDetails.push(details);
-				bookDetails.push($scope.data[status][index]);
+				$scope.travelDetails.bookDetails = [];
+				$scope.travelDetails.bookDetails.push(details);
+				$scope.travelDetails.bookDetails.push($scope.data[status][index]);
 				ShareDataService.setSharedData({
 					travel: $scope.data.travel
 	            }, 'travel');
 				ShareDataService.setSharedData({
-					bookDetails: bookDetails
-	            }, 'bookDetails');
+					travelDetails: $scope.travelDetails
+	            }, 'travelDetails');
 				$state.go('flightdetails');
 			};
         }];

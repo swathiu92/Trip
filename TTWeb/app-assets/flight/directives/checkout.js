@@ -9,6 +9,7 @@
 			$scope.adultprice = 0;
 			$scope.childprice = 0;
 			$scope.infantprice = 0;
+			console.log($scope.travelDetails.bookDetails);
 			angular.forEach($scope.travelDetails.bookDetails, function(value, key){
 				value.adultprice = (value.adultprice)?(value.adultprice):0;
 				value.childprice = (value.childprice)?(value.childprice):0;
