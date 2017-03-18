@@ -15,7 +15,7 @@
             scope: {
                 locationss: "=",
             },
-            templateUrl: 'app-assets/flight/searchflight.html',
+            templateUrl: 'app-assets/flight/views/searchflight.html',
             controller: controller,
         }
     };

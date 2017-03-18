@@ -40,7 +40,7 @@
 
         return {
             restrict: 'E',
-            templateUrl: 'app-assets/flight/searchresultroundtrip.html',
+            templateUrl: 'app-assets/flight/views/searchresultroundtrip.html',
             controller: controller,
         }
     });

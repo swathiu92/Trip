@@ -3,7 +3,7 @@
     angular.module("common.services")
     .directive('searchFlightMulti', ["flightService", "$log", searchFlightMulti]);
     function searchFlightMulti() {
-        var controller = ['$scope', '$state', 'flightService', '$log', function ($scope, $state, flightService, $log) {
+        var controller = ['$scope', '$state', 'flightService', 'ShareDataService', '$log', function ($scope, $state, flightService, ShareDataService, $log) {
             $scope.departing = "DEPARTING ON";
             $scope.leftMargin2 = 0;
             $scope.citiCount = 1;
@@ -39,14 +39,21 @@
             };
 
             $scope.search = function () {
-                flightService.mode = 3;
+				$scope.cities.push($scope.city);
+				ShareDataService.setSharedData({
+					city: $scope.cities[0]
+	            }, 'city');
+                ShareDataService.setSharedData({
+					cities: $scope.cities
+	            }, 'cities');
+				flightService.mode = 3;
                 $state.go('searchflight');
             }
         }];
 
         return {
             restrict: 'E',
-            templateUrl: 'app-assets/flight/searchflightmulti.html',
+            templateUrl: 'app-assets/flight/views/searchflightmulti.html',
             controller: controller,
         }
     };

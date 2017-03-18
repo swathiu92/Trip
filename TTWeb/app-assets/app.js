@@ -10,6 +10,7 @@
 	'oc.lazyLoad',
 	'ui.bootstrap',
 	'ui.router',
+	'ngMaterial',
     'common.services'])
     .config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         $urlRouterProvider.otherwise('/dashboard');
@@ -115,11 +116,11 @@
         .state('searchflight', {
             url: '/search',
             controller: 'SearchResultCtrl',
-            templateUrl: 'app-assets/flight/searchresult.html',
+            templateUrl: 'app-assets/flight/views/searchresult.html',
         })
 		.state('flightdetails', {
             url: '/flightdetails',
-            templateUrl: 'app-assets/flight/flightDetails.html',
+            templateUrl: 'app-assets/flight/views/flightDetails.html',
         })
        
         .state('cruise', {

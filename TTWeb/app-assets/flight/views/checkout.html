@@ -59,17 +59,17 @@
                                     <div class="col-sm-10">
                                         <div class="row">
                                             <div class="col-xs-6 col-md-3">
-                                                <p class="ng-binding">{{travelDetails.originSummary.origin}}, {{travelDetails.originSummary.country}}</p>
-                                                <h3 class="fs-base bold gray-dark ng-binding">{{travelDetails.originSummary.originCode}}<span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.departure}}</h3>
+                                                <p class="ng-binding">{{cityDetails.from.name}}, {{cityDetails.from.state}}</p>
+                                                <h3 class="fs-base bold gray-dark ng-binding">{{cityDetails.from.key}}<span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.departure}}</h3>
                                                 <p class="fs-sm gray ng-binding">{{cityDetails.departureDate | date : "dd MMM yyyy"}}<br><span class="ng-binding">{{travelDetails.originSummary.airport}}</span></p>
                                             </div>
                                             <div class="col-xs-6 col-md-push-6 col-md-3 sm-border-left">
-                                                <p class="ng-binding">{{travelDetails.destinationSummary.destination}}, {{travelDetails.destinationSummary.country}}</p>
+                                                <p class="ng-binding">{{cityDetails.to.name}}, {{cityDetails.to.state}}</p>
                                                 <h3 class="fs-base bold gray-dark">
-                                                    {{travelDetails.destinationSummary.destinationCode}}
+                                                    {{cityDetails.to.key}}
                                                     <span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.arrival}}
                                                 </h3>
-                                                <p class="fs-sm gray ng-binding">{{cityDetails.departureDate | date : "dd MMM yyyy"}}<br>
+                                                <p class="fs-sm gray ng-binding">{{travelDetails.departureDate | date : "dd MMM yyyy"}}<br>
                                                     <span>{{travelDetails.destinationSummary.airport}}</span>
                                                 </p>
                                             </div>

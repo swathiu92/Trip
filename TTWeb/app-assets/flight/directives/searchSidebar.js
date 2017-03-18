@@ -69,7 +69,7 @@
             scope: {
                 locationss: "=",
             },
-            templateUrl: 'app-assets/flight/searchsidebar.html',
+            templateUrl: 'app-assets/flight/views/searchsidebar.html',
             controller: controller,
             link: linker,
         }

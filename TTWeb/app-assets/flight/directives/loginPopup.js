@@ -14,7 +14,7 @@
 				nextPage:"="
 			},
             restrict: 'E',
-            templateUrl: 'app-assets/flight/loginPopup.html',
+            templateUrl: 'app-assets/flight/views/loginPopup.html',
             controller: controller,
         }
     });

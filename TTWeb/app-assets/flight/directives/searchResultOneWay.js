@@ -27,7 +27,7 @@
 
         return {
             restrict: 'E',
-            templateUrl: 'app-assets/flight/searchResultOneway.html',
+            templateUrl: 'app-assets/flight/views/searchResultOneway.html',
             controller: controller,
         }
     };

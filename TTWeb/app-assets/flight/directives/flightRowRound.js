@@ -1,36 +1,42 @@
 ﻿(function () {
     "use strict";
     angular.module("common.services")
-    .directive('flightRow', function () {
+    .directive('flightRowRound', function () {
         var controller = ['$scope', '$log', '$state', 'ShareDataService', function ($scope, $log, $state, ShareDataService) {
 			$scope.sorting = function(result) {
 				var sort = 0;
 				sort = result[$scope.sortby];
 				return sort	;
 			};
+			$scope.sorting1 = function(result) {
+				var sort = 0;
+				sort = result[$scope.sortby];
+				return sort	;
+			};
 			$scope.cityDetails = ShareDataService.getSharedData().city;
-			$scope.bookFlight = function(booked){
+			$scope.flightSelected = function(details, status, index){
 				var bookDetails = [];
-				bookDetails.push(booked);
+				bookDetails.push(details);
+				bookDetails.push($scope.data[status][index]);
 				ShareDataService.setSharedData({
 					travel: $scope.data.travel
 	            }, 'travel');
 				ShareDataService.setSharedData({
 					bookDetails: bookDetails
 	            }, 'bookDetails');
-				console.log(ShareDataService.getSharedData().bookDetails);
 				$state.go('flightdetails');
 			};
         }];
 
         return {
             restrict: 'E',
-            templateUrl: 'app-assets/flight/flightrow.html',
+            templateUrl: 'app-assets/flight/views/flightrowround.html',
             controller: controller,
 			scope: {
                 data: "=",
 				sortby: "=",
-				sorted:"="
+				sorted:"=",
+				status: '@'
             }
         }
     });

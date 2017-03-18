@@ -19,7 +19,7 @@
 
         return {
             restrict: 'E',
-            templateUrl: 'app-assets/flight/searchflightroundtrip.html',
+            templateUrl: 'app-assets/flight/views/searchflightroundtrip.html',
             controller: controller,
         }
     });

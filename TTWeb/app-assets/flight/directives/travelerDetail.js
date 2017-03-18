@@ -12,7 +12,7 @@
 				submitted: "=",
 				city:"="
             },
-            templateUrl: 'app-assets/flight/travelDetail.html',
+            templateUrl: 'app-assets/flight/views/travelDetail.html',
             controller: controller,
             link: function (scope) {
                 scope.$watch('leftMargin', function () {

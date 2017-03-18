@@ -19,6 +19,7 @@
     <!-- CSS Global Compulsory -->
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/plugins/angular-material.min.css">
     <link href="Content/ui-bootstrap-csp.css" rel="stylesheet" />
 
     <link href="Content/style-dark-blue.css" rel="stylesheet" />
@@ -47,7 +48,6 @@
         <!--=== Header v6 ===-->
         <div class="header-v6 header-classic-dark header-sticky" ng-include="'app-assets/navigation/navbar.html'"></div>
         <div class="container-fluid">
-             @RenderBody()
         </div>
         <div class="footer-v1" ng-include="'app-assets/navigation/footer.html'"></div>
         <!--=== Style Switcher ===-->
@@ -133,6 +133,8 @@
     <script src="assets/Lib/ocLazyLoad.min.js"></script>
     <script src="Scripts/angular-ui-router.min.js"></script>
     <script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script src="Scripts/angular-aria.min.js"></script>
+    <script src="Scripts/angular-material.min.js"></script>
     <script src="app-assets/app.js"></script>
 
     <script src="app-assets/common/common.services.js"></script>
@@ -140,22 +142,24 @@
     <script src="app-assets/common/ttuDateTime.js"></script>
     <script src="app-assets/common/ttuTime.js"></script>
 
-    <script src="app-assets/flight/travelLocation.js"></script>
-    <script src="app-assets/flight/travelerDetail.js"></script>
-    <script src="app-assets/flight/flightService.js"></script>
-    <script src="app-assets/flight/searchFlight.js"></script>
-    <script src="app-assets/flight/searchFlightOneWay.js"></script>
-    <script src="app-assets/flight/searchFlightRoundTrip.js"></script>
-    <script src="app-assets/flight/searchFlightMulti.js"></script>
-    <script src="app-assets/flight/searchResult.js"></script>
-    <script src="app-assets/flight/sortingTab.js"></script>
-    <script src="app-assets/flight/searchResultOneWay.js"></script>
-    <script src="app-assets/flight/loginPopup.js"></script>
-    <script src="app-assets/flight/searchResultRoundTrip.js"></script>
-    <script src="app-assets/flight/searchSidebar.js"></script>
-    <script src="app-assets/flight/flightRow.js"></script>
-    <script src="app-assets/flight/flightRowRound.js"></script>
-    <script src="app-assets/flight/checkout.js"></script>
+    <script src="app-assets/flight/directives/travelLocation.js"></script>
+    <script src="app-assets/flight/directives/travelerDetail.js"></script>
+    <script src="app-assets/flight/services/flightService.js"></script>
+    <script src="app-assets/flight/directives/searchFlight.js"></script>
+    <script src="app-assets/flight/directives/searchFlightOneWay.js"></script>
+    <script src="app-assets/flight/directives/searchFlightRoundTrip.js"></script>
+    <script src="app-assets/flight/directives/searchFlightMulti.js"></script>
+    <script src="app-assets/flight/controllers/searchResult.js"></script>
+    <script src="app-assets/flight/directives/sortingTab.js"></script>
+    <script src="app-assets/flight/directives/searchResultOneWay.js"></script>
+    <script src="app-assets/flight/directives/searchResultMulti.js"></script>
+    <script src="app-assets/flight/directives/loginPopup.js"></script>
+    <script src="app-assets/flight/directives/searchResultRoundTrip.js"></script>
+    <script src="app-assets/flight/directives/searchSidebar.js"></script>
+    <script src="app-assets/flight/directives/flightRow.js"></script>
+    <script src="app-assets/flight/directives/flightRowMulti.js"></script>
+    <script src="app-assets/flight/directives/flightRowRound.js"></script>
+    <script src="app-assets/flight/directives/checkout.js"></script>
     <script src="app-assets/hotel/searchHotel.js"></script>
     <script src="app-assets/car/searchCar.js"></script>
 
@@ -164,6 +168,5 @@
     <script src="app-assets/common/usersResourceMock.js"></script>
     <script src="app-assets/Authentication/LoginService.js"></script>
     <script src="app-assets/Home/DashboardCtrl.js"></script>
-    @RenderSection("scripts", required: false)
 </body>
 </html>

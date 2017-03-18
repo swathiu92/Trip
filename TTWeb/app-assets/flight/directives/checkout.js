@@ -6,6 +6,7 @@
 			$scope.cityDetails = ShareDataService.getSharedData().city;
 			$scope.travelDetails = ShareDataService.getSharedData().travel;
 			$scope.bookedDetails = ShareDataService.getSharedData().bookDetails;
+			console.log($scope.cityDetails);
 			$scope.adultprice = 0;
 			$scope.childprice = 0;
 			$scope.infantprice = 0;
@@ -31,7 +32,7 @@
             scope: {
 			},
             restrict: 'E',
-            templateUrl: 'app-assets/flight/checkout.html',
+            templateUrl: 'app-assets/flight/views/checkout.html',
             controller: controller,
         }
     });

@@ -19,7 +19,7 @@
 				sorted: '='
 			},
             restrict: 'E',
-            templateUrl: 'app-assets/flight/sortingtab.html',
+            templateUrl: 'app-assets/flight/views/sortingtab.html',
             controller: controller,
         }
     });

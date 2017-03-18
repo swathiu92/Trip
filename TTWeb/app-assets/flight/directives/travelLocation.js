@@ -18,7 +18,7 @@
                 city: "=",
 				submitted: "="
             },
-            templateUrl: 'app-assets/flight/travelLocation.html',
+            templateUrl: 'app-assets/flight/views/travelLocation.html',
             controller: controller,
         }
     });

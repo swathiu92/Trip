@@ -1,4 +1,4 @@
-﻿(function () {
+﻿	(function () {
     "use strict";
     angular.module("common.services")
     .directive('searchFlightOneWay', function () {
@@ -22,7 +22,7 @@
 
         return {
             restrict: 'E',
-            templateUrl: 'app-assets/flight/searchflightoneway.html',
+            templateUrl: 'app-assets/flight/views/searchflightoneway.html',
             controller: controller,
         }
     });
