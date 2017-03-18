@@ -8,17 +8,19 @@
 				sort = result[$scope.sortby];
 				return sort	;
 			};
-			$scope.cityDetails = $scope.city;
-			$scope.bookFlight = function(booked){
-				var bookDetails = [];
-				bookDetails.push(booked);
+			console.log($scope.cities);
+			$scope.travelDetails = $scope.city;
+			$scope.bookFlight = function(booked, index){
+				$scope.travelDetails.bookDetails = [];
+				for(var i=0; i<$scope.cities.length;i++){
+					$scope.travelDetails.bookDetails.push(booked);
+				}	
 				ShareDataService.setSharedData({
 					travel: $scope.data.travel
 	            }, 'travel');
 				ShareDataService.setSharedData({
-					bookDetails: bookDetails
-	            }, 'bookDetails');
-				console.log(ShareDataService.getSharedData().bookDetails);
+					travelDetails: $scope.travelDetails
+	            }, 'travelDetails');
 				$state.go('flightdetails');
 			};
         }];
@@ -31,7 +33,8 @@
                 data: "=",
 				sortby: "=",
 				sorted:"=",
-				city:"="
+				city:"=",
+				cities:"="
             }
         }
     });

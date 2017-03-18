@@ -7,6 +7,7 @@
             $scope.departing = "DEPARTING ON";
             $scope.leftMargin2 = 0;
             $scope.citiCount = 1;
+			$scope.city = {};
             $scope.cities = new Array();
             $scope.addCity = function () {
                 if ($scope.citiCount > 4)
