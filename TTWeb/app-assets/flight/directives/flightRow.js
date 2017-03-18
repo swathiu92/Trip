@@ -12,6 +12,7 @@
 			$scope.bookFlight = function(booked){
 				$scope.travelDetails.bookDetails = [];
 				$scope.travelDetails.bookDetails.push(booked);
+				$scope.travelDetails.showContainer ='review';
 				ShareDataService.setSharedData({
 					travel: $scope.data.travel
 	            }, 'travel');

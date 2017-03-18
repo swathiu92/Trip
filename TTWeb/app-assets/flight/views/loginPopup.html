@@ -51,7 +51,7 @@
                             </div>
 
                             <div class="row">
-                                <button class="button primary rounded" ng-model="userType">Book As Guest</button>
+                                <button class="button primary rounded" ng-model="userType" ng-click="bookAsGuest()">Book As Guest</button>
                                 <a class="fp-link under-link  ng-hide" ng-show="registered" ng-click="submitForgotPassword(userForm.email.$error)">Forgot Password?</a>
                             </div>
                         </form>
