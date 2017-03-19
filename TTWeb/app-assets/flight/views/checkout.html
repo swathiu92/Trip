@@ -68,39 +68,10 @@
                     </div>
                 </div>
             </div>
-            <div class="checkoutbox">
-                <h3 class="box-title normal fs-base">Promo Code <span class="gray">(Optional)</span></h3>
-                <div class="box-content ">
-                    <div class="clearfix">
-                        <div class="col-sm-3 align-mid">
-                            <h3 class="normal fs-base gray-dark promo-txt" style="float:right;" ng-click="promo()" ng-show="!selectPromo">Have a Promo Code?</h3>
-                            <h3 class="normal fs-base gray-dark promo-txt" ng-show="selectPromo" ng-click="promo()">Select a Promo Code</h3> </div>
-                        <div class="col-sm-9">
-                            <div class="stacked row">
-                                <div data-ng-if="!selectPromo" class="col-sm-6 promo-select-ui width-increased">
-                                    <input id="promoListInput" type="text" class="upper-case col-xs-12 promotext" placeholder="Promo Code"> </div>
-                                <div data-ng-if="selectPromo" class="col-sm-6 promo-select-ui width-increased">
-                                    <select class="form-control rounded-right">
-                                        <option value="">Promo Code</option>
-                                        <option value="1">Promo Code 1</option>
-                                        <option value="2">Promo Code 2</option>
-                                        <option value="3">Promo Code 3</option>
-                                        <option value="4">Promo Code 4</option>
-                                        <option value="5">Promo Code 5</option>
-                                        <option value="6">Promo Code 6 </option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-4 text-xs-center text-sm-left mt-sm-1">
-                                    <button class="button sleek-btn promo-btn ng-binding">Apply</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="center-block text-center mt-1 mb-1 sticky-sm-bottom hide-under-overlay">
             <button class="button primary" ng-click="continueToNextPage();">Continue </button>
+			<button class="button primary" ui-sref="searchflight" href="#/search">Back</button>
         </div>
     </div>
     <div class="row">
@@ -194,16 +165,16 @@
                     <div>
                         <div class="panel-body">
                             <div class="list-group">
-                                <div class="list-group-item">
-                                    <div> <span data-ng-if="travelDetails.adult && travelDetails.adult !== 0">Adult x {{travelDetails.adult}}</span> <span class="pull-right" style="display:inline">{{adultprice | currency : '&#8377;'}}</span> </div>
+                                <div class="list-group-item" data-ng-if="travelDetails.adult && travelDetails.adult !== 0">
+                                    <div> <span>Adult x {{travelDetails.adult}}</span> <span class="pull-right" style="display:inline">{{adultprice | currency : '&#8377;'}}</span> </div>
                                     </a>
                                 </div>
-                                <div class="list-group-item">
-                                    <div> <span data-ng-if="travelDetails.child && travelDetails.child !== 0">Child x {{travelDetails.child}}</span> <span class="pull-right" style="display:inline">{{childprice | currency : '&#8377;'}}</span> </div>
+                                <div class="list-group-item" data-ng-if="travelDetails.child && travelDetails.child !== 0">
+                                    <div> <span>Child x {{travelDetails.child}}</span> <span class="pull-right" style="display:inline">{{childprice | currency : '&#8377;'}}</span> </div>
                                     </a>
                                 </div>
-                                <div class="list-group-item">
-                                    <div> <span data-ng-if="travelDetails.infant && travelDetails.infant !== 0">Infant x {{travelDetails.infant}}</span> <span class="pull-right" style="display:inline">{{infantprice | currency : '&#8377;'}}</span> </div>
+                                <div class="list-group-item" data-ng-if="travelDetails.infant && travelDetails.infant !== 0">
+                                    <div> <span>Infant x {{travelDetails.infant}}</span> <span class="pull-right" style="display:inline">{{infantprice | currency : '&#8377;'}}</span> </div>
                                     </a>
                                 </div>
                             </div>
@@ -212,12 +183,6 @@
                             <h2>{{travelDetails.totalPrice | currency : '&#8377;'}}</h2> </div>
                     </div>
                 </div>
-            </div>
-            <div class="checkoutbox checkoutbox-margin">
-                <h3 class="box-title normal clearfix ">
-         <span class="pull-left fs-md">Yatra Extras</span>
-      </h3>
-                <div class="box-content "> <span class="mini-block"><span class="inline-element-custom">Earn</span> <span class="inline-element-custom color-yellow">eCash</span></span> <span><i class="fa fs-base fa-info-circle"></i></span> <span class="pull-right">₹500</span> </div>
             </div>
         </aside>
     </div>

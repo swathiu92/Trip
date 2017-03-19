@@ -33,7 +33,7 @@
 
             $scope.toggleMin = function () {
                 $scope.inlineOptions.minDate = $scope.inlineOptions.minDate ? null : new Date();
-                $scope.dateOptions.minDate = $scope.inlineOptions.minDate;
+                $scope.dateOptions.minDate = new Date();
             };
 
             $scope.toggleMin();

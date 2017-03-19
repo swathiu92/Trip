@@ -1,4 +1,5 @@
-﻿<div ng-repeat="results in data.oneway | orderBy:sorting:sorted">
+﻿<!-- <div infinite-scroll='loadMore()' infinite-scroll-disabled='busy'  infinite-scroll-distance='1'> -->
+<div ng-repeat="results in data.oneway | orderBy:sorting:sorted">
     <div class="box shadow_genrator">
         <div class="col-lg-1 col-xs-2 col-sm-1 col-md-1 hidden-xs">
 
@@ -75,3 +76,5 @@
         </span>
     </div>
 </div>
+<!-- <div ng-show='busy'>Loading data...</div>
+</div> -->

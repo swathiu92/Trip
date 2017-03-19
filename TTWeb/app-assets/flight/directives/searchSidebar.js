@@ -68,6 +68,7 @@
             restrict: 'E',
             scope: {
                 locationss: "=",
+				count: "="
             },
             templateUrl: 'app-assets/flight/views/searchsidebar.html',
             controller: controller,

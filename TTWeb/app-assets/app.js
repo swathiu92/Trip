@@ -9,7 +9,7 @@
     'ngTouch',
 	'oc.lazyLoad',
 	'ui.bootstrap',
-	'ngMaterial',
+	'infinite-scroll',
 	'ui.router',
     'common.services'])
     .config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
