@@ -13,9 +13,9 @@
         </div>
     </div>
     <ul class="row list page-track">
-        <li class="col-xs-4 done"> <span data-title="1">Review</span> </li>
-        <li class="col-xs-4" ng-class="travellerPageClass"> <span data-title="2">Travellers</span> </li>
-        <li class="col-xs-4"> <span data-title="3">Traveller Summary</span> </li>
+        <li class="col-xs-4" ng-class="{'done':(searchmodel.showContainer=='review' || searchmodel.showContainer=='travellerDetails' || searchmodel.showContainer=='summary')}"> <span data-title="1">Review</span> </li>
+        <li class="col-xs-4" ng-class="{'done':(searchmodel.showContainer=='travellerDetails' || searchmodel.showContainer=='summary')}"> <span data-title="2">Travellers</span> </li>
+        <li class="col-xs-4" ng-class="{'done':searchmodel.showContainer=='summary'}"> <span data-title="3">Traveller Summary</span> </li>
     </ul>
 </section>
 <main class="container-fluid pad-sm-bottom">
@@ -82,38 +82,50 @@
                     <span class="pull-left fs-md">Traveller Details</span>
       </h3>
             <div class="box-content details-box">
-                <div class="row">
-                    <div class="col-lg-1 col-md-1 col-sm-3 col-xs-12 passenger-label"> Adult 1 </div>
-                    <div class="col-lg-1 col-md-1 col-sm-3 col-xs-12">
-                        <select>
-                            <option>Title</option>
-                            <option>Mr.</option>
-                            <option>Mrs.</option>
-                            <option>Ms.</option>
-                        </select>
-                    </div>
+                <div class="row" >
+                   <div ng-repeat="item in travellerInfo  track by $index">
+				   <div class="col-lg-1 col-md-1 col-sm-3 col-xs-12 passenger-label"> {{item.type}} </div>
+                    <div class="col-lg-2 col-md-1 col-sm-3 col-xs-12">
+                        <select ng-model="item.title" style="width:90%">
+                            <option value="" selected disabled>Title</option>
+                            <option ng-repeat="items in item.titleList" value="{{items.name}}">{{items.name}}</option>                        </select>
+                        <span style="color:red" ng-if="!item.title && continueClicked">Title is required. </span>
+				   </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <input type="text" placeholder="First Name" class="form-control" /> </div>
+                        <input type="text" ng-model="item.firstName" placeholder="First Name" class="form-control" />
+                        <span style="color:red" ng-if="!item.firstName && continueClicked">First Name is required. </span>
+					</div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <input type="text" placeholder="Middle Name" class="form-control" /> </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <input type="text" placeholder="Last Name" class="form-control" /> </div>
+                        <input type="text" ng-model="item.middleName"  placeholder="Middle Name" class="form-control" />
+                        <span style="color:red" ng-if="!item.middleName && continueClicked">Middle Name is required. </span>
+					 </div>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <input type="text" ng-model="item.lastName"  placeholder="Last Name" class="form-control" /> 
+                        <span  style="color:red" ng-if="!item.lastName && continueClicked">Last Name is required. </span>
+					 </div>
                     <div class="clearfix"></div>
                     <div class="col-md-12">
                         <div class="horizontal-line"></div>
                     </div>
+					</div>
                     <div class="col-lg-2 col-md-2 col-sm-6"> Contact Details </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <input type="text" placeholder="Email" class="form-control" /> </div>
+                        <input type="text" ng-model="travel.mail" placeholder="Email" class="form-control" /> 
+                        <span  style="color:red" ng-if="!travel.mail && continueClicked">Mail is required. </span>
+					</div>
                     <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                        <select style="width:100%">
-                            <option>(+91)</option>
-                            <option>(+{354})</option>
-                            <option>(+504)</option>
+                        <select ng-model="travel.code" style="width:100%">
+                            <option value="" select disabled>Code</option>
+                            <option value="+91">+91</option>
+                            <option value="+354">+354</option>
+                            <option value="+504">+504</option>
                         </select>
+                        <span  style="color:red" ng-if="!travel.code && continueClicked">Code is required. </span>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <input type="text" placeholder="Mobile Number" style="width:100%" class="form-control" /> </div>
+                        <input type="text" ng-model="travel.contact" placeholder="Mobile Number" style="width:100%" class="form-control" /> 
+					    <span  style="color:red" ng-if="!travel.contact && continueClicked">Mobile Number is required. </span>
+					</div>
                     <div class="clearfix"></div>
                     <div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 col-sm-12 col-xs-12">
                         <div class="read-only-text">Your booking details will be sent to this email address and mobile. </div>
@@ -127,7 +139,7 @@
                     <div class="col-md-12">
                         <h3 class="fs-md bold checkbox-custom-margin"><i class="fa fa-umbrella"></i> Insurance</h3> </div>
                     <div class="col-md-12"> <span>
-                            <input type="checkbox" id="test1" />
+                            <input type="checkbox" ng-model="travel.insurance" id="test1" />
                             </span> <span>
 					Safeguard your trip with United India Insurance Co. Ltd.
 					 </span>
@@ -152,8 +164,8 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <button class="button primary" ng-click="backToReview()">Back</button>
-                <button class="button primary" ng-click="goToSummary()">Continue</button>
+                <button class="button primary" ng-click="continueClicked=false;backToReview()">Back</button>
+                <button class="button primary" ng-click="continueClicked=true;goToSummary()">Continue</button>
             </div>
         </div>
     </div>
@@ -164,7 +176,16 @@
       </h3>
             <div class="box-content details-box">
                 <div class="row">
-                    <div class="col-lg-1 col-md-1 col-sm-3 col-xs-12 passenger-label"> Adult 1 </div>
+				<div ng-repeat="item in travellerInfo">
+				 <div> {{item.text}}: {{item.title}} {{item.firstName}} {{item.middleName}} {{item.lastName}} </div>
+				</div>
+				<div>Contact: {{travel.code}} {{travel.contact}}</div>
+				<div>Mail ID: {{travel.mail}}</div>
+				<div>Travel From: {{travel.originSummary.origin}},{{travel.originSummary.country}}  Airport: {{travel.originSummary.airport}}</div>
+				<div>Travel To: {{travel.destinationSummary.destination}},{{travel.destinationSummary.country}}  Airport: {{travel.destinationSummary.airport}}</div>
+				<div>Insurance: <span ng-show="travel.insurance">Selected</span><span ng-show="!travel.insurance">Not Selected</span></div>
+				
+                   <!--  <div class="col-lg-1 col-md-1 col-sm-3 col-xs-12 passenger-label"> Adult 1 </div>
                     <div class="col-lg-1 col-md-1 col-sm-3 col-xs-12">
                         <select>
                             <option>Title</option>
@@ -198,12 +219,12 @@
                     <div class="clearfix"></div>
                     <div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 col-sm-12 col-xs-12">
                         <div class="read-only-text">Your booking details will be sent to this email address and mobile. </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
         <div class="checkoutbox checkoutbox-margin">
-            <div class="box-content details-box">
+            <!-- <div class="box-content details-box">
                 <div class="row">
                     <div class="col-md-12">
                         <h3 class="fs-md bold checkbox-custom-margin"><i class="fa fa-umbrella"></i> Insurance</h3> </div>
@@ -215,10 +236,10 @@
                         <div class="font-size-xs"> Travel Insurance is highly recommended. View <a href="javascript:void(0)">Benefits</a> and <a href="javascript:void(0)">Terms & Conditions</a> <span class="read-only-text">Your booking details will be sent to this email address and mobile. </span> </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="checkoutbox checkoutbox-margin">
-            <h3 class="box-title normal clearfix ">
+           <!--  <h3 class="box-title normal clearfix ">
                     <span class="pull-left fs-md">Service Requests (Optional)</span> </h3>
             <div class="box-content details-box">
                 <div class="row">
@@ -229,11 +250,11 @@
                         <button class="btn btn-u rounded">Add Baggage +</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <button class="button primary" ng-click="backTosearchmodel()">Back</button>
+                <button class="button primary" ng-click="continueClicked=false;backTosearchmodel()">Back</button>
                 <button class="button primary" ng-click="submitBooking()">Submit</button>
             </div>
         </div>
