@@ -3,45 +3,45 @@
     angular.module("common.services")
     .directive('checkout', function () {
         var controller = ['$scope', '$state', '$filter', '$log', 'ShareDataService', function ($scope, $state, $filter, $log, ShareDataService) {
-			$scope.travelDetails = ShareDataService.getSharedData().travelDetails;
-			$scope.travelDetails.departure = $filter('date')($scope.travelDetails.departure,'MMM dd yyyy');
-			console.log($scope.travelDetails);
+			$scope.searchmodel = ShareDataService.getSharedData().searchmodel;
+			//$scope.searchmodel.departure = $filter('date')($scope.searchmodel.departure,'MMM dd yyyy');
+			console.log($scope.searchmodel);
 			$scope.travel = ShareDataService.getSharedData().travel;
 			$scope.adultprice = 0;
 			$scope.childprice = 0;
 			$scope.infantprice = 0;
-			console.log($scope.travelDetails.bookDetails);
-			angular.forEach($scope.travelDetails.bookDetails, function(value, key){
+			console.log($scope.searchmodel.bookDetails);
+			angular.forEach($scope.searchmodel.bookDetails, function(value, key){
 				value.adultprice = (value.adultprice)?(value.adultprice):0;
 				value.childprice = (value.childprice)?(value.childprice):0;
 				value.infantprice = (value.infantprice)?(value.infantprice):0;
-				($scope.travelDetails.adult !== 0)?($scope.adultprice = $scope.adultprice + parseInt(value.adultprice) * $scope.travelDetails.adult):'';
-				($scope.travelDetails.child !== 0)?($scope.childprice = $scope.childprice + parseInt(value.childprice) * $scope.travelDetails.child):'';
-				($scope.travelDetails.infant !== 0)?($scope.infantprice = $scope.infantprice + parseInt(value.infantprice) * $scope.travelDetails.infant):'';
+				($scope.searchmodel.adult !== 0)?($scope.adultprice = $scope.adultprice + parseInt(value.adultprice) * $scope.searchmodel.adult):'';
+				($scope.searchmodel.child !== 0)?($scope.childprice = $scope.childprice + parseInt(value.childprice) * $scope.searchmodel.child):'';
+				($scope.searchmodel.infant !== 0)?($scope.infantprice = $scope.infantprice + parseInt(value.infantprice) * $scope.searchmodel.infant):'';
 			});
-			$scope.travelDetails.totalPrice = $scope.adultprice + $scope.childprice + $scope.infantprice;
+			$scope.searchmodel.totalPrice = $scope.adultprice + $scope.childprice + $scope.infantprice;
 			$scope.promo = function(){
 				$scope.selectPromo = !$scope.selectPromo;
 			};
 			$scope.nextPage = false;
 			$scope.continueToNextPage = function(){
 				/* $scope.nextPage = true; */
-				$scope.travelDetails.showContainer = 'travellerDetails';
-				console.log($scope.travelDetails);
+				$scope.searchmodel.showContainer = 'travellerDetails';
+				console.log($scope.searchmodel);
 				/* $scope.travellerDetails = [];
-				$scope.bookedDetails.travellers = {"adult":$scope.travelDetails.adult, "child":$scope.travelDetails.child, "infant":$scope.travelDetails.infant};
-				$scope.bookedDetails.origin = $scope.travelDetails.
+				$scope.bookedDetails.travellers = {"adult":$scope.searchmodel.adult, "child":$scope.searchmodel.child, "infant":$scope.searchmodel.infant};
+				$scope.bookedDetails.origin = $scope.searchmodel.
 				$scope.travellerDetails.push($scope.bookedDetails); */
 				
 			};
 			$scope.backToReview = function(){
-				$scope.travelDetails.showContainer = 'review';
+				$scope.searchmodel.showContainer = 'review';
 			};
 			$scope.goToSummary = function(){
-				$scope.travelDetails.showContainer = 'summary';
+				$scope.searchmodel.showContainer = 'summary';
 			};
-			$scope.backToTravelDetails = function(){
-				$scope.travelDetails.showContainer = 'travellerDetails';
+			$scope.backTosearchmodel = function(){
+				$scope.searchmodel.showContainer = 'travellerDetails';
 			};
 			$scope.submitBooking = function(){
 				console.log('booking done');
