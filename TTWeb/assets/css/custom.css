@@ -1026,3 +1026,17 @@ input[type="radio"] {
     margin-bottom: 5px;
     height: 34px;
 }
+
+.mdl-button--fab {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+}
+
+.radio.checked:before {
+    content: "\2022";
+}
+
+.margin-left-none {
+    margin-left: 0 !important;
+}
