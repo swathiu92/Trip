@@ -6,7 +6,7 @@
         var controller = ['$scope', '$log', 'flightService','ShareDataService', function ($scope, $log, flightService, ShareDataService) {
 			$scope.sortby = '';
 			$scope.sorted = '';
-			$scope.travelDetails = ShareDataService.getSharedData().city;
+			$scope.searchmodel = ShareDataService.getSharedData().searchmodel;
             flightService.getAirlines().then(function(data) {
 			 angular.forEach(data.oneway, function(value, key){
 				 var duration = data.oneway[key].duration;
@@ -27,6 +27,9 @@
 
         return {
             restrict: 'E',
+			scope:{
+				searchDataModel:"="
+			},
             templateUrl: 'app-assets/flight/views/searchResultOneway.html',
             controller: controller,
         }

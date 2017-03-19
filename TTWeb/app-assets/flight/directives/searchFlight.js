@@ -4,16 +4,17 @@
     .directive('searchFlight', ['$log', searchFlight]);
     function searchFlight($log) {
         var controller = ['$scope', '$log', function ($scope, $log) {
-            $scope.travelType = 1;
-            $scope.onChange = function (value) {
-               
+            $scope.searchmodel.travelType = 1;
+            $scope.tripChanged = function (value) {
+               $scope.searchmodel = {"arrival":new Date(), "departure":new Date(), "adult":1,"infant":0,"child":0};
+			   $scope.searchmodel.travelType = value;
             }
         }];
 
         return {
             restrict: 'E',
             scope: {
-                locationss: "=",
+				searchmodel: "="
             },
             templateUrl: 'app-assets/flight/views/searchflight.html',
             controller: controller,

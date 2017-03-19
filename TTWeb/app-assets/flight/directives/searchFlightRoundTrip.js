@@ -6,15 +6,15 @@
             $scope.leftMargin = -50;
             $scope.departing = "Depating On";
             $scope.returning = "Returing On";
-			$scope.city = {};
+			//$scope.searchmodel = {};
 
             $scope.search = function () {
                 flightService.mode = 2
-				$scope.city.from.key = $scope.city.from.name.substring(0, 3);
-				$scope.city.to.key = $scope.city.to.name.substring(0, 3);
+				$scope.searchmodel.from.key = $scope.searchmodel.from.name.substring(0, 3);
+				$scope.searchmodel.to.key = $scope.searchmodel.to.name.substring(0, 3);
 				ShareDataService.setSharedData({
-					city: $scope.city
-	            }, 'city');
+					searchmodel: $scope.searchmodel
+	            }, 'searchmodel');
                 $state.go('searchflight');
             }
         }];

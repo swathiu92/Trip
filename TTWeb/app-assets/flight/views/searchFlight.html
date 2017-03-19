@@ -2,23 +2,25 @@
     <div class="row margin-bottom-10">
         <div class="row choose-travel">
             <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-                <label ng-class="{true :'radio radio-inline checked', false:'radio radio-inline'}[travelType==1]">
-                    <input type="radio" name="choose-travel" value="1" ng-model="travelType">&nbsp;&nbsp; One way
+                <label ng-class="{true :'radio radio-inline checked', false:'radio radio-inline'}[searchmodel.travelType==1]">
+                    <input type="radio" name="choose-travel" value="1" ng-model="searchmodel.travelType" data-ng-change="tripChanged(searchmodel.travelType)">&nbsp;&nbsp; One way
                 </label>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-                <label ng-class="{true :'radio radio-inline checked', false:'radio radio-inline'}[travelType==2]">
-                    <input type="radio" name="choose-travel" value="2" ng-model="travelType">&nbsp;&nbsp; Round Trip
+                <label ng-class="{true :'radio radio-inline checked', false:'radio radio-inline'}[searchmodel.travelType==2]">
+                    <input type="radio" name="choose-travel" value="2" ng-model="searchmodel.travelType"
+					data-ng-change="tripChanged(searchmodel.travelType)"
+					>&nbsp;&nbsp; Round Trip
                 </label>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                <label ng-class="{true :'radio radio-inline checked', false:'radio radio-inline'}[travelType==3]">
-                    <input type="radio" name="choose-travel" value="3" ng-model="travelType">&nbsp;&nbsp; Multi-city/Stop Over
+                <label ng-class="{true :'radio radio-inline checked', false:'radio radio-inline'}[searchmodel.travelType==3]">
+                    <input type="radio" name="choose-travel" value="3" ng-model="searchmodel.travelType" data-ng-change="tripChanged(searchmodel.travelType)">&nbsp;&nbsp; Multi-city/Stop Over
                 </label>
             </div>
         </div>
     </div>
-    <search-flight-one-way ng-if="travelType==1"></search-flight-one-way>
-    <search-flight-round-trip ng-if="travelType==2"></search-flight-round-trip>
-    <search-flight-multi ng-if="travelType==3"></search-flight-multi>
+    <search-flight-one-way searchmodel="searchmodel" ng-if="searchmodel.travelType==1"></search-flight-one-way>
+    <search-flight-round-trip searchmodel="searchmodel" ng-if="searchmodel.travelType==2"></search-flight-round-trip>
+    <search-flight-multi searchmodel="searchmodel" ng-if="searchmodel.travelType==3"></search-flight-multi>
 </form>

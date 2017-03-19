@@ -3,11 +3,11 @@
         <div class="col-sm-9">
             <h3 class="fs-md bold inlineblock">
             <i class="fa fa-plane gray-light"></i>
-            <span>{{travelDetails.from.name}}</span> &nbsp;
-            <i class="fa fa-exchange ng-scope fa-long-arrow-right"></i>{{travelDetails.to.name}}
+            <span>{{searchmodel.from.name}}</span> &nbsp;
+            <i class="fa fa-exchange ng-scope fa-long-arrow-right"></i>{{searchmodel.to.name}}
          </h3> &nbsp;
-            <p class="fs-base inlineblock"> <span class="ng-binding">Tue, 14 Mar</span> </p>
-            <p class="fs-base inlineblock"> <span>Traveller(s) - </span> <span data-ng-if="travelDetails.adult">{{travelDetails.adult}} Adult(s)</span> <span data-ng-if="travelDetails.child">{{travelDetails.child}} Child/Children</span> <span data-ng-if="travelDetails.infant">{{travelDetails.infant}} Infant(s)</span> </p>
+            <p class="fs-base inlineblock"> <span class="ng-binding">{{searchmodel.dateTime | date: 'dd MMM yyyy'}}</span> </p>
+            <p class="fs-base inlineblock"> <span>Traveller(s) - </span> <span data-ng-if="searchmodel.adult">{{searchmodel.adult}} Adult(s)</span> <span data-ng-if="searchmodel.child">{{searchmodel.child}} Child/Children</span> <span data-ng-if="searchmodel.infant">{{searchmodel.infant}} Infant(s)</span> </p>
         </div>
     </div>
     <ul class="row list page-track">
@@ -17,14 +17,14 @@
     </ul>
 </section>
 <main class="container-fluid pad-sm-bottom">
-    <div class="col-md-9" ng-if="travelDetails.showContainer=='review'">
+    <div class="col-md-9" ng-if="searchmodel.showContainer=='review'">
         <div class="row">
             <div class="checkoutbox " style="font-size:0.9em">
                 <h3 class="box-title fs-md normal">Review Your Booking&nbsp;
             </h3>
                 <div class="box-content">
                     <div class="accordion-sm">
-                        <div class="acc-content" data-ng-repeat="booked in travelDetails.bookDetails track by $index">
+                        <div class="acc-content" data-ng-repeat="booked in searchmodel.bookDetails track by $index">
                             <article class="row review-article">
                                 <div class="acc-title clearfix">
                                     <h3 class="pull-left bold fs-xs text-uppercase review-title gray ng-binding">
@@ -40,15 +40,15 @@
                                 <div class="col-sm-10">
                                     <div class="row">
                                         <div class="col-xs-6 col-md-3">
-                                            <p class="ng-binding">{{travelDetails.from.name}}, {{travelDetails.from.state}}</p>
-                                            <h3 class="fs-base bold gray-dark ng-binding">{{travelDetails.from.key | uppercase}}<span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.departure}}</h3>
-                                            <p class="fs-sm gray ng-binding">{{travelDetails.departureDate | date : "dd MMM yyyy"}}
+                                            <p class="ng-binding">{{searchmodel.from.name}}, {{searchmodel.from.state}}</p>
+                                            <h3 class="fs-base bold gray-dark ng-binding">{{searchmodel.from.key | uppercase}}<span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.departure}}</h3>
+                                            <p class="fs-sm gray ng-binding">{{searchmodel.departureDate | date : "dd MMM yyyy"}}
                                                 <br><span class="ng-binding">{{travel.originSummary.airport}}</span></p>
                                         </div>
                                         <div class="col-xs-6 col-md-push-6 col-md-3 sm-border-left">
-                                            <p class="ng-binding">{{travelDetails.to.name}}, {{travelDetails.to.state}}</p>
+                                            <p class="ng-binding">{{searchmodel.to.name}}, {{searchmodel.to.state}}</p>
                                             <h3 class="fs-base bold gray-dark">
-                                    {{travelDetails.to.key | uppercase}}
+                                    {{searchmodel.to.key | uppercase}}
                                     <span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.arrival}}
                                  </h3>
                                             <p class="fs-sm gray ng-binding">{{travel.departureDate | date : "dd MMM yyyy"}}
@@ -75,7 +75,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" ng-if="travelDetails.showContainer=='travellerDetails'">
+        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" ng-if="searchmodel.showContainer=='travellerDetails'">
             <div class="checkoutbox checkoutbox-margin">
                 <h3 class="box-title normal clearfix ">
                     <span class="pull-left fs-md">Traveller Details</span>
@@ -165,22 +165,22 @@
                     <div>
                         <div class="panel-body">
                             <div class="list-group">
-                                <div class="list-group-item" data-ng-if="travelDetails.adult && travelDetails.adult !== 0">
-                                    <div> <span>Adult x {{travelDetails.adult}}</span> <span class="pull-right" style="display:inline">{{adultprice | currency : '&#8377;'}}</span> </div>
+                                <div class="list-group-item" data-ng-if="searchmodel.adult && searchmodel.adult !== 0">
+                                    <div> <span>Adult x {{searchmodel.adult}}</span> <span class="pull-right" style="display:inline">{{adultprice | currency : '&#8377;'}}</span> </div>
                                     </a>
                                 </div>
-                                <div class="list-group-item" data-ng-if="travelDetails.child && travelDetails.child !== 0">
-                                    <div> <span>Child x {{travelDetails.child}}</span> <span class="pull-right" style="display:inline">{{childprice | currency : '&#8377;'}}</span> </div>
+                                <div class="list-group-item" data-ng-if="searchmodel.child && searchmodel.child !== 0">
+                                    <div> <span>Child x {{searchmodel.child}}</span> <span class="pull-right" style="display:inline">{{childprice | currency : '&#8377;'}}</span> </div>
                                     </a>
                                 </div>
-                                <div class="list-group-item" data-ng-if="travelDetails.infant && travelDetails.infant !== 0">
-                                    <div> <span>Infant x {{travelDetails.infant}}</span> <span class="pull-right" style="display:inline">{{infantprice | currency : '&#8377;'}}</span> </div>
+                                <div class="list-group-item" data-ng-if="searchmodel.infant && searchmodel.infant !== 0">
+                                    <div> <span>Infant x {{searchmodel.infant}}</span> <span class="pull-right" style="display:inline">{{infantprice | currency : '&#8377;'}}</span> </div>
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <div class="pull-right"> <span>You Pay</span>
-                            <h2>{{travelDetails.totalPrice | currency : '&#8377;'}}</h2> </div>
+                            <h2>{{searchmodel.totalPrice | currency : '&#8377;'}}</h2> </div>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@
             scope: {
                 displayText: "=",
                 dateTime: "=",
-                city: "=",
+                searchmodel: "=",
 				submitted: "="
             },
             templateUrl: 'app-assets/flight/views/travelLocation.html',

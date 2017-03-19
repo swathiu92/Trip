@@ -7,7 +7,7 @@
             $scope.departing = "DEPARTING ON";
             $scope.leftMargin2 = 0;
             $scope.citiCount = 1;
-			$scope.city = {};
+			//$scope.city = {};
             $scope.cities = new Array();
 			$scope.cities.push({
                     from: '',
@@ -46,14 +46,14 @@
             };
 
             $scope.search = function () {
-				$scope.city.cities = $scope.cities;
+				$scope.searchmodel.cities = $scope.cities;
 				ShareDataService.setSharedData({
 					travelDetails: $scope.city
 	            }, 'travelDetails');
                 /*ShareDataService.setSharedData({
 					cities: $scope.cities
 	            }, 'cities');*/
-				console.log($scope.city);
+				console.log($scope.searchmodel);
 				flightService.mode = 3;
                 $state.go('searchflight');
             }
@@ -61,6 +61,9 @@
 
         return {
             restrict: 'E',
+			scope:{
+				searchmodel: "="
+			},
             templateUrl: 'app-assets/flight/views/searchflightmulti.html',
             controller: controller,
         }

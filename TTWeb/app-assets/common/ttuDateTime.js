@@ -10,12 +10,12 @@
             }
             //$log.info($scope);
             $scope.today = function () {
-                $scope.dateTime = new Date();
+                $scope.searchmodel = new Date();
             };
             $scope.today();
 
             $scope.clear = function () {
-                $scope.dateTime = null;
+                $scope.searchmodel = null;
             };
 
             $scope.inlineOptions = {
@@ -94,7 +94,7 @@
             scope: {
                 displayText: "=",
                 dateTime: "=",
-                submitted: "="
+                searchmodel: "="
             },
             templateUrl: 'app-assets/common/ttuDateTime.html',
             controller: controller,

@@ -10,9 +10,9 @@
                                <div class="col-md-12" style="text-align:center">
 										<h3 class="fs-md bold inlineblock">
 											<i class="fa fa-plane gray-light"></i>
-											<span>{{travelDetails.from.name}}</span> &nbsp;
+											<span>{{searchmodel.from.name}}</span> &nbsp;
 											<i class="glyphicon glyphicon-arrow-right"></i>
-											<i class="fa fa-plane gray-light fa-rotate-90"></i>{{travelDetails.to.name}}
+											<i class="fa fa-plane gray-light fa-rotate-90"></i>{{searchmodel.to.name}}
 										</h3>
 										<div class="price round-price" ui-sref="dashboard">Back</div>
 									</div>
@@ -28,7 +28,7 @@
                 <div class="col-lg-9 col-sm-9 col-md-9 col-xs-12">
                     <sorting-tab sortby="sortby" sorted="sorted"></sorting-tab>
                     <div class="flight-list listing-style3 flight">
-                        <flight-row data="results" sortby="sortby" sorted="sorted"></flight-row>
+                        <flight-row searchmodel="searchmodel" data="results" sortby="sortby" sorted="sorted"></flight-row>
                     </div>
                 </div>
             </div>

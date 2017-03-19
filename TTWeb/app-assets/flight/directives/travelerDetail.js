@@ -3,9 +3,9 @@
     angular.module("common.services")
     .directive('travelerDetail', ['$log', function ($log) {
         var controller = ['$scope', '$log', function ($scope, $log) {
-			$scope.city.adult = 1;
-			$scope.city.child = 0;
-			$scope.city.infant = 0;
+			$scope.searchmodel.adult = 1;
+			$scope.searchmodel.child = 0;
+			$scope.searchmodel.infant = 0;
 			
         }];
 
@@ -14,7 +14,7 @@
             scope: {
                 leftMargin: "=leftMargin",
 				submitted: "=",
-				city:"="
+				searchmodel:"="
             },
             templateUrl: 'app-assets/flight/views/travelDetail.html',
             controller: controller,
