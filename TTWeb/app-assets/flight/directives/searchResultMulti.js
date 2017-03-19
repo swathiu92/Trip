@@ -6,15 +6,18 @@
         var controller = ['$scope', '$log', 'flightService','ShareDataService', function ($scope, $log, flightService, ShareDataService) {
 			$scope.sortby = '';
 			$scope.sorted = '';
-			$scope.cityDetails = ShareDataService.getSharedData().cities;
-			$scope.city = $scope.cityDetails[0];
+			$scope.travelDetails = ShareDataService.getSharedData().travelDetails;
+			$scope.city = $scope.travelDetails.cities[0];
 			$scope.selectedCity = function(city){
 				$scope.city = city;
 			};
-			angular.forEach($scope.cityDetails, function(value, key){
-			      $scope.cityDetails[key].from.key = $scope.cityDetails[key].from.name.substring(0, 3);
-			      $scope.cityDetails[key].to.key = $scope.cityDetails[key].to.name.substring(0, 3);
+			angular.forEach($scope.travelDetails.cities, function(value, key){
+			      $scope.travelDetails.cities[key].from.key = $scope.travelDetails.cities[key].from.name.substring(0, 3);
+			      $scope.travelDetails.cities[key].to.key = $scope.travelDetails.cities[key].to.name.substring(0, 3);
 			 });
+			 ShareDataService.setSharedData({
+					travelDetails: $scope.travelDetails
+	            }, 'travelDetails');
             flightService.getAirlines().then(function(data) {
 			 $scope.results = data;
           }, function(rejection) {

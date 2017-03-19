@@ -9,6 +9,12 @@
             $scope.citiCount = 1;
 			$scope.city = {};
             $scope.cities = new Array();
+			$scope.cities.push({
+                    from: '',
+                    to: '',
+                    departure: '',
+                    showRemove: true
+                });
             $scope.addCity = function () {
                 if ($scope.citiCount > 4)
                     return;
@@ -40,13 +46,14 @@
             };
 
             $scope.search = function () {
-				$scope.cities.push($scope.city);
+				$scope.city.cities = $scope.cities;
 				ShareDataService.setSharedData({
-					city: $scope.cities[0]
-	            }, 'city');
-                ShareDataService.setSharedData({
+					travelDetails: $scope.city
+	            }, 'travelDetails');
+                /*ShareDataService.setSharedData({
 					cities: $scope.cities
-	            }, 'cities');
+	            }, 'cities');*/
+				console.log($scope.city);
 				flightService.mode = 3;
                 $state.go('searchflight');
             }

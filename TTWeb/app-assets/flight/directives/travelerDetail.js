@@ -3,6 +3,10 @@
     angular.module("common.services")
     .directive('travelerDetail', ['$log', function ($log) {
         var controller = ['$scope', '$log', function ($scope, $log) {
+			$scope.city.adult = 1;
+			$scope.city.child = 0;
+			$scope.city.infant = 0;
+			
         }];
 
         return {

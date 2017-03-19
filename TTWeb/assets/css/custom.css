@@ -852,3 +852,6 @@ input[type="checkbox"], input[type="radio"] {
 .padding-bottom {
 	padding-bottom: 50px;
 }
+.error-msg {
+	color: #f34f4f;
+}

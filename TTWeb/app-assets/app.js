@@ -9,8 +9,8 @@
     'ngTouch',
 	'oc.lazyLoad',
 	'ui.bootstrap',
-	'ui.router',
 	'ngMaterial',
+	'ui.router',
     'common.services'])
     .config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         $urlRouterProvider.otherwise('/dashboard');
