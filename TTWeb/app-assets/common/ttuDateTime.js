@@ -93,8 +93,7 @@
             restrict: 'E',
             scope: {
                 displayText: "=",
-                dateTime: "=",
-                searchmodel: "="
+                searchmodel: "=?searchmodel"
             },
             templateUrl: 'app-assets/common/ttuDateTime.html',
             controller: controller,
