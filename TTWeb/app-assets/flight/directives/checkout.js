@@ -2,7 +2,7 @@
     "use strict";
     angular.module("common.services")
     .directive('checkout', function () {
-        var controller = ['$scope', '$log', 'ShareDataService', function ($scope, $log, ShareDataService) {
+        var controller = ['$scope', '$state', '$log', 'ShareDataService', function ($scope, $state, $log, ShareDataService) {
 			$scope.travelDetails = ShareDataService.getSharedData().travelDetails;
 			console.log($scope.travelDetails);
 			$scope.travel = ShareDataService.getSharedData().travel;
@@ -24,14 +24,29 @@
 			};
 			$scope.nextPage = false;
 			$scope.continueToNextPage = function(){
-				$scope.nextPage = true;
-				$scope.travelDetails.showContainer = 'review';
+				/* $scope.nextPage = true; */
+				$scope.travelDetails.showContainer = 'travellerDetails';
 				console.log($scope.travelDetails);
 				/* $scope.travellerDetails = [];
 				$scope.bookedDetails.travellers = {"adult":$scope.travelDetails.adult, "child":$scope.travelDetails.child, "infant":$scope.travelDetails.infant};
 				$scope.bookedDetails.origin = $scope.travelDetails.
 				$scope.travellerDetails.push($scope.bookedDetails); */
 				
+			};
+			$scope.backToFlightSelect = function(){
+				$state.go('searchflight');
+			};
+			$scope.backToReview = function(){
+				$scope.travelDetails.showContainer = 'review';
+			};
+			$scope.goToSummary = function(){
+				$scope.travelDetails.showContainer = 'summary';
+			};
+			$scope.backToTravelDetails = function(){
+				$scope.travelDetails.showContainer = 'travellerDetails';
+			};
+			$scope.submitBooking = function(){
+				console.log('booking done');
 			};
         }];
 
