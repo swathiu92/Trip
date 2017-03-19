@@ -8,10 +8,10 @@
 			$scope.city = {};
 			$scope.dateTime = {};
             $scope.search = function () {
-				$scope.searchmodel.departure = $scope.dateTime;
                 flightService.mode = 1;
 				$scope.submitted = true;
-				if($scope.searchmodel.from && $scope.searchmodel.to && ($scope.searchmodel.adult || $scope.searchmodel.infant || $scope.searchmodel.child) && $scope.dateTime){
+				if($scope.searchmodel.from && $scope.searchmodel.to && ($scope.searchmodel.adult || $scope.searchmodel.infant || $scope.searchmodel.child)){
+					console.log($scope.searchmodel);
 					$scope.searchmodel.from.key = $scope.searchmodel.from.name.substring(0, 3);
 					$scope.searchmodel.to.key = $scope.searchmodel.to.name.substring(0, 3);
 					ShareDataService.setSharedData({

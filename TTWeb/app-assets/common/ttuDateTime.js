@@ -10,7 +10,7 @@
             }
             //$log.info($scope);
             $scope.today = function () {
-                $scope.searchmodel = new Date();
+                $scope.searchmodel = ($scope.searchmodel)?$scope.searchmodel:new Date();
             };
             $scope.today();
 
@@ -93,7 +93,7 @@
             restrict: 'E',
             scope: {
                 displayText: "=",
-                searchmodel: "="
+                searchmodel: "=?searchmodel"
             },
             templateUrl: 'app-assets/common/ttuDateTime.html',
             controller: controller,
