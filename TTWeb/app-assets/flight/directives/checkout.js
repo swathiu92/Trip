@@ -2,8 +2,9 @@
     "use strict";
     angular.module("common.services")
     .directive('checkout', function () {
-        var controller = ['$scope', '$state', '$log', 'ShareDataService', function ($scope, $state, $log, ShareDataService) {
+        var controller = ['$scope', '$state', '$filter', '$log', 'ShareDataService', function ($scope, $state, $filter, $log, ShareDataService) {
 			$scope.travelDetails = ShareDataService.getSharedData().travelDetails;
+			$scope.travelDetails.departure = $filter('date')($scope.travelDetails.departure,'MMM dd yyyy');
 			console.log($scope.travelDetails);
 			$scope.travel = ShareDataService.getSharedData().travel;
 			$scope.adultprice = 0;
@@ -32,9 +33,6 @@
 				$scope.bookedDetails.origin = $scope.travelDetails.
 				$scope.travellerDetails.push($scope.bookedDetails); */
 				
-			};
-			$scope.backToFlightSelect = function(){
-				$state.go('searchflight');
 			};
 			$scope.backToReview = function(){
 				$scope.travelDetails.showContainer = 'review';
