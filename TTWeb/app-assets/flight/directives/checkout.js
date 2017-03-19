@@ -25,6 +25,7 @@
 			$scope.nextPage = false;
 			$scope.continueToNextPage = function(){
 				$scope.nextPage = true;
+				$scope.travelDetails.showContainer = 'review';
 				console.log($scope.travelDetails);
 				/* $scope.travellerDetails = [];
 				$scope.bookedDetails.travellers = {"adult":$scope.travelDetails.adult, "child":$scope.travelDetails.child, "infant":$scope.travelDetails.infant};

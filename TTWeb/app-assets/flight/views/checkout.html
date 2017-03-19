@@ -2,220 +2,224 @@
     <div class="row">
         <div class="col-sm-9">
             <h3 class="fs-md bold inlineblock">
-                <i class="fa fa-plane gray-light"></i>
-                <span>{{travelDetails.from.name}}</span> &nbsp;
-                <i class="fa fa-exchange ng-scope fa-long-arrow-right"></i>{{travelDetails.to.name}}
-            </h3>
-            &nbsp;
-            <p class="fs-base inlineblock">
-                <span class="ng-binding">Tue, 14 Mar</span>
-            </p>
-            <p class="fs-base inlineblock">
-                <span>Traveller(s) - </span>
-                <span data-ng-if="travelDetails.adult">{{travelDetails.adult}} Adult(s)</span>
-                <span data-ng-if="travelDetails.child">{{travelDetails.child}} Child/Children</span>
-                <span data-ng-if="travelDetails.infant">{{travelDetails.infant}} Infant(s)</span>
-            </p>
+            <i class="fa fa-plane gray-light"></i>
+            <span>{{travelDetails.from.name}}</span> &nbsp;
+            <i class="fa fa-exchange ng-scope fa-long-arrow-right"></i>{{travelDetails.to.name}}
+         </h3> &nbsp;
+            <p class="fs-base inlineblock"> <span class="ng-binding">Tue, 14 Mar</span> </p>
+            <p class="fs-base inlineblock"> <span>Traveller(s) - </span> <span data-ng-if="travelDetails.adult">{{travelDetails.adult}} Adult(s)</span> <span data-ng-if="travelDetails.child">{{travelDetails.child}} Child/Children</span> <span data-ng-if="travelDetails.infant">{{travelDetails.infant}} Infant(s)</span> </p>
         </div>
     </div>
     <ul class="row list page-track">
-        <li class="col-xs-4 done">
-            <span data-title="1">Review</span>
-        </li>
-        <li class="col-xs-4" ng-class="travellerPageClass">
-            <span data-title="2">Travellers</span>
-        </li>
-        <li class="col-xs-4">
-            <span data-title="3">Payment</span>
-        </li>
+        <li class="col-xs-4 done"> <span data-title="1">Review</span> </li>
+        <li class="col-xs-4" ng-class="travellerPageClass"> <span data-title="2">Travellers</span> </li>
+        <li class="col-xs-4"> <span data-title="3">Payment</span> </li>
     </ul>
-
 </section>
 <main class="container-fluid pad-sm-bottom">
-    <div class="row">
-        <div class="col-md-9">
-            <div>
-                <div class="checkoutbox " style="font-size:0.9em">
-                    <h3 class="box-title fs-md normal">Review Your Booking&nbsp;
-                    </h3>
-                    <div class="box-content">
-                        <div class="accordion-sm">
-                            <div class="acc-content" data-ng-repeat="booked in travelDetails.bookDetails track by $index">
-                                <article class="row review-article">
-								<div class="acc-title clearfix">
-									<h3 class="pull-left bold fs-xs text-uppercase review-title gray ng-binding">
-										<i class="fa fa-plane"></i>DEPARTURE</h3>
-									<p class="pull-right ng-binding">Total Time: {{booked.duration}} </p>
-								</div>
-                                    <div class="text-sm-center col-sm-2 text-xs-left">
-                                        <p>
-                                            <i class="L6E_sm logo pull-left {{booked.alias}}" style="float: none !important;display: inline-block;"></i>
-                                            <span class="inlineblock ng-binding">{{booked.airlines}} <br>
-												<span class="fs-xs gray">{{booked.flightno}}</span>
-                                            </span>
-                                            <br class="hidden-xs-down">
-                                        </p>
-                                    </div>
-                                    <div class="col-sm-10">
-                                        <div class="row">
-                                            <div class="col-xs-6 col-md-3">
-                                                <p class="ng-binding">{{travelDetails.from.name}}, {{travelDetails.from.state}}</p>
-                                                <h3 class="fs-base bold gray-dark ng-binding">{{travelDetails.from.key | uppercase}}<span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.departure}}</h3>
-                                                <p class="fs-sm gray ng-binding">{{travelDetails.departureDate | date : "dd MMM yyyy"}}<br><span class="ng-binding">{{travel.originSummary.airport}}</span></p>
-                                            </div>
-                                            <div class="col-xs-6 col-md-push-6 col-md-3 sm-border-left">
-                                                <p class="ng-binding">{{travelDetails.to.name}}, {{travelDetails.to.state}}</p>
-                                                <h3 class="fs-base bold gray-dark">
-                                                    {{travelDetails.to.key | uppercase}}
-                                                    <span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.arrival}}
-                                                </h3>
-                                                <p class="fs-sm gray ng-binding">{{travel.departureDate | date : "dd MMM yyyy"}}<br>
-                                                    <span>{{travel.destinationSummary.airport}}</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-sm-12 text-center col-md-pull-3 col-md-6">
-                                                <p>
-                                                    <i class="fa fa-clock-o"></i> &nbsp; {{booked.duration}} &nbsp;|&nbsp; Non Stop
-                                                    <p class="hidden-sm-down two-dots">
-                                                        <i class="fa fa-plane"></i>
-                                                    </p>
-                                                    <p>
-                                                        Economy&nbsp;|&nbsp;<span class="ref-ui">{{booked.refundable === true?'Refundable':'Non Refundable'}}</span>
-                                                        <span data-ng-if="booked.freemeals===true"> | Free Meals</span>
-                                                    </p>
-                                            </div>
+    <div class="col-md-9" ng-if="travelDetails.showContainer=='review'">
+        <div class="row">
+            <div class="checkoutbox " style="font-size:0.9em">
+                <h3 class="box-title fs-md normal">Review Your Booking&nbsp;
+            </h3>
+                <div class="box-content">
+                    <div class="accordion-sm">
+                        <div class="acc-content" data-ng-repeat="booked in travelDetails.bookDetails track by $index">
+                            <article class="row review-article">
+                                <div class="acc-title clearfix">
+                                    <h3 class="pull-left bold fs-xs text-uppercase review-title gray ng-binding">
+                              <i class="fa fa-plane"></i>DEPARTURE
+                           </h3>
+                                    <p class="pull-right ng-binding">Total Time: {{booked.duration}} </p>
+                                </div>
+                                <div class="text-sm-center col-sm-2 text-xs-left">
+                                    <p> <i class="L6E_sm logo pull-left {{booked.alias}}" style="float: none !important;display: inline-block;"></i> <span class="inlineblock ng-binding">{{booked.airlines}} <br>
+                              <span class="fs-xs gray">{{booked.flightno}}</span> </span>
+                                        <br class="hidden-xs-down"> </p>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-3">
+                                            <p class="ng-binding">{{travelDetails.from.name}}, {{travelDetails.from.state}}</p>
+                                            <h3 class="fs-base bold gray-dark ng-binding">{{travelDetails.from.key | uppercase}}<span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.departure}}</h3>
+                                            <p class="fs-sm gray ng-binding">{{travelDetails.departureDate | date : "dd MMM yyyy"}}
+                                                <br><span class="ng-binding">{{travel.originSummary.airport}}</span></p>
+                                        </div>
+                                        <div class="col-xs-6 col-md-push-6 col-md-3 sm-border-left">
+                                            <p class="ng-binding">{{travelDetails.to.name}}, {{travelDetails.to.state}}</p>
+                                            <h3 class="fs-base bold gray-dark">
+                                    {{travelDetails.to.key | uppercase}}
+                                    <span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.arrival}}
+                                 </h3>
+                                            <p class="fs-sm gray ng-binding">{{travel.departureDate | date : "dd MMM yyyy"}}
+                                                <br> <span>{{travel.destinationSummary.airport}}</span> </p>
+                                        </div>
+                                        <div class="col-sm-12 text-center col-md-pull-3 col-md-6">
+                                            <p> <i class="fa fa-clock-o"></i> &nbsp; {{booked.duration}} &nbsp;|&nbsp; Non Stop</p>
+                                            <p class="hidden-sm-down two-dots"> <i class="fa fa-plane"></i> </p>
+                                            <p> Economy&nbsp;|&nbsp;<span class="ref-ui">{{booked.refundable === true?'Refundable':'Non Refundable'}}</span> <span data-ng-if="booked.freemeals===true"> | Free Meals</span> </p>
                                         </div>
                                     </div>
-                                </article>
-							<hr></hr>
-                            </div>
+                                </div>
+                            </article>
+                            </hr>
+                            </hr>
                         </div>
                     </div>
                 </div>
-
-                <div class="checkoutbox">
-                    <h3 class="box-title normal fs-base">Promo Code <span class="gray">(Optional)</span></h3>
-                    <div class="box-content ">
-                        <div class="clearfix">
-                            <div class="col-sm-3 align-mid">
-                                <h3 class="normal fs-base gray-dark promo-txt" style="float:right;" ng-click="promo()" ng-show="!selectPromo">Have a Promo Code?</h3>
-                                <h3 class="normal fs-base gray-dark promo-txt" ng-show="selectPromo" ng-click="promo()">Select a Promo Code</h3>
-                            </div>
-                            <div class="col-sm-9">
-                                <div class="stacked row">
-                                    <div data-ng-if="!selectPromo" class="col-sm-6 promo-select-ui width-increased">
-                                        <input id="promoListInput" type="text" class="upper-case col-xs-12 promotext" placeholder="Promo Code">
-
-                                    </div>
-
-                                    <div data-ng-if="selectPromo" class="col-sm-6 promo-select-ui width-increased">
-                                        <select class="form-control rounded-right"> 
-													   <option value="">Promo Code</option> 
-													   <option value="1">Promo Code 1</option> 
-													   <option value="2">Promo Code 2</option> 
-													   <option value="3">Promo Code 3</option> 
-													   <option value="4">Promo Code 4</option> 
-													   <option value="5">Promo Code 5</option> 
-													   <option value="6">Promo Code 6 </option> 
-												   </select>
-                                    </div>
-
-                                    <div class="col-sm-4 text-xs-center text-sm-left mt-sm-1">
-                                        <button class="button sleek-btn promo-btn ng-binding">Apply</button>
-                                    </div>
+            </div>
+            <div class="checkoutbox">
+                <h3 class="box-title normal fs-base">Promo Code <span class="gray">(Optional)</span></h3>
+                <div class="box-content ">
+                    <div class="clearfix">
+                        <div class="col-sm-3 align-mid">
+                            <h3 class="normal fs-base gray-dark promo-txt" style="float:right;" ng-click="promo()" ng-show="!selectPromo">Have a Promo Code?</h3>
+                            <h3 class="normal fs-base gray-dark promo-txt" ng-show="selectPromo" ng-click="promo()">Select a Promo Code</h3> </div>
+                        <div class="col-sm-9">
+                            <div class="stacked row">
+                                <div data-ng-if="!selectPromo" class="col-sm-6 promo-select-ui width-increased">
+                                    <input id="promoListInput" type="text" class="upper-case col-xs-12 promotext" placeholder="Promo Code"> </div>
+                                <div data-ng-if="selectPromo" class="col-sm-6 promo-select-ui width-increased">
+                                    <select class="form-control rounded-right">
+                                        <option value="">Promo Code</option>
+                                        <option value="1">Promo Code 1</option>
+                                        <option value="2">Promo Code 2</option>
+                                        <option value="3">Promo Code 3</option>
+                                        <option value="4">Promo Code 4</option>
+                                        <option value="5">Promo Code 5</option>
+                                        <option value="6">Promo Code 6 </option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-4 text-xs-center text-sm-left mt-sm-1">
+                                    <button class="button sleek-btn promo-btn ng-binding">Apply</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="center-block text-center mt-1 mb-1 sticky-sm-bottom hide-under-overlay">
-                <button class="button primary" ng-click="continueToNextPage();">Continue
-					  </button>
+        </div>
+        <div class="center-block text-center mt-1 mb-1 sticky-sm-bottom hide-under-overlay">
+            <button class="button primary" ng-click="continueToNextPage();">Continue </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" ng-if="travelDetails.showContainer=='travellerDetails'">
+            <div class="checkoutbox checkoutbox-margin">
+                <h3 class="box-title normal clearfix ">
+                    <span class="pull-left fs-md">Traveller Details</span>
+      </h3>
+                <div class="box-content details-box">
+                    <div class="row">
+                        <div class="col-lg-1 col-md-1 col-sm-3 col-xs-12 passenger-label"> Adult 1 </div>
+                        <div class="col-lg-1 col-md-1 col-sm-3 col-xs-12">
+                            <select>
+                                <option>Title</option>
+                                <option>Mr.</option>
+                                <option>Mrs.</option>
+                                <option>Ms.</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <input type="text" placeholder="First Name" /> </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <input type="text" placeholder="Middle Name" /> </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <input type="text" placeholder="Last Name" /> </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-12">
+                            <div class="horizontal-line"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-6"> Contact Details </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <input type="text" placeholder="Email" /> </div>
+                        <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                            <select style="width:100%">
+                                <option>(+91)</option>
+                                <option>(+{354})</option>
+                                <option>(+504)</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <input type="text" placeholder="Mobile Number" style="width:100%" /> </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 col-sm-12 col-xs-12">
+                            <div class="read-only-text">Your booking details will be sent to this email address and mobile. </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="checkoutbox checkoutbox-margin">
+                <div class="box-content details-box">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="fs-md bold checkbox-custom-margin"><i class="fa fa-umbrella"></i> Insurance</h3> </div>
+                        <div class="col-md-12"> <span>
+                            <input type="checkbox" id="test1" />
+                            </span> <span>
+					Safeguard your trip with United India Insurance Co. Ltd.
+					 </span>
+                            <div class="font-size-xs"> Travel Insurance is highly recommended. View <a href="javascript:void(0)">Benefits</a> and <a href="javascript:void(0)">Terms & Conditions</a> <span class="read-only-text">Your booking details will be sent to this email address and mobile. </span> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="checkoutbox checkoutbox-margin">
+                <h3 class="box-title normal clearfix ">
+                    <span class="pull-left fs-md">Service Requests (Optional)</span> </h3>
+                <div class="box-content details-box">
+                    <div class="row">
+                        <div class="col-lg-2  col-md-2 col-sm-6 col-xs-12">
+                            <button class="btn btn-u rounded">Add Meals +</button>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <button class="btn btn-u rounded">Add Baggage +</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <button class="button primary">Continue</button>
+                </div>
             </div>
         </div>
-        <aside class="col-lg-3 col-md-3">
+        <aside class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
             <!-- fare details -->
-            <div class="checkoutbox padding-bottom">
+            <div class="checkoutbox padding-bottom checkoutbox-margin">
                 <h3 class="box-title normal clearfix ">
-                    <span class="pull-left fs-md">Fare Details</span>
-                </h3>
+         <span class="pull-left fs-md">Fare Details</span>
+      </h3>
                 <div class="box-content ">
-
                     <div>
-					
-					  <div class="panel-body">
-						<div class="list-group">
-						  <div class="list-group-item">
-							<div>
-							<span data-ng-if="travelDetails.adult && travelDetails.adult !== 0">Adult x {{travelDetails.adult}}</span>
-							<span class="pull-right" style="display:inline">{{adultprice | currency : '&#8377;'}}</span>
-							</div>
-							
-						  </a>
-						</div>
-						<div class="list-group-item">
-							<div>
-							<span data-ng-if="travelDetails.child && travelDetails.child !== 0">Child x {{travelDetails.child}}</span>
-							<span class="pull-right" style="display:inline">{{childprice | currency : '&#8377;'}}</span>
-							</div>
-							
-						  </a>
-						</div>
-						<div class="list-group-item">
-							<div>
-							<span data-ng-if="travelDetails.infant && travelDetails.infant !== 0">Infant x {{travelDetails.infant}}</span>
-							<span class="pull-right" style="display:inline">{{infantprice | currency : '&#8377;'}}</span>
-							</div>
-							
-						  </a>
-						</div>
-					  </div>
-					</div>
-					
-                        <!-- <ul class="list list-border">
-                            <li>
-                                <span class="pull-left cursor-pointer" data-ng-if="travelDetails.adult && travelDetails.adult !== 0">
-								Adult x {{travelDetails.adult}}
-								</span>
-								 
-                                <span class="pull-right tr alignment"> <i class="rs">Rs.</i><span class="ng-binding">{{adultprice}}</span> <br> </span>
-								
-                            </li>
-							<li>
-							<span class="pull-left cursor-pointer" data-ng-if="travelDetails.child && travelDetails.child !== 0">
-								Child x {{travelDetails.child}}
-								</span>
-								<span class="pull-right tr alignment"> <i class="rs">Rs.</i><span class="ng-binding">{{childprice}}</span> <br> </span>
-							</li>
-							<li>
-							 <span class="pull-left cursor-pointer" data-ng-if="travelDetails.infant && travelDetails.infant !== 0">
-								Infant x {{travelDetails.infant}}
-								</span>
-								<span class="pull-right tr alignment"> <i class="rs">Rs.</i><span class="ng-binding">{{infantprice}}</span> <br> </span>
-								</li>
-                            <li>
-                                <span class="pull-left cursor-pointer ng-binding under-link" ng-class="{'under-link': fareNode.hasBreakup}">
-						<a href="javascript:void(0)" ng-show="fareNode.hasBreakup">
-							<i class="fa fs-base gray fa-angle-right" ng-class="fareNode.hasBreakupClass"></i>
-						</a>Fee &amp; surcharges
-						
-					</span>
-                                <span class="pull-right tr alignment"> <i class="rs">Rs.</i><span>945</span> <br> </a>
-                                </span>
-                            </li>
-
-                        </ul> -->
-
-
-                    
-					<div class="pull-right">
-					<span>You Pay</span>
-					<h2>{{travelDetails.totalPrice | currency : '&#8377;'}}</h2>
-					</div>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <div class="list-group-item">
+                                    <div> <span data-ng-if="travelDetails.adult && travelDetails.adult !== 0">Adult x {{travelDetails.adult}}</span> <span class="pull-right" style="display:inline">{{adultprice | currency : '&#8377;'}}</span> </div>
+                                    </a>
+                                </div>
+                                <div class="list-group-item">
+                                    <div> <span data-ng-if="travelDetails.child && travelDetails.child !== 0">Child x {{travelDetails.child}}</span> <span class="pull-right" style="display:inline">{{childprice | currency : '&#8377;'}}</span> </div>
+                                    </a>
+                                </div>
+                                <div class="list-group-item">
+                                    <div> <span data-ng-if="travelDetails.infant && travelDetails.infant !== 0">Infant x {{travelDetails.infant}}</span> <span class="pull-right" style="display:inline">{{infantprice | currency : '&#8377;'}}</span> </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pull-right"> <span>You Pay</span>
+                            <h2>{{travelDetails.totalPrice | currency : '&#8377;'}}</h2> </div>
+                    </div>
                 </div>
-                <login-popup next-page="nextPage"></login-popup>
-
-
+            </div>
+            <div class="checkoutbox checkoutbox-margin">
+                <h3 class="box-title normal clearfix ">
+         <span class="pull-left fs-md">Yatra Extras</span>
+      </h3>
+                <div class="box-content "> <span class="mini-block"><span class="inline-element-custom">Earn</span> <span class="inline-element-custom color-yellow">eCash</span></span> <span><i class="fa fs-base fa-info-circle"></i></span> <span class="pull-right">₹500</span> </div>
+            </div>
         </aside>
+    </div>
 </main>
+<login-popup next-page="nextPage"></login-popup>

@@ -48,9 +48,7 @@
     <div class="wrapper">
         <!--=== Header v6 ===-->
         <div class="header-v6 header-classic-dark header-sticky" ng-include="'app-assets/navigation/navbar.html'"></div>
-        <div class="container-fluid">
-        </div>
-        <div class="footer-v1" ng-include="'app-assets/navigation/footer.html'"></div>
+        <div class="container-fluid"></div>
         <!--=== Style Switcher ===-->
         <div class="style-switcher  fadeInRight">
             <div class="style-swticher-header">
@@ -83,9 +81,11 @@
             </div>
         </div><!--/style-switcher-->
         <!--=== End Style Switcher ===-->
-    </div>
       <div class="content" ui-view>
     </div>
+	        <div class="footer-v1" ng-include="'app-assets/navigation/footer.html'"></div>
+    </div>
+
     <script type="text/javascript">
         var BASE_URL = '@Url.Content("~/")';
         var iAPI_URL = '@Url.Content("~/api/")';
