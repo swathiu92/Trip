@@ -13,7 +13,7 @@
 				sort = result[$scope.sortby];
 				return sort	;
 			};
-			$scope.searchmodel = ShareDataService.getSharedData().searchmodel;
+			//$scope.searchmodel = ShareDataService.getSharedData().searchmodel;
 			$scope.flightSelected = function(details, status, index){
 				$scope.searchmodel.bookDetails = [];
 				$scope.searchmodel.showContainer ='review';
@@ -37,8 +37,7 @@
                 data: "=",
 				searchmodel:"=",
 				sortby: "=",
-				sorted:"=",
-				status: '@'
+				sorted:"="
             }
         }
     });

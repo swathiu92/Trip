@@ -6,7 +6,7 @@
 			$scope.results = {};
 			$scope.sortby = '';
 			$scope.sorted = '';
-			//$scope.cityDetails = ShareDataService.getSharedData().city;
+			$scope.searchmodel = ShareDataService.getSharedData().searchmodel;
 			flightService.getAirlines().then(function(data) {
 			 angular.forEach(data.round.origin, function(value, key){
 				 var duration = data.round.origin[key].duration;
@@ -40,6 +40,9 @@
 
         return {
             restrict: 'E',
+			scope:{
+				searchDataModel:"="
+			},
             templateUrl: 'app-assets/flight/views/searchresultroundtrip.html',
             controller: controller,
         }
