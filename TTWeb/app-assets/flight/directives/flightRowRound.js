@@ -13,17 +13,18 @@
 				sort = result[$scope.sortby];
 				return sort	;
 			};
-			$scope.travelDetails = ShareDataService.getSharedData().city;
+			$scope.searchmodel = ShareDataService.getSharedData().searchmodel;
 			$scope.flightSelected = function(details, status, index){
-				$scope.travelDetails.bookDetails = [];
-				$scope.travelDetails.bookDetails.push(details);
-				$scope.travelDetails.bookDetails.push($scope.data[status][index]);
+				$scope.searchmodel.bookDetails = [];
+				$scope.searchmodel.showContainer ='review';
+				$scope.searchmodel.bookDetails.push(details);
+				$scope.searchmodel.bookDetails.push($scope.data[status][index]);
 				ShareDataService.setSharedData({
 					travel: $scope.data.travel
 	            }, 'travel');
 				ShareDataService.setSharedData({
-					travelDetails: $scope.travelDetails
-	            }, 'travelDetails');
+					searchmodel: $scope.searchmodel
+	            }, 'searchmodel');
 				$state.go('flightdetails');
 			};
         }];
@@ -34,6 +35,7 @@
             controller: controller,
 			scope: {
                 data: "=",
+				searchmodel:"=",
 				sortby: "=",
 				sorted:"=",
 				status: '@'

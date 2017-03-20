@@ -5,7 +5,7 @@
         <ttu-date-time display-text="departing" date-time="city.departure"></ttu-date-time>
     </div>
 </div> -->
-<div ng-repeat="city in cities">
+<div ng-repeat="city in searchmodel.cities">
     <div class="row">
         <travel-location searchmodel="city"></travel-location>
         <div class="col-md-2">
@@ -14,7 +14,7 @@
         <div class="col-md-1" ng-show="city.showRemove" style="margin-top:5px;cursor:pointer;">
             <div class="form-group">
                 <label for="flyingFrom">&nbsp; </label>
-                <a ng-click="removeCity(city)"> &nbsp;<i class="fa fa-times-circle fa-2x fa-inverse"></i></a>
+                <a data-ng-if="$index !== 0" ng-click="removeCity(city)"> &nbsp;<i class="fa fa-times-circle fa-2x fa-inverse"></i></a>
             </div>
         </div>
     </div>

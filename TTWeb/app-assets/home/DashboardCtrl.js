@@ -2,7 +2,7 @@
     var app = angular.module("ttuApp");
     app.controller('DashboardCtrl', ['$scope', '$log', 'loginService', dashboardCtrl]);
     function dashboardCtrl($scope, $log, loginService) {
-		var searchmodel = {"arrival":new Date(), "departure":new Date(), "adult":1,"infant":0,"child":0};
+		var searchmodel = {"arrival":new Date(), "departure":new Date(), "adult":1,"infant":0,"child":0,"cities":[]};
 		$scope.searchmodel = $scope.searchmodel?$scope.searchmodel:searchmodel;
         $scope.loginUser = function (user) {
             var userLogin = {

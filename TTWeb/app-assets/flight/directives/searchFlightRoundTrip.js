@@ -21,6 +21,9 @@
 
         return {
             restrict: 'E',
+			scope:{
+				searchmodel: "="
+			},
             templateUrl: 'app-assets/flight/views/searchflightroundtrip.html',
             controller: controller,
         }

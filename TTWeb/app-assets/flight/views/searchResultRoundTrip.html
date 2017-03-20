@@ -11,9 +11,10 @@
                                     <div class="col-md-12" style="text-align:center">
 										<h3 class="fs-md bold inlineblock">
 											<i class="fa fa-plane gray-light"></i>
-											<span>{{cityDetails.from.name}}</span> &nbsp;
-											<i class="glyphicon glyphicon-transfer"></i>{{cityDetails.to.name}}
+											<span>{{searchmodel.from.name}}</span> &nbsp;
+											<i class="glyphicon glyphicon-transfer"></i>{{searchmodel.to.name}}
 										</h3>
+										<div class="price round-price" ui-sref="dashboard">Back</div>
 									</div>
                                 </div>
                             </div>
@@ -26,7 +27,7 @@
                     <search-sidebar></search-sidebar>
                 </div>
                 <div class="col-lg-9 col-sm-9 col-md-9 col-xs-12">
-                    <flight-row-round data="results" sortby="sortby" sorted="sorted"></flight-row-round>
+                    <flight-row-round data="results" searchmodel="searchmodel" sortby="sortby" sorted="sorted"></flight-row-round>
                 </div>
             </div>
         </div>
