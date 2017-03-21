@@ -1040,6 +1040,24 @@ input[type="radio"] {
 .margin-left-none {
     margin-left: 0 !important;
 }
+
 .error-msg {
-	color:#f34f4f;
+    color: #f34f4f;
+}
+
+.header-v6 .dropdown-menu {
+    min-width: 190px;
+}
+
+.header-v6 .container > .navbar-collapse {
+    margin-bottom: 0;
+}
+
+@media (max-width:991px) {
+    .float-none-sm {
+        float: none !important;
+    }
+    .header-v6 .navbar-toggle {
+        margin: 8px 15px;
+    }
 }
