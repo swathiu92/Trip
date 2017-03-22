@@ -1058,6 +1058,10 @@ input[type="radio"] {
     padding-bottom: 100px;
 }
 
+.flight-details-box {
+    padding-top: 40px;
+}
+
 .choose-travel-section .radio-inline {
     margin-left: 0;
 }
