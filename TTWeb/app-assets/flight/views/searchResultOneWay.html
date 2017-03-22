@@ -6,16 +6,76 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="modify_search shadow_genrator margin-bottom-20">
                         <div class="box" style="padding-bottom:15px;">
-                            <div class="col-md-12">
+                            <!--<div class="col-md-12">
                                <div class="col-md-12" style="text-align:center">
+									<div class="col-md-3">
 										<h3 class="fs-md bold inlineblock">
 											<i class="fa fa-plane gray-light"></i>
 											<span>{{searchmodel.from.name}}</span> &nbsp;
 											<i class="glyphicon glyphicon-arrow-right"></i>
 											<i class="fa fa-plane gray-light fa-rotate-90"></i>{{searchmodel.to.name}}
 										</h3>
+									</div>	
+									<div class="col-md-3">
+										<h3 class="fs-md bold inlineblock">
+											<i class="fa fa-plane gray-light"></i>
+											<span>{{searchmodel.from.name}}</span> &nbsp;
+											<i class="glyphicon glyphicon-arrow-right"></i>
+											<i class="fa fa-plane gray-light fa-rotate-90"></i>{{searchmodel.to.name}}
+										</h3>
+									</div>	
+									<div class="col-md-3">
+										<h3 class="fs-md bold inlineblock">
+											<i class="fa fa-plane gray-light"></i>
+											<span>{{searchmodel.from.name}}</span> &nbsp;
+											<i class="glyphicon glyphicon-arrow-right"></i>
+											<i class="fa fa-plane gray-light fa-rotate-90"></i>{{searchmodel.to.name}}
+										</h3>
+									</div>	
 										<div class="price round-price" ui-sref="dashboard">Back</div>
 									</div>
+                            </div>-->
+                            <div class="modify_top col-md-12 col-sm-12 hidden-xs visible-stb">
+                                <div class="row">
+                                    <a class="col-md-3 col-sm-3 col-xs-3 has_right_border" href="javascript:angular.noop();">
+                                        <span class="">ONE WAY</span>
+                                        <p class="">{{searchmodel.from.name}} to {{searchmodel.to.name}}</p>
+                                    </a>
+                                    <a class="col-md-4 col-sm-4 col-xs-4 has_right_border" href="javascript:angular.noop();">
+                                        <span>DEPARTURE</span>
+                                        <p class="" style="position: relative;">
+                                            <span class="glyphicon glyphicon-calendar hidden-stb" style="font-size: 18px;"></span>
+                                            <span class="date" style="font-size: 20px;line-height: 1;">{{searchmodel.departureDate}}</span>
+                                            <span style="display: inline-block;line-height: 1.2em;padding-left: 5px;vertical-align: top;text-transform: uppercase;font-size: 12px;">
+												<span style="display: block;">{{searchmodel.departureMonth}}&nbsp; {{searchmodel.departureYear}}</span>
+												<span>{{searchmodel.departureDay}}</span>
+                                            </span>
+                                        </p>
+                                    </a>
+                                    <div class="hidden-stb">
+                                        <a class="col-md-1 col-sm-1 text-center" href="javascript:angular.noop();" ng-click="showModifySearch();">
+                                            <p class="" style="font: normal 10px Tahoma, Geneva, sans-serif;margin-bottom: 4px;text-transform: uppercase;color: #878787;">Adult</p>
+                                            <p class="">
+                                                <span class="">{{(searchmodel.adult !==0)?(searchmodel.adult):"--"}}</span>
+                                            </p>
+                                        </a>
+                                        <a class="col-md-1 col-sm-1 text-center" href="javascript:angular.noop();" ng-click="showModifySearch();">
+                                            <p class="" style="font: normal 10px Tahoma, Geneva, sans-serif;margin-bottom: 4px;text-transform: uppercase;color: #878787;">Child</p>
+                                            <p class="">
+                                                <span class="">{{(searchmodel.child !==0)?(searchmodel.child):"--"}}</span>
+                                            </p>
+                                        </a>
+                                        <a class="col-md-1 col-sm-1 text-center" href="javascript:angular.noop();" ng-click="showModifySearch();">
+                                            <p class="" style="font: normal 10px Tahoma, Geneva, sans-serif;margin-bottom: 4px;text-transform: uppercase;color: #878787;">Infant</p>
+                                            <p class="">
+                                                <span class="">{{(searchmodel.infant !==0)?(searchmodel.infant):"--"}}</span>
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 modify">
+                                        <button class="btn btn-default" ui-sref="dashboard">Modify Search</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
