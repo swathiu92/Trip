@@ -1049,8 +1049,17 @@ input[type="radio"] {
     min-width: 190px;
 }
 
-.header-v6 .container > .navbar-collapse {
+.header-v6 .container-fluid > .navbar-collapse {
     margin-bottom: 0;
+}
+
+.search-box-section {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.choose-travel-section .radio-inline {
+    margin-left: 0;
 }
 
 @media (max-width:991px) {
