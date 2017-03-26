@@ -27,6 +27,17 @@
 	            }, 'searchmodel');
 				$state.go('flightdetails');
 			};
+			$scope.showBookSection= [];
+			$scope.bookThis = function(index){
+				$scope.showBookSection[index] = true;
+				if($scope.showBookSection && $scope.showBookSection.length>1){
+					angular.forEach($scope.showBookSection,function(value,key){
+						if(index!==Number(key)){
+							$scope.showBookSection[key]= false; 
+						}
+					});
+				}
+			};
         }];
 
         return {
