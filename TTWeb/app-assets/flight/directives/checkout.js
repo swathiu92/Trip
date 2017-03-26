@@ -11,6 +11,8 @@
                 $scope.searchmodel.adultprice = 0;
                 $scope.searchmodel.childprice = 0;
                 $scope.searchmodel.infantprice = 0;
+				$scope.searchmodel.mealsPrice = 0;
+				$scope.searchmodel.baggagePrice = 0;
                 $scope.adultInfo = new Array($scope.searchmodel.adult);
                 $scope.chidInfo = new Array($scope.searchmodel.child);
                 $scope.infantInfo = new Array($scope.searchmodel.infant);
@@ -130,13 +132,17 @@
 
                 };
                 $scope.unselectOther = function(id) {
+					$scope.searchmodel.baggagePrice = 0;
                     angular.forEach($scope.searchmodel.baggageDetails, function(value, key) {
                         if (id !== Number(key)) {
                             $scope.searchmodel.baggageDetails[key] = false;
                         }
+						$scope.searchmodel.baggage = "";
 						if($scope.searchmodel.baggageDetails[key]){
 							$scope.searchmodel.baggage = $scope.searchmodel.baggageDetails[key];
+							$scope.searchmodel.baggagePrice = $scope.searchmodel.baggage.price;
 						}
+						$scope.searchmodel.totalExtraPrice = parseInt($scope.searchmodel.mealsPrice) + parseInt($scope.searchmodel.baggagePrice);
                     });
                 };
 
@@ -257,13 +263,16 @@
                     "imagePath": "assets/images/meal.png",
                     "id": 11
                 }];
-				$scope.addMeals = function(){
+				$scope.addMeals = function() {
 					$scope.searchmodel.meals = [];
 					$scope.searchmodel.mealsPrice = 0;
 					angular.forEach($scope.searchmodel.mealDetails, function(value){
 						(value)?($scope.searchmodel.meals.push(value)):"";
-						$scope.searchmodel.mealsPrice = $scope.searchmodel.mealsPrice + parseInt(value.price);
+						if(value) {
+							$scope.searchmodel.mealsPrice = $scope.searchmodel.mealsPrice + parseInt(value.price);
+						}
 					});
+					$scope.searchmodel.totalExtraPrice = parseInt($scope.searchmodel.mealsPrice) + parseInt($scope.searchmodel.baggagePrice);
 				};
                 $scope.hideOlList = function() {
                     $timeout(function() {

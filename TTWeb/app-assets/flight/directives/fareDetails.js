@@ -13,6 +13,7 @@
 				};
 				$scope.removeBaggage = function(){
 					$scope.searchmodel.baggage = "";
+					$scope.searchmodel.baggagePrice = 0;
 					$scope.popover.isBaggageOpen = false;
 					angular.forEach($scope.searchmodel.baggageDetails, function(value, key) {
                             $scope.searchmodel.baggageDetails[key] = false;
