@@ -251,6 +251,14 @@
                     "imagePath": "assets/images/meal.png",
                     "id": 11
                 }];
+				$scope.addMeals = function(){
+					$scope.searchmodel.meals = [];
+					$scope.searchmodel.mealsPrice = 0;
+					angular.forEach($scope.searchmodel.mealDetails, function(value){
+						(value)?($scope.searchmodel.meals.push(value)):"";
+						$scope.searchmodel.mealsPrice = $scope.searchmodel.mealsPrice + parseInt(value.price);
+					});
+				};
                 $scope.hideOlList = function() {
                     $timeout(function() {
                         $(".carousel ol").remove();

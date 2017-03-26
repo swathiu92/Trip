@@ -1074,3 +1074,15 @@ input[type="radio"] {
         margin: 8px 15px;
     }
 }
+.popover {
+    width: 500px;
+}
+.remove {
+	cursor: pointer;
+	opacity: 0.6;
+	margin-right: 20px;
+    margin-left: -18px;
+}
+.remove:hover {
+  opacity: 1.0
+}
