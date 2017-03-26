@@ -1,4 +1,4 @@
-<div ng-repeat="results in data.oneway | orderBy:sorting:sorted">
+<div ng-repeat="results in itenary[searchmodel.currentCity.id].oneway | orderBy:sorting:sorted">
     <div class="box shadow_genrator">
         <div class="col-lg-1 col-xs-2 col-sm-1 col-md-1 hidden-xs">
 
@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-lg-12 icon">
                     <i class="fa fa-plane yellow-color"></i>
-					<span class="skin-color timeF">&nbsp;&nbsp;{{searchmodel.from.name}}</span>
+					<span class="skin-color timeF">&nbsp;&nbsp;{{searchmodel.currentCity.from.name}}</span>
                 </div>
 				<div class="col-lg-12 icon">
 					<span class="skin-color timeF">&nbsp;&nbsp;{{results.departure}}</span>
@@ -30,7 +30,7 @@
         <div class="col-lg-3 col-sm-3 col-md-3 col-xs-4  text-center">
             <div class="row">
                 <div class="icon col-lg-12">
-                    <i class="fa fa-plane yellow-color fa-rotate-90"></i><span class="skin-color timeF">&nbsp;&nbsp; {{searchmodel.to.name}}</span>
+                    <i class="fa fa-plane yellow-color fa-rotate-90"></i><span class="skin-color timeF">&nbsp;&nbsp; {{searchmodel.currentCity.to.name}}</span>
                 </div>
 				<div class="col-lg-12 icon">
 					<span class="skin-color timeF">&nbsp;&nbsp;{{results.arrival}}</span>
@@ -56,7 +56,9 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <a href="" class="btn-u btn-u-xs btn-u-red" ng-click="bookFlight(results, $index)">Book</a>
+                    <!--<a href="" class="btn-u btn-u-xs btn-u-red" ng-click="bookFlight(results, $index)">Book</a>-->
+					<a href="" class="btn-u btn-u-xs btn-u-red" ng-click="selectFlight(results, $index)">Select</a>
+					<i style="color: green;" data-ng-show="results.selected" class="fa fa-1x fa-check-circle" aria-hidden="true"></i>
                 </div>
             </div>
         </div>

@@ -1,11 +1,11 @@
 ﻿(function () {
     var app = angular.module("ttuApp");
-    app.controller('DashboardCtrl', ['$scope', '$log', 'loginService','ShareDataService', dashboardCtrl]);
-    function dashboardCtrl($scope, $log, loginService, ShareDataService) {
-		var searchmodel = {"arrival":new Date(), "departure":new Date(), "adult":1,"infant":0,"child":0,"cities":[],"meals":[]};
+    app.controller('DashboardCtrl', ['$scope', '$log', 'loginService','ShareDataService','CONSTANTS', dashboardCtrl]);
+    function dashboardCtrl($scope, $log, loginService, ShareDataService, CONSTANTS) {
+		var searchmodel = angular.copy(CONSTANTS.searchmodel);
 		$scope.searchmodel = $scope.searchmodel?$scope.searchmodel:searchmodel;
-		var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-		var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+		var months = CONSTANTS.months;
+		var days = CONSTANTS.days;
 		ShareDataService.setSharedData({ months: months }, 'months');
 		ShareDataService.setSharedData({ days: days }, 'days');
         $scope.loginUser = function (user) {

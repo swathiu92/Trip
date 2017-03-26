@@ -7,9 +7,10 @@
 			$scope.sortby = '';
 			$scope.sorted = '';
 			$scope.searchmodel = ShareDataService.getSharedData().searchmodel;
-			$scope.city = $scope.searchmodel.cities[0];
+			$scope.searchmodel.totalFares = 0;
+			$scope.searchmodel.currentCity = $scope.searchmodel.cities[0];
 			$scope.selectedCity = function(city){
-				$scope.city = city;
+				$scope.searchmodel.currentCity = city;
 			};
 			angular.forEach($scope.searchmodel.cities, function(value, key){
 			      $scope.searchmodel.cities[key].from.key = $scope.searchmodel.cities[key].from.name.substring(0, 3);

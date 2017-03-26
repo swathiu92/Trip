@@ -3,12 +3,10 @@
     angular.module("common.services")
     .directive('searchFlight', ['$log', searchFlight]);
     function searchFlight($log) {
-        var controller = ['$scope', '$log', function ($scope, $log) {
+        var controller = ['$scope', '$log','CONSTANTS', function ($scope, $log, CONSTANTS) {
             $scope.searchmodel.travelType = $scope.searchmodel.travelType?$scope.searchmodel.travelType:1;
             $scope.tripChanged = function (value) {
-				if($scope.searchmodel.travelType !== value){
-					$scope.searchmodel = {"arrival":new Date(), "departure":new Date(), "adult":1,"infant":0,"child":0,"cities":[],"meals":[]};
-			    }
+			   $scope.searchmodel = angular.copy(CONSTANTS.searchmodel);
 			   $scope.searchmodel.travelType = value;
             }
         }];

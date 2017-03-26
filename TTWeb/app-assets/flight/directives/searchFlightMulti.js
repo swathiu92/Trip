@@ -12,6 +12,7 @@
 			//$scope.cities = new Array();
             if($scope.searchmodel.cities.length === 0){
 				$scope.searchmodel.cities.push({
+						id: 0,
 						from: '',
 						to: '',
 						departure: '',
@@ -28,7 +29,8 @@
                         $scope.searchmodel.cities[index].showRemove = false;
                 }
                 $scope.searchmodel.cities.push({
-                    from: '',
+                    id: $scope.citiCount,
+					from: '',
                     to: '',
                     departure: '',
                     showRemove: true
