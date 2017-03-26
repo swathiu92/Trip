@@ -7,7 +7,7 @@
                 //$scope.searchmodel.departure = $filter('date')($scope.searchmodel.departure,'MMM dd yyyy');
                 console.log($scope.searchmodel);
 
-                $scope.travel = ShareDataService.getSharedData().travel;
+                $scope.searchmodel = ShareDataService.getSharedData().searchmodel;
                 $scope.searchmodel.adultprice = 0;
                 $scope.searchmodel.childprice = 0;
                 $scope.searchmodel.infantprice = 0;
@@ -94,17 +94,10 @@
                 $scope.backToReview = function() {
                     $scope.searchmodel.showContainer = 'review';
                 };
-				$scope.addMeals = function(){
-					$scope.searchmodel.meals = [];
-					$scope.searchmodel.mealsPrice = 0;
-					angular.forEach($scope.searchmodel.mealDetails, function(value){
-						(value)?($scope.searchmodel.meals.push(value)):"";
-						$scope.searchmodel.mealsPrice = $scope.searchmodel.mealsPrice + parseInt(value.price);
-					});
-				};
+				
                 $scope.goToSummary = function() {
                     var moveNext = true;
-                    if ($scope.travel.contact && $scope.travel.code) {
+                    if ($scope.searchmodel.contact && $scope.searchmodel.code) {
                         for (var c = 0; c < $scope.travellerInfo.length; c++) {
                             if (!$scope.travellerInfo[c].firstName || !$scope.travellerInfo[c].lastName || !$scope.travellerInfo[c].title) {
                                 moveNext = false;
@@ -112,23 +105,23 @@
                             }
                         }
                         if (moveNext) {
-                            if ($scope.travel && $scope.travel.mealDetails) {
+                            if ($scope.searchmodel && $scope.searchmodel.mealDetails) {
                                 var tempArr = [];
-                                angular.forEach($scope.travel.mealDetails, function(value, key) {
+                                angular.forEach($scope.searchmodel.mealDetails, function(value, key) {
                                     if (value) {
                                         tempArr.push($scope.mealList[key])
                                     }
                                 });
-                                $scope.travel.meal = tempArr;
+                                $scope.searchmodel.meal = tempArr;
                             }
-                            if ($scope.travel && $scope.travel.baggageDetails) {
+                            if ($scope.searchmodel && $scope.searchmodel.baggageDetails) {
                                 var tempArr = [];
-                                angular.forEach($scope.travel.baggageDetails, function(value, key) {
+                                angular.forEach($scope.searchmodel.baggageDetails, function(value, key) {
                                     if (value) {
                                         tempArr.push($scope.baggageList[key])
                                     }
                                 });
-                                $scope.travel.baggage = tempArr[0];
+                                $scope.searchmodel.baggage = tempArr[0];
 
                             }
                             $scope.searchmodel.showContainer = 'summary';
@@ -137,9 +130,9 @@
 
                 };
                 $scope.unselectOther = function(id) {
-                    angular.forEach($scope.travel.baggageDetails, function(value, key) {
+                    angular.forEach($scope.searchmodel.baggageDetails, function(value, key) {
                         if (id !== Number(key)) {
-                            $scope.travel.baggageDetails[key] = false;
+                            $scope.searchmodel.baggageDetails[key] = false;
                         }
                     });
 
