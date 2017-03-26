@@ -134,8 +134,10 @@
                         if (id !== Number(key)) {
                             $scope.searchmodel.baggageDetails[key] = false;
                         }
+						if($scope.searchmodel.baggageDetails[key]){
+							$scope.searchmodel.baggage = $scope.searchmodel.baggageDetails[key];
+						}
                     });
-
                 };
 
                 $scope.backTosearchmodel = function() {
@@ -148,19 +150,22 @@
                 $scope.baggageList = [{
                     "id": 1,
                     "weight": "5kg (INR 500)",
+                    "price": "500",
                     "imagePath": "assets/images/baggage.png"
                 }, {
                     "id": 2,
                     "weight": "10kg (INR 1000)",
+                    "price": "1000",
                     "imagePath": "assets/images/baggage.png"
                 }, {
                     "id": 2,
                     "weight": "15kg (INR 1500)",
-
+                    "price": "1500",
                     "imagePath": "assets/images/baggage.png"
                 }, {
                     "id": 2,
                     "weight": "20kg (INR 2000)",
+                    "price": "2000",
                     "imagePath": "assets/images/baggage.png"
                 }]
                 $scope.mealList = [{
