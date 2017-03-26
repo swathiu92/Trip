@@ -94,6 +94,14 @@
                 $scope.backToReview = function() {
                     $scope.searchmodel.showContainer = 'review';
                 };
+				$scope.addMeals = function(){
+					$scope.searchmodel.meals = [];
+					$scope.searchmodel.mealsPrice = 0;
+					angular.forEach($scope.searchmodel.mealDetails, function(value){
+						(value)?($scope.searchmodel.meals.push(value)):"";
+						$scope.searchmodel.mealsPrice = $scope.searchmodel.mealsPrice + parseInt(value.price);
+					});
+				};
                 $scope.goToSummary = function() {
                     var moveNext = true;
                     if ($scope.travel.contact && $scope.travel.code) {

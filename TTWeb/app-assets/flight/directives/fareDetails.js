@@ -6,7 +6,6 @@
 				$scope.status = {openBase: false, openFare: false, openExtra: false};
 				$scope.popover= {isOpen: false};
 				$scope.removeMeal = function(index){
-					console.log($scope.popover.isOpen);
 					$scope.searchmodel.meals.splice(index, 1);
 					$scope.popover.isOpen = false;
 				};

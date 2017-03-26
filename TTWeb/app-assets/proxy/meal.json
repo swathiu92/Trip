@@ -1,0 +1,89 @@
+[{
+                    "grp": "Vegetarian",
+                    "name": "Veg Samosa and Chai",
+                    "price": 230,
+                    "code": "OLSC",
+                    "mmtPrice": 230,
+                    "imagePath": "assets/images/meal.png",
+                    "id": 1
+                }, {
+                    "grp": "Vegetarian",
+                    "name": "Veg Sub Roll",
+                    "price": 220,
+                    "code": "SUVG",
+                    "mmtPrice": 220,
+                    "imagePath": "assets/images/meal.png",
+                    "id": 2
+                }, {
+                    "grp": "Non Vegetarian",
+                    "name": "Non Veg Sub Roll",
+                    "price": 220,
+                    "code": "SUNV",
+                    "mmtPrice": 220,
+                    "imagePath": "assets/images/meal.png",
+                    "id": 3
+                }, {
+                    "grp": "Non Vegetarian",
+                    "name": "Non Veg Sub and Coke",
+                    "price": 260,
+                    "code": "OLNB",
+                    "mmtPrice": 260,
+                    "imagePath": "assets/images/meal.png",
+                    "id": 4
+                }, {
+                    "grp": "Non Vegetarian",
+                    "name": "Non Veg Sandwich and Coke",
+                    "price": 260,
+                    "code": "OLNS",
+                    "mmtPrice": 260,
+                    "imagePath": "assets/images/meal.png",
+                    "id": 5
+                }, {
+                    "grp": "Vegetarian",
+                    "name": "Veg Jain Samosa",
+                    "price": 220,
+                    "code": "JNML",
+                    "mmtPrice": 220,
+                    "imagePath": "assets/images/meal.png",
+                    "id": 6
+                }, {
+                    "grp": "Vegetarian",
+                    "name": "Veg Samosa(Savoury)",
+                    "price": 150,
+                    "code": "SAVO",
+                    "mmtPrice": 150,
+                    "imagePath": "assets/images/meal.png",
+                    "id": 7
+                }, {
+                    "grp": "Non Vegetarian",
+                    "name": "Non Vegetarian Sandwich",
+                    "price": 220,
+                    "code": "SWNV",
+                    "mmtPrice": 220,
+                    "imagePath": "assets/images/meal.png",
+                    "id": 8
+                }, {
+                    "grp": "Vegetarian",
+                    "name": "Vegetarian Sandwich",
+                    "price": 220,
+                    "code": "SWVG",
+                    "mmtPrice": 220,
+                    "imagePath": "assets/images/meal.png",
+                    "id": 9
+                }, {
+                    "grp": "Vegetarian",
+                    "name": "Veg Sub and Coke",
+                    "price": 260,
+                    "code": "OLVB",
+                    "mmtPrice": 260,
+                    "imagePath": "assets/images/meal.png",
+                    "id": 10
+                }, {
+                    "grp": "Vegetarian",
+                    "name": "Veg Sandwich and Coke",
+                    "price": 260,
+                    "code": "OLVS",
+                    "mmtPrice": 260,
+                    "imagePath": "assets/images/meal.png",
+                    "id": 11
+                }]

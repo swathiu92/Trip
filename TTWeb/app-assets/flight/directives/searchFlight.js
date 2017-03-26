@@ -7,7 +7,7 @@
             $scope.searchmodel.travelType = $scope.searchmodel.travelType?$scope.searchmodel.travelType:1;
             $scope.tripChanged = function (value) {
 				if($scope.searchmodel.travelType !== value){
-					$scope.searchmodel = {"arrival":new Date(), "departure":new Date(), "adult":1,"infant":0,"child":0,"cities":[]};
+					$scope.searchmodel = {"arrival":new Date(), "departure":new Date(), "adult":1,"infant":0,"child":0,"cities":[],"meals":[]};
 			    }
 			   $scope.searchmodel.travelType = value;
             }
