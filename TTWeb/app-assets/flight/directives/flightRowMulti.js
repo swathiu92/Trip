@@ -4,7 +4,8 @@
     .directive('flightRowMulti', function () {
         var controller = ['$scope', '$log', '$state', 'flightService', 'ShareDataService', function ($scope, $log, $state, flightService, ShareDataService) {
 			var allBooked = false, selectedFlights = [];
-			$scope.itenary = [];
+			$scope.searchmodel.localObj.itenary = $scope.searchmodel.localObj.itenary?$scope.searchmodel.localObj.itenary:[];
+			$scope.searchmodel.localObj.allBooked = false;
 			$scope.sorting = function(result) {
 				var sort = 0;
 				sort = result[$scope.sortby];
@@ -16,25 +17,31 @@
 				 $scope.searchmodel.totalFares = $scope.searchmodel.totalFares + parseInt(value.price);
 			 });
 			 angular.forEach($scope.searchmodel.cities,function(value, key){
-				 $scope.itenary[value.id] = angular.copy(data);
+				if(!$scope.searchmodel.localObj.itenary[value.id]) {
+					$scope.searchmodel.localObj.itenary[value.id] = angular.copy(data);
+				}	
 			 });
-			 console.log($scope.itenary0);
           }, function(rejection) {
           });
 			$scope.selectFlight = function(booked, index){
 				selectedFlights.push(booked);
+				ShareDataService.setSharedData({
+					selectedFlights: selectedFlights
+	            }, 'selectedFlights');
 				angular.forEach($scope.data.oneway, function(value, key){
 					if(key === index) {
-						$scope.itenary[$scope.searchmodel.currentCity.id].oneway[key].selected = true;
+						$scope.searchmodel.localObj.itenary[$scope.searchmodel.currentCity.id].oneway[key].selected = true;
 					} else {
-						$scope.itenary[$scope.searchmodel.currentCity.id].oneway[key].selected = false;
+						$scope.searchmodel.localObj.itenary[$scope.searchmodel.currentCity.id].oneway[key].selected = false;
 					}
 				});
 				angular.forEach($scope.searchmodel.cities, function(value, key){
-					if(value.from.name === $scope.searchmodel.currentCity.from.name) {
+					if((value.from.name === $scope.searchmodel.currentCity.from.name) && (value.to.name === $scope.searchmodel.currentCity.to.name)) {
 						$scope.searchmodel.cities[key].booked = true;
 					}
 				});
+				var booked = $scope.searchmodel.cities.findIndex(x => x.booked === undefined);
+				$scope.searchmodel.localObj.allBooked = (booked===-1)?true:false;
 			};
 			$scope.bookFlight = function(booked, index){
 				$scope.searchmodel.bookDetails = [];

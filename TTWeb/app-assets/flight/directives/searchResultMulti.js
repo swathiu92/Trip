@@ -3,7 +3,7 @@
     angular.module("common.services")
     .directive('searchResultMulti', ['$log', searchResultMulti]);
     function searchResultMulti() {
-        var controller = ['$scope', '$log', 'flightService','ShareDataService', function ($scope, $log, flightService, ShareDataService) {
+        var controller = ['$scope', '$log', '$state', 'flightService','ShareDataService', function ($scope, $log, $state, flightService, ShareDataService) {
 			$scope.sortby = '';
 			$scope.sorted = '';
 			$scope.searchmodel = ShareDataService.getSharedData().searchmodel;
@@ -11,6 +11,17 @@
 			$scope.searchmodel.currentCity = $scope.searchmodel.cities[0];
 			$scope.selectedCity = function(city){
 				$scope.searchmodel.currentCity = city;
+			};
+			$scope.bookFlight = function(){
+				/*ShareDataService.setSharedData({
+					travel: $scope.data.travel
+	            }, 'travel');*/
+				$scope.searchmodel.bookDetails = ShareDataService.getSharedData().selectedFlights;
+				ShareDataService.setSharedData({
+					searchmodel: $scope.searchmodel
+	            }, 'searchmodel');
+				$scope.searchmodel.showContainer ='review';
+				($scope.searchmodel.localObj.allBooked)?$state.go('flightdetails'):"";
 			};
 			angular.forEach($scope.searchmodel.cities, function(value, key){
 			      $scope.searchmodel.cities[key].from.key = $scope.searchmodel.cities[key].from.name.substring(0, 3);
