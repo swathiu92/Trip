@@ -27,21 +27,21 @@
             </h3>
                 <div class="box-content">
                     <div class="accordion-sm">
-                        <div class="acc-content" data-ng-repeat="booked in searchmodel.bookDetails track by $index">
-                            <article class="row review-article">
+                        <div class="acc-content content-section" data-ng-repeat="booked in searchmodel.bookDetails track by $index">
+                            <div class="row">
                                 <div class="acc-title clearfix col-md-12">
                                     <h3 class="pull-left bold fs-xs text-uppercase margin-left-none review-title gray ng-binding">
                               <i class="fa fa-plane"></i>DEPARTURE
                            </h3>
                                     <p class="pull-right ng-binding">Total Time: {{booked.duration}} </p>
                                 </div>
-                                <div class="text-sm-center col-sm-2 text-xs-left">
+                                <div class="text-sm-center col-sm-2 text-xs-left text-center">
                                     <p> <i class="L6E_sm logo pull-left {{booked.alias}}" style="float: none !important;display: inline-block;"></i> <span class="inlineblock ng-binding">{{booked.airlines}} <br>
                               <span class="fs-xs gray">{{booked.flightno}}</span> </span>
                                         <br class="hidden-xs-down"> </p>
                                 </div>
                                 <div class="col-sm-10">
-                                    <div class="row">
+                                    <div class="row detail-row">
                                         <div class="col-xs-6 col-md-3">
                                             <p class="ng-binding">{{searchmodel.from.name}}, {{searchmodel.from.state}}</p>
                                             <h3 class="fs-base bold gray-dark ng-binding">{{searchmodel.from.key | uppercase}}<span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.departure}}</h3>
@@ -59,12 +59,12 @@
                                         </div>
                                         <div class="col-sm-12 text-center col-md-pull-3 col-md-6">
                                             <p> <i class="fa fa-clock-o"></i> &nbsp; {{booked.duration}} &nbsp;|&nbsp; Non Stop</p>
-                                            <p class="hidden-sm-down two-dots"> <i class="fa fa-plane"></i> </p>
+                                            <p class="hidden-sm-down two-dots plane-row"> <i class="fa fa-plane vertical-middle"></i> </p>
                                             <p> Economy&nbsp;|&nbsp;<span class="ref-ui">{{booked.refundable === true?'Refundable':'Non Refundable'}}</span> <span data-ng-if="booked.freemeals===true"> | Free Meals</span> </p>
                                         </div>
                                     </div>
                                 </div>
-                            </article>
+                            </div>
                             </hr>
                             </hr>
                         </div>
@@ -94,8 +94,7 @@
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <input type="text" ng-model="item.firstName" placeholder="First Name" class="form-control" /> <span style="color:red" ng-if="!item.firstName && continueClicked">First Name is required. </span> </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <input type="text" ng-model="item.middleName" placeholder="Middle Name" class="form-control" />
-						</div>
+                            <input type="text" ng-model="item.middleName" placeholder="Middle Name" class="form-control" /> </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <input type="text" ng-model="item.lastName" placeholder="Last Name" class="form-control" /> <span style="color:red" ng-if="!item.lastName && continueClicked">Last Name is required. </span> </div>
                         <div class="clearfix"></div>
@@ -151,38 +150,31 @@
                 </div>
             </div>
         </div>
-		 <div class="checkoutbox checkoutbox-margin" ng-if="mealSection">
+        <div class="checkoutbox checkoutbox-margin" ng-if="mealSection">
             <h3 class="box-title normal clearfix ">
                     <span class="pull-left fs-md">Meal(s)</span> </h3>
-					<div class="box-content details-box" ng-init="hideOlList()">
- 							<div uib-carousel active="active"   style="width:350px">
-							  <div uib-slide ng-repeat="slide in mealList track by $index" 
-							  index="$index">
-								<img ng-src="{{slide.imagePath}}" style="width:350px">
-								<div class="carousel-caption">
-								  <p style="color: white !important;">{{slide.name}} - {{slide.price}}</p>
-								</div>
-								<input type="checkbox"   class="form-control" ng-model="searchmodel.mealDetails[$index]" ng-true-value="{{slide}}"/> 
-							  </div>
-							</div>
-     				</div>
+            <div class="box-content details-box" ng-init="hideOlList()">
+                <div uib-carousel active="active" style="width:350px">
+                    <div uib-slide ng-repeat="slide in mealList track by $index" index="$index"> <img ng-src="{{slide.imagePath}}" style="width:350px">
+                        <div class="carousel-caption">
+                            <p style="color: white !important;">{{slide.name}} - {{slide.price}}</p>
+                        </div>
+                        <input type="checkbox" class="form-control" ng-model="searchmodel.mealDetails[$index]" ng-true-value="{{slide}}" /> </div>
+                </div>
+            </div>
         </div>
-		
-		<div class="checkoutbox checkoutbox-margin" ng-if="baggageSection">
+        <div class="checkoutbox checkoutbox-margin" ng-if="baggageSection">
             <h3 class="box-title normal clearfix ">
                     <span class="pull-left fs-md">Baggage</span> </h3>
- 						<div class="box-content details-box" ng-init="hideOlList()">
- 							<div uib-carousel active="active"   style="width:350px">
-							  <div uib-slide ng-repeat="slide in baggageList track by $index" 
-							  index="$index">
-								<img ng-src="{{slide.imagePath}}" style="width:350px">
-								<div class="carousel-caption">
-								  <p style="color: white !important;"> {{slide.weight}}</p>
-								</div>
-								<input type="checkbox"   ng-click="unselectOther($index)" class="form-control" ng-model="searchmodel.baggageDetails[$index]" /> 
-							  </div>
-							</div>
-     				</div>
+            <div class="box-content details-box" ng-init="hideOlList()">
+                <div uib-carousel active="active" style="width:350px">
+                    <div uib-slide ng-repeat="slide in baggageList track by $index" index="$index"> <img ng-src="{{slide.imagePath}}" style="width:350px">
+                        <div class="carousel-caption">
+                            <p style="color: white !important;"> {{slide.weight}}</p>
+                        </div>
+                        <input type="checkbox" ng-click="unselectOther($index)" class="form-control" ng-model="searchmodel.baggageDetails[$index]" /> </div>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
@@ -190,7 +182,7 @@
                 <button class="button primary" ng-click="continueClicked=true;goToSummary()">Continue</button>
             </div>
         </div>
-    </div> 
+    </div>
     <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" ng-if="searchmodel.showContainer=='summary'">
         <div class="checkoutbox checkoutbox-margin">
             <h3 class="box-title normal clearfix ">
@@ -208,7 +200,7 @@
                     <div>Insurance: <span ng-show="searchmodel.insurance">Selected</span><span ng-show="!searchmodel.insurance">Not Selected</span></div>
                     <div>Meal(s):<span ng-repeat="item in searchmodel.meal"> {{$index+1}} - {{item.name}} : {{item.price}} <br> </span> </div>
                     <div>Baggage: {{searchmodel.baggage.weight}}</div>
-                  </div>
+                </div>
             </div>
         </div>
         <div class="checkoutbox checkoutbox-margin">
