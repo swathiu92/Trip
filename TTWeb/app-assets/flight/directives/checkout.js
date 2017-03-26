@@ -101,7 +101,7 @@
                             }
                         }
                         if (moveNext) {
-                            if ($scope.searchmodel && $scope.mealDetails) {
+                            if ($scope.searchmodel && $scope.searchmodel.mealDetails) {
                                 var tempArr = [];
                                 angular.forEach($scope.searchmodel.mealDetails, function(value, key) {
                                     if (value) {
