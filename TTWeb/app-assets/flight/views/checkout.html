@@ -245,34 +245,7 @@
             </div>
         </div>
     </div>
-    <aside class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-        <!-- fare details -->
-        <div class="checkoutbox padding-bottom checkoutbox-margin">
-            <h3 class="box-title normal clearfix ">
-         <span class="pull-left fs-md">Fare Details</span>
-      </h3>
-            <div class="box-content ">
-                <div>
-                    <div class="panel-body">
-                        <div class="list-group">
-                            <div class="list-group-item" data-ng-if="searchmodel.adult && searchmodel.adult !== 0">
-                                <div> <span>Adult x {{searchmodel.adult}}</span> <span class="pull-right" style="display:inline">{{adultprice | currency : '&#8377;'}}</span> </div>
-                                </a>
-                            </div>
-                            <div class="list-group-item" data-ng-if="searchmodel.child && searchmodel.child !== 0">
-                                <div> <span>Child x {{searchmodel.child}}</span> <span class="pull-right" style="display:inline">{{childprice | currency : '&#8377;'}}</span> </div>
-                                </a>
-                            </div>
-                            <div class="list-group-item" data-ng-if="searchmodel.infant && searchmodel.infant !== 0">
-                                <div> <span>Infant x {{searchmodel.infant}}</span> <span class="pull-right" style="display:inline">{{infantprice | currency : '&#8377;'}}</span> </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pull-right"> <span>You Pay</span>
-                        <h2>{{searchmodel.totalPrice | currency : '&#8377;'}}</h2> </div>
-                </div>
-    </aside>
+    <fare-details searchmodel="searchmodel"></fare-details>
     </div>
 </main>
 <!-- 
