@@ -8,6 +8,10 @@
 			$scope.sorted = '';
 			$scope.searchmodel = ShareDataService.getSharedData().searchmodel;
 			flightService.getAirlines().then(function(data) {
+			 $scope.searchmodel.fares = data.travel.fares;
+			 angular.forEach(data.travel.fares, function(value, key){
+				 $scope.searchmodel.totalFares = $scope.searchmodel.totalFares + parseInt(value.price);
+			 });
 			 angular.forEach(data.round.origin, function(value, key){
 				 var duration = data.round.origin[key].duration;
 				if(duration < 60){

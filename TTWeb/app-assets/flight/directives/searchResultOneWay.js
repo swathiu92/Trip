@@ -7,7 +7,12 @@
 			$scope.sortby = '';
 			$scope.sorted = '';
 			$scope.searchmodel = ShareDataService.getSharedData().searchmodel;
+			$scope.searchmodel.totalFares = 0;
             flightService.getAirlines().then(function(data) {
+			 $scope.searchmodel.fares = data.travel.fares;
+			 angular.forEach(data.travel.fares, function(value, key){
+				 $scope.searchmodel.totalFares = $scope.searchmodel.totalFares + parseInt(value.price);
+			 });
 			 angular.forEach(data.oneway, function(value, key){
 				 var duration = data.oneway[key].duration;
 				if(duration < 60){

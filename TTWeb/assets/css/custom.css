@@ -1092,6 +1092,7 @@ input[type="radio"] {
         margin: 8px 15px;
     }
 }
+/** swathi **/
 .popover {
     width: 500px;
 }
@@ -1103,4 +1104,12 @@ input[type="radio"] {
 }
 .remove:hover {
   opacity: 1.0
+}
+.fare-chevron {
+	font-size: 12px;
+    font-weight: bold;
+    color: #A7A7A7;
+}
+a {
+	color: inherit;
 }
