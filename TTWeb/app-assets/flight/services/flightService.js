@@ -26,6 +26,26 @@
                 });
             return deferred.promise;
 		};
+		service.getMeals = function(){
+			var deferred = $q.defer();
+            $http({ method: "GET", url: "app-assets/proxy/meal.json" })
+                .success(function (data, status, headers, config) {
+                    deferred.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    deferred.reject(status);
+                });
+            return deferred.promise;
+		};
+		service.getBaggages = function(){
+			var deferred = $q.defer();
+            $http({ method: "GET", url: "app-assets/proxy/baggage.json" })
+                .success(function (data, status, headers, config) {
+                    deferred.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    deferred.reject(status);
+                });
+            return deferred.promise;
+		};
 
         return service;
     };
