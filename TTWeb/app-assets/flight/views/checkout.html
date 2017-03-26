@@ -162,7 +162,7 @@
 								<div class="carousel-caption">
 								  <p style="color: white !important;">{{slide.name}} - {{slide.price}}</p>
 								</div>
-								<input type="checkbox"   class="form-control" ng-model="searchmodel.mealDetails[$index]" /> 
+								<input type="checkbox"   class="form-control" ng-model="searchmodel.mealDetails[$index]" ng-true-value="{{slide}}"/> 
 							  </div>
 							</div>
      				</div>
@@ -190,7 +190,7 @@
                 <button class="button primary" ng-click="continueClicked=true;goToSummary()">Continue</button>
             </div>
         </div>
-    </div>
+    </div> 
     <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" ng-if="searchmodel.showContainer=='summary'">
         <div class="checkoutbox checkoutbox-margin">
             <h3 class="box-title normal clearfix ">
