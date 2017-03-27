@@ -16,7 +16,12 @@
 				/*ShareDataService.setSharedData({
 					travel: $scope.data.travel
 	            }, 'travel');*/
-				$scope.searchmodel.bookDetails = ShareDataService.getSharedData().selectedFlights;
+				$scope.searchmodel.bookDetails = [];
+				var selectedFlights = ShareDataService.getSharedData().selectedFlights;
+				angular.forEach(selectedFlights, function(value, key){
+					$scope.searchmodel.bookDetails.push(value.booked);
+				});
+				//$scope.searchmodel.bookDetails = ShareDataService.getSharedData().selectedFlights;
 				ShareDataService.setSharedData({
 					searchmodel: $scope.searchmodel
 	            }, 'searchmodel');

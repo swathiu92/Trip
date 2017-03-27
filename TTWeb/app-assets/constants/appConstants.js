@@ -30,7 +30,7 @@ angular.module('ttuApp')
             "totalPrice": 0,
             "infant": 0,
             "child": 0,
-            "cities": [],
+            "cities": [{id: 0,from: '',to: '',departure: '',showRemove: true}],
             "meals": [],
 			"localObj":{}
         },
