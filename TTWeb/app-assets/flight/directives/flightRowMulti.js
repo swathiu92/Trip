@@ -5,7 +5,7 @@
         var controller = ['$scope', '$log', '$state', 'flightService', 'ShareDataService', function ($scope, $log, $state, flightService, ShareDataService) {
 			var allBooked = false
 			$scope.searchmodel.localObj.itenary = $scope.searchmodel.localObj.itenary?$scope.searchmodel.localObj.itenary:[];
-			$scope.searchmodel.localObj.allBooked = false;
+			$scope.searchmodel.localObj.allBooked = $scope.searchmodel.localObj.allBooked?$scope.searchmodel.localObj.allBooked:false;
 			$scope.searchmodel.localObj.selectedFlights = $scope.searchmodel.localObj.selectedFlights?$scope.searchmodel.localObj.selectedFlights:[];
 			$scope.sorting = function(result) {
 				var sort = 0;
