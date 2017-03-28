@@ -9,7 +9,7 @@
 				return sort	;
 			};
 			console.log($scope.searchmodel);
-			//$scope.searchmodel = $scope.searchmodel;
+			$scope.searchmodel.cities = [];
 			$scope.bookFlight = function(booked){
 				$scope.searchmodel.bookDetails = [];
 				$scope.searchmodel.bookDetails.push(booked);

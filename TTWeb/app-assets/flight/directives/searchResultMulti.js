@@ -37,6 +37,7 @@
 	            }, 'searchmodel');
             flightService.getAirlines().then(function(data) {
 			 $scope.searchmodel.fares = data.travel.fares;
+			 $scope.searchmodel.travelDetails = data.travel;
 			 angular.forEach(data.travel.fares, function(value, key){
 				 $scope.searchmodel.totalFares = $scope.searchmodel.totalFares + parseInt(value.price);
 			 });

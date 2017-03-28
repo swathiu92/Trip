@@ -43,6 +43,8 @@
 					}
 				});
 				angular.forEach($scope.searchmodel.cities, function(value, key){
+					$scope.searchmodel.cities[key].from.key = $scope.searchmodel.cities[key].from.name.substring(0, 3);
+					$scope.searchmodel.cities[key].to.key = $scope.searchmodel.cities[key].to.name.substring(0, 3);
 					if((value.from.name === $scope.searchmodel.currentCity.from.name) && (value.to.name === $scope.searchmodel.currentCity.to.name)) {
 						$scope.searchmodel.cities[key].booked = true;
 					}
