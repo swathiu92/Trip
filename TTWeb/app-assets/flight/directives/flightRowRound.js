@@ -19,6 +19,10 @@
 				$scope.searchmodel.showContainer ='review';
 				$scope.searchmodel.bookDetails.push(details);
 				$scope.searchmodel.bookDetails.push($scope.data[status][index]);
+				$scope.searchmodel.bookDetails[0].from = $scope.searchmodel.from;
+				$scope.searchmodel.bookDetails[0].to = $scope.searchmodel.to;
+				$scope.searchmodel.bookDetails[1].from = $scope.searchmodel.to;
+				$scope.searchmodel.bookDetails[1].to = $scope.searchmodel.from;
 				ShareDataService.setSharedData({
 					travel: $scope.data.travel
 	            }, 'travel');

@@ -11,6 +11,8 @@
 			console.log($scope.searchmodel);
 			$scope.searchmodel.cities = [];
 			$scope.bookFlight = function(booked){
+				booked.from = $scope.searchmodel.from;
+				booked.to = $scope.searchmodel.to;
 				$scope.searchmodel.bookDetails = [];
 				$scope.searchmodel.bookDetails.push(booked);
 				$scope.searchmodel.showContainer ='review';
