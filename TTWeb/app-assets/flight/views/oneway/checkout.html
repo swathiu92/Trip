@@ -1,0 +1,98 @@
+<section class="container-fluid checkout flight-details-box">
+    <div class="row">
+        <div class="col-sm-9">
+            <h3 class="fs-md bold inlineblock">
+                <i class="fa fa-plane gray-light"></i>
+                <span>{{itinerary.itineraryDetails.from.name}}</span> &nbsp;
+                <i class="fa fa-exchange ng-scope fa-long-arrow-right"></i>
+                <i class="fa fa-plane fa-rotate-90 gray-light"></i> {{itinerary.itineraryDetails.to.name}}
+            </h3> &nbsp;
+            <p class="fs-base inlineblock">
+                <!--  <span class="ng-binding">{{itinerary.departure}}</span>  --></p>
+            <p class="fs-base inlineblock"> <span>Traveller(s) - </span> <span data-ng-if="itinerary.travellerDetails.adult">{{itinerary.travellerDetails.adult}} Adult(s)</span> <span data-ng-if="itinerary.travellerDetails.child">{{itinerary.travellerDetails.child}} Child/Children</span> <span data-ng-if="itinerary.travellerDetails.infant">{{itinerary.travellerDetails.infant}} Infant(s)</span> </p>
+        </div>
+    </div>
+    <ul class="row list page-track">
+        <li class="col-xs-4" ng-class="{'done':(itinerary.localObj.showContainer=='review' || itinerary.localObj.showContainer=='travellerDetails' || itinerary.localObj.showContainer=='summary')}"> <span data-title="1">Review</span> </li>
+        <li class="col-xs-4" ng-class="{'done':(itinerary.localObj.showContainer=='travellerDetails' || itinerary.localObj.showContainer=='summary')}"> <span data-title="2">Travellers</span> </li>
+        <li class="col-xs-4" ng-class="{'done':itinerary.localObj.showContainer=='summary'}"> <span data-title="3">Traveller Summary</span> </li>
+    </ul>
+</section>
+<main class="container-fluid pad-sm-bottom">
+    <div class="col-md-9" data-ng-if="itinerary.localObj.showContainer=='review'">
+        <review itinerary="itinerary"></review>
+        <div class="center-block text-center mt-1 mb-1 sticky-sm-bottom hide-under-overlay">
+            <button class="button primary" ui-sref="searchflight" href="#/search">Back</button>
+            <button class="button primary" ng-click="continueToNextPage();">Continue </button>
+        </div>
+    </div>
+    <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" ng-if="itinerary.localObj.showContainer=='travellerDetails'">
+        <traveller-details itinerary="itinerary"></traveller-details>
+        <service-requests itinerary="itinerary"></service-requests>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button class="button primary" ng-click="continueClicked=false;backToReview()">Back</button>
+                <button class="button primary" ng-click="continueClicked=true;goToSummary()">Continue</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" ng-if="itinerary.localObj.showContainer=='summary'">
+        <div class="checkoutbox checkoutbox-margin">
+            <h3 class="box-title normal clearfix ">
+                <span class="pull-left fs-md">Travel Summary</span>
+            </h3>
+            <div class="box-content details-box">
+                <div class="row">
+                    <div ng-repeat="item in itinerary.travellerDetails.travellerInfo">
+                        <div> {{item.text}}: {{item.title}} {{item.firstName}} {{item.middleName}} {{item.lastName}} </div>
+                    </div>
+                    <div>Contact: {{itinerary.travellerDetails.code}} {{itinerary.travellerDetails.contact}}</div>
+                    <div>Mail ID: {{itinerary.travellerDetails.email}}</div>
+                    <div>Travel From: {{itinerary.itineraryDetails.from.name}} Airport: {{itinerary.itineraryDetails.from.name}} Airport</div>
+                    <div>Travel To: {{itinerary.itineraryDetails.to.name}} Airport: {{itinerary.itineraryDetails.to.name}} Airport</div>
+                    <div>Insurance: <span ng-show="itinerary.travellerDetails.insurance">Selected</span><span ng-show="!itinerary.travellerDetails.insurance">Not Selected</span></div>
+                    <div>Meal(s):<span ng-repeat="item in itinerary.travelInfo.meals"> {{$index+1}} - {{item.name}} : {{item.price}} <br> </span> </div>
+                    <div>Baggage: {{itinerary.travelInfo.baggage.weight}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="checkoutbox checkoutbox-margin">
+            <!-- <div class="box-content details-box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="fs-md bold checkbox-custom-margin"><i class="fa fa-umbrella"></i> Insurance</h3> </div>
+                    <div class="col-md-12"> <span>
+                            <input type="checkbox" id="test1" />
+                            </span> <span>
+					Safeguard your trip with United India Insurance Co. Ltd.
+					 </span>
+                        <div class="font-size-xs"> Travel Insurance is highly recommended. View <a href="javascript:void(0)">Benefits</a> and <a href="javascript:void(0)">Terms & Conditions</a> <span class="read-only-text">Your booking details will be sent to this email address and mobile. </span> </div>
+                    </div>
+                </div>
+            </div> --></div>
+        <div class="checkoutbox checkoutbox-margin">
+            <!--  <h3 class="box-title normal clearfix ">
+                    <span class="pull-left fs-md">Service Requests (Optional)</span> </h3>
+            <div class="box-content details-box">
+                <div class="row">
+                    <div class="col-lg-2  col-md-2 col-sm-6 col-xs-12">
+                        <button class="btn btn-u rounded">Add Meals +</button>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <button class="btn btn-u rounded">Add Baggage +</button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button class="button primary" ng-click="continueClicked=false;backToitinerary()">Back</button>
+                <button class="button primary" ng-click="submitBooking()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <fare-details itinerary="itinerary"></fare-details>
+    </div>
+</main>
+<!-- 
+<login-popup next-page="nextPage"></login-popup> -->

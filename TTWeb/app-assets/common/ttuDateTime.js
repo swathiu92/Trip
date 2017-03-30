@@ -10,12 +10,12 @@
             }
             //$log.info($scope);
             $scope.today = function () {
-                $scope.searchmodel = ($scope.searchmodel)?$scope.searchmodel:new Date();
+                $scope.itinerary = ($scope.itinerary)?$scope.itinerary:new Date();
             };
             $scope.today();
 
             $scope.clear = function () {
-                $scope.searchmodel = null;
+                $scope.itinerary = null;
             };
 
             $scope.inlineOptions = {
@@ -93,7 +93,7 @@
             restrict: 'E',
             scope: {
                 displayText: "=",
-                searchmodel: "=?searchmodel"
+                itinerary: "=?itinerary"
             },
             templateUrl: 'app-assets/common/ttuDateTime.html',
             controller: controller,

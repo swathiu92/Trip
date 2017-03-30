@@ -1,0 +1,300 @@
+{
+    "travel": {
+        "originSummary": {
+            "origin": "Hyderabad",
+            "originCode": "HYD",
+            "country": "India",
+            "airport": "Shamshabad Rajiv Gandhi"
+        },
+        "destinationSummary": {
+            "destination": "Bangalore",
+            "destinationCode": "BLR",
+            "country": "India",
+            "airport": "Bengaluru"
+        },
+        "fares": [
+            {
+                "fare": "Airline Fuel Charge",
+                "price": "150"
+            },
+            {
+                "fare": "CUTE Fee",
+                "price": "50"
+            },
+            {
+                "fare": "Gvt. Service Fee",
+                "price": "439"
+            },
+            {
+                "fare": "Passenger Service Fee",
+                "price": "150"
+            },
+            {
+                "fare": "Krishi Kalyan Cess",
+                "price": "17"
+            },
+            {
+                "fare": "Swachh Bharat Cess",
+                "price": "17"
+            },
+            {
+                "fare": "User Development Fee",
+                "price": "564"
+            }
+        ]
+    },
+    "itinerary": [
+        {
+            "airlines": "Air Asia",
+            "alias": "airasia",
+            "departure": "19:20",
+            "arrival": "20:35",
+            "duration": "135",
+            "adultprice": "2799",
+            "childprice": "1799",
+            "infantprice": "799",
+            "refundable": true,
+            "flightno": "I5 - 9575",
+            "refund": "500",
+            "freemeals": true
+        },
+        {
+            "airlines": "Go Air",
+            "alias": "goair",
+            "departure": "22:55",
+            "arrival": "00:15",
+            "duration": "135",
+            "adultprice": "3295",
+            "childprice": "2295",
+            "infantprice": "1295",
+            "refundable": true,
+            "flightno": "G8 - 294",
+            "refund": "500",
+            "freemeals": true
+        },
+        {
+            "airlines": "Spicejet",
+            "alias": "spicejet",
+            "departure": "16:20",
+            "arrival": "17:35",
+            "duration": "135",
+            "adultprice": "4197",
+            "childprice": "3197",
+            "infantprice": "2197",
+            "refundable": "false",
+            "flightno": "SG - 1033",
+            "refund": "",
+            "freemeals": ""
+        },
+        {
+            "airlines": "Indigo",
+            "alias": "indigo",
+            "departure": "06:10",
+            "arrival": "07:15",
+            "duration": "125",
+            "adultprice": "4421",
+            "childprice": "3421",
+            "infantprice": "2421",
+            "refundable": true,
+            "flightno": "6E - 457",
+            "refund": "500",
+            "freemeals": false
+        },
+        {
+            "airlines": "Jet Airways",
+            "alias": "jetairways",
+            "departure": "17:15",
+            "arrival": "18:40",
+            "duration": "145",
+            "adultprice": "4569",
+            "childprice": "3569",
+            "infantprice": "2569",
+            "refundable": true,
+            "flightno": "9W - 2802",
+            "refund": "500",
+            "freemeals": true
+        },
+        {
+            "airlines": "Air India",
+            "alias": "airindia",
+            "departure": "03:30",
+            "arrival": "04:35",
+            "duration": "125",
+            "adultprice": "4588",
+            "childprice": "3588",
+            "infantprice": "2588",
+            "refundable": true,
+            "flightno": "AI - 618 / 609",
+            "refund": "500",
+            "freemeals": true
+        },
+        {
+            "airlines": "Air Asia",
+            "alias": "airasia",
+            "departure": "19:20",
+            "arrival": "20:35",
+            "duration": "135",
+            "adultprice": "2799",
+            "childprice": "1799",
+            "infantprice": "799",
+            "refundable": true,
+            "flightno": "I5 - 9575",
+            "refund": "500",
+            "freemeals": true
+        },
+        {
+            "airlines": "Go Air",
+            "alias": "goair",
+            "departure": "22:55",
+            "arrival": "00:15",
+            "duration": "135",
+            "adultprice": "3295",
+            "childprice": "2295",
+            "infantprice": "1295",
+            "refundable": true,
+            "flightno": "G8 - 294",
+            "refund": "500",
+            "freemeals": true
+        },
+        {
+            "airlines": "Spicejet",
+            "alias": "spicejet",
+            "departure": "16:20",
+            "arrival": "17:35",
+            "duration": "135",
+            "adultprice": "4197",
+            "childprice": "3197",
+            "infantprice": "2197",
+            "refundable": "false",
+            "flightno": "SG - 1033",
+            "refund": "",
+            "freemeals": ""
+        },
+        {
+            "airlines": "Indigo",
+            "alias": "indigo",
+            "departure": "06:10",
+            "arrival": "07:15",
+            "duration": "125",
+            "adultprice": "4421",
+            "childprice": "3421",
+            "infantprice": "2421",
+            "refundable": true,
+            "flightno": "6E - 457",
+            "refund": "500",
+            "freemeals": false
+        },
+        {
+            "airlines": "Jet Airways",
+            "alias": "jetairways",
+            "departure": "17:15",
+            "arrival": "18:40",
+            "duration": "145",
+            "adultprice": "4569",
+            "childprice": "3569",
+            "infantprice": "2569",
+            "refundable": true,
+            "flightno": "9W - 2802",
+            "refund": "500",
+            "freemeals": true
+        },
+        {
+            "airlines": "Air India",
+            "alias": "airindia",
+            "departure": "03:30",
+            "arrival": "04:35",
+            "duration": "125",
+            "adultprice": "4588",
+            "childprice": "3588",
+            "infantprice": "2588",
+            "refundable": true,
+            "flightno": "AI - 618 / 609",
+            "refund": "500",
+            "freemeals": true
+        },
+        {
+            "airlines": "Air Asia",
+            "alias": "airasia",
+            "departure": "19:20",
+            "arrival": "20:35",
+            "duration": "135",
+            "adultprice": "2799",
+            "childprice": "1799",
+            "infantprice": "799",
+            "refundable": true,
+            "flightno": "I5 - 9575",
+            "refund": "500",
+            "freemeals": true
+        },
+        {
+            "airlines": "Go Air",
+            "alias": "goair",
+            "departure": "22:55",
+            "arrival": "00:15",
+            "duration": "135",
+            "adultprice": "3295",
+            "childprice": "2295",
+            "infantprice": "1295",
+            "refundable": true,
+            "flightno": "G8 - 294",
+            "refund": "500",
+            "freemeals": true
+        },
+        {
+            "airlines": "Spicejet",
+            "alias": "spicejet",
+            "departure": "16:20",
+            "arrival": "17:35",
+            "duration": "135",
+            "adultprice": "4197",
+            "childprice": "3197",
+            "infantprice": "2197",
+            "refundable": "false",
+            "flightno": "SG - 1033",
+            "refund": "",
+            "freemeals": ""
+        },
+        {
+            "airlines": "Indigo",
+            "alias": "indigo",
+            "departure": "06:10",
+            "arrival": "07:15",
+            "duration": "125",
+            "adultprice": "4421",
+            "childprice": "3421",
+            "infantprice": "2421",
+            "refundable": true,
+            "flightno": "6E - 457",
+            "refund": "500",
+            "freemeals": false
+        },
+        {
+            "airlines": "Jet Airways",
+            "alias": "jetairways",
+            "departure": "17:15",
+            "arrival": "18:40",
+            "duration": "145",
+            "adultprice": "4569",
+            "childprice": "3569",
+            "infantprice": "2569",
+            "refundable": true,
+            "flightno": "9W - 2802",
+            "refund": "500",
+            "freemeals": true
+        },
+        {
+            "airlines": "Air India",
+            "alias": "airindia",
+            "departure": "03:30",
+            "arrival": "04:35",
+            "duration": "125",
+            "adultprice": "4588",
+            "childprice": "3588",
+            "infantprice": "2588",
+            "refundable": true,
+            "flightno": "AI - 618 / 609",
+            "refund": "500",
+            "freemeals": true
+        }
+    ]
+}

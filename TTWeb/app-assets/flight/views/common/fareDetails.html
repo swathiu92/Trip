@@ -1,0 +1,126 @@
+<aside class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+    <!-- fare details -->
+    <div class="checkoutbox padding-bottom checkoutbox-margin">
+        <h3 class="box-title normal clearfix ">
+            <span class="pull-left fs-md">Fare Details</span>
+        </h3>
+        <div class="box-content ">
+            <div>
+                <uib-accordion class="fare-accordion">
+                    <div uib-accordion-group class="panel-default" is-open="status.openBase">
+                        <uib-accordion-heading>
+                            <div style="font-size: 12px;font-weight: bold;color: #A7A7A7;">
+								<span>BASE FARE</span>
+								<i class="fare-chevron glyphicon" ng-class="{'glyphicon-chevron-down': status.openBase, 'glyphicon-chevron-right': !status.openBase}"></i>
+								<strong class="pull-right" data-ng-if="!status.openBase">{{itinerary.travelInfo.totalTravellerPrice | currency : '&#8377;'}}</strong>
+							</div>							
+                        </uib-accordion-heading>
+                        
+                            <div class="list-group" style="font-size: 12px;color: #A7A7A7;">
+                                <div class="list-group-item" data-ng-if="itinerary.travellerDetails.adult && itinerary.travellerDetails.adult !== 0">
+                                    <div> <span>Adult x {{itinerary.travellerDetails.adult}}</span> <span class="pull-right" style="display:inline">{{itinerary.travellerDetails.adultprice | currency : '&#8377;'}}</span> </div>
+                                    </a>
+                                </div>
+                                <div class="list-group-item" data-ng-if="itinerary.travellerDetails.child && itinerary.travellerDetails.child !== 0">
+                                    <div> <span>Child x {{itinerary.travellerDetails.child}}</span> <span class="pull-right" style="display:inline">{{itinerary.travellerDetails.childprice | currency : '&#8377;'}}</span> </div>
+                                    </a>
+                                </div>
+                                <div class="list-group-item" data-ng-if="itinerary.travellerDetails.infant && itinerary.travellerDetails.infant !== 0">
+                                    <div> <span>Infant x {{itinerary.travellerDetails.infant}}</span> <span class="pull-right" style="display:inline">{{itinerary.travellerDetails.infantprice | currency : '&#8377;'}}</span> </div>
+                                    </a>
+                                </div>
+								<div class="list-group-item">
+                                    <div> <span>Total Base Fare</span> <span class="pull-right" style="display:inline">{{itinerary.travelInfo.totalTravellerPrice | currency : '&#8377;'}}</span> </div>
+                                    </a>
+                                </div>
+                            </div>
+                        
+                    </div>
+                </uib-accordion>
+				<uib-accordion>
+                    <div uib-accordion-group class="panel-default" is-open="status.openFare">
+                        <uib-accordion-heading>
+							<div style="font-size: 12px;font-weight: bold;color: #A7A7A7;">
+								<span>FEE & SURCHARGES</span>
+								<i class="fare-chevron glyphicon" ng-class="{'glyphicon-chevron-down': status.openFare, 'glyphicon-chevron-right': !status.openFare}"></i>
+								<strong class="pull-right" data-ng-if="!status.openFare">{{itinerary.travelInfo.totalFares | currency : '&#8377;'}}</strong>
+							</div>
+                        </uib-accordion-heading>
+                        
+                            <div class="list-group" style="font-size: 12px;color: #A7A7A7;">
+                                <div class="list-group-item" data-ng-repeat="fare in itinerary.travelInfo.fares">
+                                    <div> <span>{{fare.fare}}</span> <span class="pull-right" style="display:inline">{{fare.price | currency : '&#8377;'}}</span> </div>
+                                    </a>
+                                </div>
+								<div class="list-group-item">
+                                    <div> <span>Fee & Surcharges</span> <span class="pull-right" style="display:inline">{{itinerary.travelInfo.totalFares | currency : '&#8377;'}}</span> </div>
+                                    </a>
+                                </div>
+                            </div>
+                        
+                    </div>
+                </uib-accordion>
+				<uib-accordion>
+                    <div uib-accordion-group class="panel-default" data-ng-if="(itinerary.travelInfo.meals && itinerary.travelInfo.meals.length > 0) || itinerary.travelInfo.baggage" is-open="status.openExtra">
+                        <uib-accordion-heading>
+                            <div style="font-size: 12px;font-weight: bold;color: #A7A7A7;">
+							<span >EXTRA FARE DETAILS</span> 
+							<i class="fare-chevron glyphicon" ng-class="{'glyphicon-chevron-down': status.openExtra, 'glyphicon-chevron-right': !status.openExtra}"></i>
+							<strong class="pull-right" data-ng-if="!status.openExtra">{{itinerary.travelInfo.totalExtraPrice | currency : '&#8377;'}}</strong>
+							</div>
+                        </uib-accordion-heading>
+                        
+                            <div class="list-group" style="font-size: 12px;color: #A7A7A7;">
+                                <div class="list-group-item" data-ng-if="itinerary.travelInfo.meals && itinerary.travelInfo.meals.length > 0">
+                                    <div>
+										<a href="javascript:void(0)" uib-popover-template="'popoverMeals.html'" popover-is-open="popover.isMealsOpen" popover-trigger="outsideClick" popover-title="Meals Details" >Meals Price</a>
+										<span class="pull-right" style="display:inline">{{itinerary.travelInfo.mealsPrice | currency : '&#8377;'}}</span>
+									</div>
+                                    </a>
+                                </div>
+								<div class="list-group-item" data-ng-if="itinerary.travelInfo.baggage">
+                                    <div>
+										<a href="javascript:void(0)" uib-popover-template="'popoverBaggage.html'" popover-is-open="popover.isBaggageOpen" popover-trigger="outsideClick" popover-title="Meals Details" >Baggage Price</a>
+										<span class="pull-right" style="display:inline">{{itinerary.travelInfo.baggage.price | currency : '&#8377;'}}</span>
+									</div>
+                                    </a>
+                                </div>
+								<div class="list-group-item" >
+                                    <div> <span>Total Price</span> 
+									<span class="pull-right" style="display:inline">{{itinerary.travelInfo.totalExtraPrice | currency : '&#8377;'}}</span> </div>
+                                    </a>
+                                </div>
+                            </div>
+							<script type="text/ng-template" id="popoverMeals.html">
+								<div class="form-group">
+								  <div ng-repeat="meal in itinerary.travelInfo.meals track by $index">
+									  <div class="col-md-12">
+										  <a class="pull-left remove" data-ng-click="removeMeal($index, meal)">
+											<i class="glyphicon glyphicon-remove-sign glyphicon-white"></i>
+										  </a>
+										  <span class="pull-left">{{meal.name}}</span>
+										  <span class="pull-right">{{meal.price}}</span>
+									  </div>
+								  </div>
+								  <!--<button ng-click="click()"> X</button>-->
+								</div>
+							</script>
+							<script type="text/ng-template" id="popoverBaggage.html">
+								<div class="form-group">
+									  <div class="col-md-12">
+										  <a class="pull-left remove" data-ng-click="removeBaggage()">
+											<i class="glyphicon glyphicon-remove-sign glyphicon-white"></i>
+										  </a>
+										  <span class="pull-left">{{itinerary.travelInfo.baggage.weight}}</span>
+										  <span class="pull-right">{{itinerary.travelInfo.baggage.price}}</span>
+									  </div>
+								</div>
+							</script>
+                        
+                    </div>
+                </uib-accordion>
+                <div class="pull-right"> <span>You Pay</span>
+                    <h2>{{itinerary.travelInfo.totalPrice | currency : '&#8377;'}}</h2>
+                </div>
+            </div>
+</aside>

@@ -1,0 +1,148 @@
+<section class="container-fluid checkout flight-details-box">
+    <div class="row">
+        <div class="col-sm-9" data-ng-repeat="city in itinerary.itineraryDetails.cities">
+            <h3 class="fs-md bold inlineblock">
+                <i class="fa fa-plane gray-light"></i>
+                <span>{{city.from.name}}</span> &nbsp;
+                <i class="fa fa-exchange ng-scope fa-long-arrow-right"></i>
+                <i class="fa fa-plane fa-rotate-90 gray-light"></i> {{city.to.name}}
+            </h3> &nbsp;
+            <p class="fs-base inlineblock">
+                <!--  <span class="ng-binding">{{itinerary.departure}}</span>  --></p>
+            <p class="fs-base inlineblock"> <span>Traveller(s) - </span> <span data-ng-if="itinerary.adult">{{itinerary.adult}} Adult(s)</span> <span data-ng-if="itinerary.child">{{itinerary.child}} Child/Children</span> <span data-ng-if="itinerary.infant">{{itinerary.infant}} Infant(s)</span> </p>
+        </div>
+    </div>
+    <ul class="row list page-track">
+        <li class="col-xs-4" ng-class="{'done':(itinerary.localObj.showContainer=='review' || itinerary.localObj.showContainer=='travellerDetails' || itinerary.localObj.showContainer=='summary')}"> <span data-title="1">Review</span> </li>
+        <li class="col-xs-4" ng-class="{'done':(itinerary.localObj.showContainer=='travellerDetails' || itinerary.localObj.showContainer=='summary')}"> <span data-title="2">Travellers</span> </li>
+        <li class="col-xs-4" ng-class="{'done':itinerary.localObj.showContainer=='summary'}"> <span data-title="3">Traveller Summary</span> </li>
+    </ul>
+</section>
+<main class="container-fluid pad-sm-bottom">
+    <div class="col-md-9" ng-if="itinerary.localObj.showContainer=='review'">
+        <div class="row">
+            <div class="checkoutbox " style="font-size:0.9em">
+                <h3 class="box-title fs-md normal">Review Your Booking&nbsp;
+                </h3>
+                <div class="box-content">
+                    <div class="accordion-sm">
+                        <div class="acc-content" data-ng-repeat="booked in itinerary.bookDetails track by $index">
+                            <article class="row review-article">
+                                <div class="acc-title clearfix col-md-12">
+                                    <h3 class="pull-left bold fs-xs text-uppercase margin-left-none review-title gray ng-binding">
+                                        <i class="fa fa-plane"></i>DEPARTURE
+                                    </h3>
+                                    <p class="pull-right ng-binding">Total Time: {{booked.duration}} </p>
+                                </div>
+                                <div class="text-sm-center col-sm-2 text-xs-left">
+                                    <p> <i class="L6E_sm logo pull-left {{booked.alias}}" style="float: none !important;display: inline-block;"></i> <span class="inlineblock ng-binding">{{booked.airlines}} <br>
+                              <span class="fs-xs gray">{{booked.flightno}}</span> </span>
+                                        <br class="hidden-xs-down"> </p>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="row">
+										<div class="col-xs-6 col-md-3">
+                                            <p class="ng-binding">{{itinerary.itineraryDetails.cities[$index].from.name}}, {{itinerary.itineraryDetails.cities[$index].from.state}}</p>
+                                            <h3 class="fs-base bold gray-dark ng-binding">{{itinerary.itineraryDetails.cities[$index].from.key | uppercase}}<span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.departure}}</h3>
+                                            <p class="fs-sm gray ng-binding">{{itinerary.itineraryDetails.cities[$index].departure | date : "dd MMM yyyy"}}
+                                                <br><span class="ng-binding">{{itinerary.itineraryDetails.cities[$index].from.name}} Airport</span></p>
+                                        </div>
+										<div class="col-xs-6 col-md-push-6 col-md-3 sm-border-left">
+                                            <p class="ng-binding">{{itinerary.itineraryDetails.cities[$index].to.name}}, {{itinerary.itineraryDetails.cities[$index].to.state}}</p>
+                                            <h3 class="fs-base bold gray-dark">
+                                                {{itinerary.itineraryDetails.cities[$index].to.key | uppercase}}
+                                                <span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.arrival}}
+                                            </h3>
+                                            <p class="fs-sm gray ng-binding">
+                                                <br> <span>{{itinerary.itineraryDetails.cities[$index].to.name}} Airport</span> </p>
+                                        </div>
+                                        <div class="col-sm-12 text-center col-md-pull-3 col-md-6">
+                                            <p> <i class="fa fa-clock-o"></i> &nbsp; {{booked.duration}} &nbsp;|&nbsp; Non Stop</p>
+                                            <p class="hidden-sm-down two-dots"> <i class="fa fa-plane"></i> </p>
+                                            <p> Economy&nbsp;|&nbsp;<span class="ref-ui">{{booked.refundable === true?'Refundable':'Non Refundable'}}</span> <span data-ng-if="booked.freemeals===true"> | Free Meals</span> </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            </hr>
+                            </hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="center-block text-center mt-1 mb-1 sticky-sm-bottom hide-under-overlay">
+            <button class="button primary" ui-sref="searchflight" href="#/search">Back</button>
+            <button class="button primary" ng-click="continueToNextPage();">Continue </button>
+        </div>
+    </div>
+    <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" ng-if="itinerary.localObj.showContainer=='travellerDetails'">
+        <traveller-details itinerary="itinerary"></traveller-details>
+        <service-requests itinerary="itinerary"></service-requests>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button class="button primary" ng-click="continueClicked=false;backToReview()">Back</button>
+                <button class="button primary" ng-click="continueClicked=true;goToSummary()">Continue</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" ng-if="itinerary.localObj.showContainer=='summary'">
+        <div class="checkoutbox checkoutbox-margin">
+            <h3 class="box-title normal clearfix ">
+                <span class="pull-left fs-md">Travel Summary</span>
+            </h3>
+            <div class="box-content details-box">
+                <div class="row">
+                    <div ng-repeat="item in travellerInfo">
+                        <div> {{item.text}}: {{item.title}} {{item.firstName}} {{item.middleName}} {{item.lastName}} </div>
+                    </div>
+                    <div>Contact: {{itinerary.code}} {{itinerary.contact}}</div>
+                    <div>Mail ID: {{itinerary.mail}}</div>
+                    <div>Travel From: {{itinerary.originSummary.origin}},{{itinerary.originSummary.country}} Airport: {{itinerary.originSummary.airport}}</div>
+                    <div>Travel To: {{itinerary.destinationSummary.destination}},{{itinerary.destinationSummary.country}} Airport: {{itinerary.destinationSummary.airport}}</div>
+                    <div>Insurance: <span ng-show="itinerary.insurance">Selected</span><span ng-show="!itinerary.insurance">Not Selected</span></div>
+                    <div>Meal(s):<span ng-repeat="item in itinerary.meal"> {{$index+1}} - {{item.name}} : {{item.price}} <br> </span> </div>
+                    <div>Baggage: {{itinerary.baggage.weight}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="checkoutbox checkoutbox-margin">
+            <!-- <div class="box-content details-box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="fs-md bold checkbox-custom-margin"><i class="fa fa-umbrella"></i> Insurance</h3> </div>
+                    <div class="col-md-12"> <span>
+                            <input type="checkbox" id="test1" />
+                            </span> <span>
+					Safeguard your trip with United India Insurance Co. Ltd.
+					 </span>
+                        <div class="font-size-xs"> Travel Insurance is highly recommended. View <a href="javascript:void(0)">Benefits</a> and <a href="javascript:void(0)">Terms & Conditions</a> <span class="read-only-text">Your booking details will be sent to this email address and mobile. </span> </div>
+                    </div>
+                </div>
+            </div> --></div>
+        <div class="checkoutbox checkoutbox-margin">
+            <!--  <h3 class="box-title normal clearfix ">
+                    <span class="pull-left fs-md">Service Requests (Optional)</span> </h3>
+            <div class="box-content details-box">
+                <div class="row">
+                    <div class="col-lg-2  col-md-2 col-sm-6 col-xs-12">
+                        <button class="btn btn-u rounded">Add Meals +</button>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <button class="btn btn-u rounded">Add Baggage +</button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button class="button primary" ng-click="continueClicked=false;backToitinerary()">Back</button>
+                <button class="button primary" ng-click="submitBooking()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <fare-details itinerary="itinerary"></fare-details>
+    </div>
+</main>
+<!-- 
+<login-popup next-page="nextPage"></login-popup> -->

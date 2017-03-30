@@ -1,0 +1,166 @@
+﻿<div class="row">
+<div class="col-md-6">
+            <h3 class="fs-md bold inlineblock">
+                <i class="fa fa-plane gray-light"></i>
+                <span>{{itinerary.itineraryDetails.from.name}}</span> &nbsp;
+                <i class="fa fa-exchange ng-scope fa-long-arrow-right"></i>{{itinerary.itineraryDetails.to.name}}
+            </h3>
+</div>
+<div class="col-md-6">
+            <h3 class="fs-md bold inlineblock">
+                <i class="fa fa-plane gray-light"></i>
+                <span>{{itinerary.itineraryDetails.to.name}}</span> &nbsp;
+                <i class="fa fa-exchange ng-scope fa-long-arrow-right"></i>{{itinerary.itineraryDetails.from.name}}
+            </h3>
+</div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6, col-md-6 col-lg-6">
+        <sorting-tab sortby="sortby" sorted="sorted"></sorting-tab>
+        <div class="flight-list listing-style3 flight">
+            <div ng-repeat="originResult in data.origin | orderBy:sorting:sorted">
+                <div class="box shadow_genrator">
+                    <div class="col-lg-3 col-sm-3 col-md-3 col-xs-4">
+                        <div class="row">
+                            <div class="col-lg-12 icon">
+                                <i class="fa fa-plane yellow-color"></i><span class="skin-color timeF">&nbsp;&nbsp;{{originResult.departure}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-3 col-md-3 col-xs-4  text-center">
+                        <div class="row">
+                            <div class="icon col-lg-12">
+                                <i class="fa fa-plane yellow-color fa-rotate-90"></i><span class="skin-color timeF">&nbsp;&nbsp; {{originResult.arrival}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 text-center hidden-xs">
+                        <div class="row">
+                            <div class="col-lg-12 icon">
+                                <span class="skin-color timeF">{{originResult.duration}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 pull-right">
+                                <span class="skin-color timeF">non-stop</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4 text-center">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <span class="price round-price margin-bottom-10" data-ng-bind="originResult.adultprice | currency : '&#8377;'" data-ng-click="bookThis(originResult, 'origin', $index)"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:60px;padding-top:10px; border-top:1px dotted #808080">
+                        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-2">
+                            <span class="L6E_sm logo pull-left  {{originResult.alias}}"></span>
+                        </div>
+                        <div class="col-lg-3 col-md-2 col-sm-2 col-xs-2">
+                            <span class="pull-left airline_info_detls">
+                <span class="logo_name">{{originResult.airlines}}</span>
+                            <span class="block logo_name">{{originResult.flightno}}</span>
+                            </span>
+                        </div>
+						<div ng-show="showBookSection[$index]">
+						<div class="col-lg-3 col-md-2 col-sm-2 col-xs-2" style="text-align:center">
+ 									<i style="color:green" class="fa fa-3x fa-check-circle" aria-hidden="true" style="color: green;"></i>
+                         </div>
+                             <span class="pull-right" style="border-top:1px;margin-right:15px">
+                                 <span class="price round-price margin-bottom-10" data-ng-click="flightSelected(originResult, 'origin', $index)">Book</span>
+ 							</span>
+						</div>
+						</div>
+ 
+                </div>
+                <div class="col-md-12 flight-details">
+                    <span>FLIGHT DETAILS</span>
+                    <span style="float: right;">
+			<span data-ng-if="originResult.freemeals">FREE MEALS 
+				<span data-ng-if="originResult.freemeals ===true">|</span>
+                    </span>
+                    <span data-ng-bind="originResult.refundable === true?'REFUNDABLE ' : 'NON REFUNDABLE '"></span>
+                    <span data-ng-if="originResult.refundable == true">| {{originResult.refund | currency : '&#8377;'}} ecash</span>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6, col-md-6 col-lg-6">
+        <sorting-tab sortby="sortby1" sorted="sorted1"></sorting-tab>
+        <div class="flight-list listing-style3 flight">
+            <div ng-repeat="destinationResult in data.destination | orderBy:sorting1:sorted1">
+                <div class="box shadow_genrator">
+                    <div class="col-lg-3 col-sm-3 col-md-3 col-xs-4">
+                        <div class="row">
+                            <div class="col-lg-12 icon">
+                                <i class="fa fa-plane yellow-color"></i><span class="skin-color timeF">&nbsp;&nbsp;{{destinationResult.departure}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-3 col-md-3 col-xs-4  text-center">
+                        <div class="row">
+                            <div class="icon col-lg-12">
+                                <i class="fa fa-plane yellow-color fa-rotate-90"></i><span class="skin-color timeF">&nbsp;&nbsp; {{destinationResult.arrival}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 text-center hidden-xs">
+                        <div class="row">
+                            <div class="col-lg-12 icon">
+                                <span class="skin-color timeF">{{destinationResult.duration}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 pull-right">
+                                <span class="skin-color timeF">non-stop</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4 text-center">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <span class="price round-price margin-bottom-10"
+								data-ng-bind="destinationResult.adultprice | currency : '&#8377;'" data-ng-click="bookThis(destinationResult, 'origin', $index)">
+								</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:60px;padding-top:10px; border-top:1px dotted #808080">
+                        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-2">
+                            <span class="L6E_sm logo pull-left  {{destinationResult.alias}}"></span>
+                        </div>
+                        <div class="col-lg-3 col-md-2 col-sm-2 col-xs-2">
+                            <span class="pull-left airline_info_detls">
+                <span class="logo_name">{{destinationResult.airlines}}</span>
+                            <span class="block logo_name">{{destinationResult.flightno}}</span>
+                            </span>
+                        </div>
+						<div ng-show="showBookSection[$index]">
+						<div class="col-lg-3 col-md-2 col-sm-2 col-xs-2" style="text-align:center">
+ 									<i style="color:green" class="fa fa-3x fa-check-circle" aria-hidden="true" style="color: green;"></i>
+                         </div>
+                             <span class="pull-right" style="border-top:1px;margin-right:15px">
+                                 <span class="price round-price margin-bottom-10" data-ng-click="flightSelected(destinationResult, 'origin', $index)">Book</span>
+ 							</span>
+                       </div>
+                     </div>
+
+                </div>
+                <div class="col-md-12 flight-details">
+                    <span>FLIGHT DETAILS</span>
+                    <span style="float: right;">
+			<span data-ng-if="destinationResult.freemeals">FREE MEALS 
+				<span data-ng-if="destinationResult.freemeals ===true">|</span>
+                    </span>
+                    <span data-ng-bind="destinationResult.refundable === true?'REFUNDABLE ' : 'NON REFUNDABLE '"></span>
+                    <span data-ng-if="destinationResult.refundable == true">| {{destinationResult.refund | currency : '&#8377;'}} ecash</span>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

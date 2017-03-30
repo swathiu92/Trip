@@ -1,0 +1,32 @@
+<div class="col-md-4">
+    <div class="form-group">
+        <label for="flyingFrom">Flying From </label>
+        <div class="input-group margin-bottom-20" data-ng-class="{'error-class': submitted && !itinerary.from}">
+            <span class="input-group-addon rounded-left"><i class="fa fa-plane fa-lg color-blue"></i></span>
+            <input type="text" ng-model="itinerary.from" uib-popover="{{submitted && !itinerary.from?'Please enter required field':''}}"  popover-trigger="'focus'" autocomplete="off" uib-typeahead="state as state.name for state in states | filter:$viewValue | limitTo:8" typeahead-editable="false" class="form-control rounded-right" id="flyingFrom" placeholder="Leaving From (city, distirct or specific airport)" />
+        </div>
+        <!-- <div class="error-msg" ng-show="submitted && !itinerary.from">Please enter from city</div> -->
+
+    </div>
+</div>
+<div class="col-md-1 col-lg-1 hidden-sm hidden-xs text-center" style="margin-top:5px;"><label for="flyingTo">&nbsp;</label> <i class="fa fa-2x fa-arrow-circle-right fa-inverse"></i></div>
+<div class="col-md-4 col-sm-12 col-lg-4 hidden-xs hidden-sm">
+    <div class="form-group">
+        <label for="flyingTo">Flying To</label>
+        <div class="input-group margin-bottom-20" data-ng-class="{'error-class': submitted && !itinerary.to}">
+            <span class="input-group-addon rounded-left"><i class="fa fa-plane fa-lg fa-rotate-90 color-blue"></i></span>
+            <input type="text" ng-model="itinerary.to" uib-popover="{{submitted && !itinerary.to?'Please enter required field':''}}"  popover-trigger="'focus'" autocomplete="off" uib-typeahead="state as state.name for state in states | filter:$viewValue | limitTo:8" typeahead-editable="false" class="form-control rounded-right" id="flyingTo" placeholder="Going To (city, distirct or specific airport)" />
+        </div>
+    </div>
+    <!-- <div class="error-msg" ng-show="submitted && !itinerary.to">Please enter from to</div> -->
+</div>
+<div class="col-sm-12 col-xs-12 hidden-lg hidden-md">
+    <div class="form-group">
+        <label for="flyingTo">Flying To</label>
+        <div class="input-group margin-bottom-20" data-ng-class="{'error-class': submitted && !itinerary.to}">
+            <span class="input-group-addon rounded-left"><i class="fa fa-plane fa-lg fa-rotate-90 color-blue"></i></span>
+            <input type="text" ng-model="itinerary.to" uib-popover="{{submitted && !itinerary.to?'Please enter required field':''}}"  popover-trigger="'focus'" class="form-control rounded-right" id="flyingTo" placeholder="Going To (city, distirct or specific airport)" />
+        </div>
+    </div>
+</div>
+

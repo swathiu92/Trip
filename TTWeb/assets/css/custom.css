@@ -1113,3 +1113,6 @@ input[type="radio"] {
 a {
 	color: inherit;
 }
+.error-class {
+	border: 1px solid #ef4639;
+}

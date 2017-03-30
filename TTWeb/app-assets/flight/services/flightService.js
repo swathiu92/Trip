@@ -6,9 +6,29 @@
         var service = {
             mode: 1
         };
-		service.getAirlines = function(){
+		service.getOneWayAirlines = function(){
 			var deferred = $q.defer();
-            $http({ method: "GET", url: "app-assets/proxy/airlines.json" })
+            $http({ method: "GET", url: "app-assets/proxy/oneway_itinerary.json" })
+                .success(function (data, status, headers, config) {
+                    deferred.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    deferred.reject(status);
+                });
+            return deferred.promise;
+		};
+		service.getRoundTripAirlines = function(){
+			var deferred = $q.defer();
+            $http({ method: "GET", url: "app-assets/proxy/roundtrip_itinerary.json" })
+                .success(function (data, status, headers, config) {
+                    deferred.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    deferred.reject(status);
+                });
+            return deferred.promise;
+		};
+		service.getMultiAirlines = function(){
+			var deferred = $q.defer();
+            $http({ method: "GET", url: "app-assets/proxy/oneway_itinerary.json" })
                 .success(function (data, status, headers, config) {
                     deferred.resolve(data);
                 }).error(function (data, status, headers, config) {

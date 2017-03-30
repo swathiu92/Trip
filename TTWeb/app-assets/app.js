@@ -116,11 +116,15 @@
         .state('searchflight', {
             url: '/search',
             controller: 'SearchResultCtrl',
-            templateUrl: 'app-assets/flight/views/searchresult.html',
+            templateUrl: 'app-assets/flight/views/common/searchresult.html',
         })
 		.state('flightdetails', {
             url: '/flightdetails',
-            templateUrl: 'app-assets/flight/views/flightDetails.html',
+            templateUrl: 'app-assets/flight/views/common/flightDetails.html',
+			controller: function($scope, ShareDataService) {
+				$scope.itinerary = ShareDataService.getSharedData().itinerary;
+			}
+			
         })
        
         .state('cruise', {

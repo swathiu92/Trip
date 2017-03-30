@@ -1,0 +1,18 @@
+﻿<div class="row">
+    <travel-location itinerary ="itinerary.itineraryDetails" submitted="submitted"></travel-location>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <ttu-date-time display-text="displayText" itinerary="itinerary.itineraryDetails.departure"></ttu-date-time>
+    </div>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-1">
+    </div>
+    <traveler-detail itinerary ="itinerary.travellerDetails" submitted="submitted"></traveler-detail>
+</div>
+<div class="row margin-bottom-20">
+    <div class="col-xs-3 margin-top-20">
+        <button class="btn btn-u btn-u-orange rounded" ng-click="search()">SEARCH FLIGHTS</button>
+    </div>
+</div>

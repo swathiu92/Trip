@@ -1,0 +1,34 @@
+﻿
+<!-- <div class="row">
+    <travel-location city="city"></travel-location>
+    <div class="col-md-2">
+        <ttu-date-time display-text="departing" date-time="city.departure"></ttu-date-time>
+    </div>
+</div> -->
+<div ng-repeat="city in itinerary.itineraryDetails.cities">
+    <div class="row">
+        <travel-location itinerary="city"></travel-location>
+        <div class="col-md-2">
+            <ttu-date-time display-text="departing" itinerary="city.departure"></ttu-date-time>
+        </div>
+        <div class="col-md-1" ng-show="city.showRemove" style="margin-top:5px;cursor:pointer;">
+            <div class="form-group">
+                <label for="flyingFrom">&nbsp; </label>
+                <a data-ng-if="$index !== 0" ng-click="removeCity(city)"> &nbsp;<i class="fa fa-times-circle fa-2x fa-inverse"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row margin-bottom-20" ng-show="citiCount < 5">
+    <div class="col-xs-3 margin-top-20">
+        <button class="btn-default" ng-click="addCity()">ADD CITY <i class="fa fa-plus-circle fa-lg"></i></button>
+    </div>
+</div>
+<div class="row">
+	<traveler-detail left-margin="leftMargin2" itinerary ="itinerary" submitted="submitted"></traveler-detail>
+</div>
+<div class="row margin-bottom-20">
+    <div class="col-xs-3 margin-top-20">
+        <button class="btn btn-u btn-u-orange rounded" ng-click="search()">SEARCH FLIGHTS</button>
+    </div>
+</div>

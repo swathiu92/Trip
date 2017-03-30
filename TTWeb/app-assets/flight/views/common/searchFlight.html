@@ -1,0 +1,21 @@
+<form method="post" id="searchFlight" style="padding-left:30px; padding-right:30px;">
+    <div class="row margin-bottom-10">
+        <div class="choose-travel choose-travel-section">
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                <label ng-class="{true :'radio radio-inline checked', false:'radio radio-inline'}[searchmodel.travelType=='oneway']">
+                    <input type="radio" name="choose-travel" value="oneway" ng-model="searchmodel.travelType" data-ng-change="tripChanged(searchmodel.travelType)">&nbsp;&nbsp; One way </label>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+                <label ng-class="{true :'radio radio-inline checked', false:'radio radio-inline'}[searchmodel.travelType=='roundtrip']">
+                    <input type="radio" name="choose-travel" value="roundtrip" ng-model="searchmodel.travelType" data-ng-change="tripChanged(searchmodel.travelType)">&nbsp;&nbsp; Round Trip </label>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                <label ng-class="{true :'radio radio-inline checked', false:'radio radio-inline'}[searchmodel.travelType=='multi']">
+                    <input type="radio" name="choose-travel" value="multi" ng-model="searchmodel.travelType" data-ng-change="tripChanged(searchmodel.travelType)">&nbsp;&nbsp; Multi-city/Stop Over </label>
+            </div>
+        </div>
+    </div>
+    <search-flight-one-way itinerary="itinerary" ng-if="searchmodel.travelType==='oneway'"></search-flight-one-way>
+    <search-flight-round-trip itinerary="itinerary" ng-if="searchmodel.travelType==='roundtrip'"></search-flight-round-trip>
+    <search-flight-multi itinerary="itinerary" ng-if="searchmodel.travelType=='multi'"></search-flight-multi>
+</form>
