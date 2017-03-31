@@ -99,6 +99,7 @@
 				
                 $scope.goToSummary = function() {
                     var moveNext = true;
+					$scope.itinerary.localObj.travellerSubmitted = true;
                     if ($scope.itinerary.travellerDetails.contact && $scope.itinerary.travellerDetails.code) {
                         for (var c = 0; c < $scope.itinerary.travellerDetails.travellerInfo.length; c++) {
                             if (!$scope.itinerary.travellerDetails.travellerInfo[c].firstName || !$scope.itinerary.travellerDetails.travellerInfo[c].lastName || !$scope.itinerary.travellerDetails.travellerInfo[c].title) {
@@ -107,25 +108,7 @@
                             }
                         }
                         if (moveNext) {
-                            /* if ($scope.itinerary && $scope.itinerary.mealDetails) {
-                                var tempArr = [];
-                                angular.forEach($scope.itinerary.mealDetails, function(value, key) {
-                                    if (value) {
-                                        tempArr.push($scope.mealList[key])
-                                    }
-                                });
-                                $scope.itinerary.meal = tempArr;
-                            }
-                            if ($scope.itinerary && $scope.itinerary.travelInfo.baggageDetails) {
-                                var tempArr = [];
-                                angular.forEach($scope.itinerary.travelInfo.baggageDetails, function(value, key) {
-                                    if (value) {
-                                        tempArr.push($scope.baggageList[key])
-                                    }
-                                });
-                                $scope.itinerary.travelInfo.baggage = tempArr[0];
-
-                            } */
+                            $scope.itinerary.localObj.travellerSubmitted = false;
                             $scope.itinerary.localObj.showContainer = 'summary';
                         }
                     }

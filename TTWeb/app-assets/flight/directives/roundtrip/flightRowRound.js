@@ -30,6 +30,7 @@
 			$scope.bookThis = function(details, status, index){
 				$scope.itinerary.bookDetails = [];
 				$scope.itinerary.bookDetails.push(details);
+				$scope.itinerary.localObj.selectedIndex = index;
 				$scope.itinerary.bookDetails.push($scope.data[status][index]);
 				$scope.itinerary.bookDetails[0].from = angular.copy($scope.itinerary.itineraryDetails.from);
 				$scope.itinerary.bookDetails[0].to = angular.copy($scope.itinerary.itineraryDetails.to);

@@ -3,7 +3,7 @@
     angular.module("common.services")
     .directive('searchFlight', ['$log', searchFlight]);
     function searchFlight($log) {
-        var controller = ['$scope', '$log','CONSTANTS', function ($scope, $log, CONSTANTS) {
+        var controller = ['$scope','CONSTANTS', function ($scope, CONSTANTS) {
             $scope.searchmodel.travelType = $scope.searchmodel.travelType?$scope.searchmodel.travelType:"oneway";
 			$scope.itinerary = $scope.searchmodel[$scope.searchmodel.travelType];
 			var data = ["oneway", "roundtrip", "multi"];

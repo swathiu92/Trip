@@ -1,19 +1,18 @@
 (function() {
     "use strict";
     angular.module("common.services")
-        .directive('checkout', function() {
-            var controller = ['$scope', '$state', '$filter', '$timeout', '$log', 'CONSTANTS', 'ShareDataService', function($scope, $state, $filter, $timeout, $log, CONSTANTS, ShareDataService) {
+        .directive('summary', function() {
+            var controller = ['$scope', '$state', '$filter', '$timeout', '$log', 'ShareDataService', function($scope, $state, $filter, $timeout, $log, ShareDataService) {
                 $scope.itinerary = ShareDataService.getSharedData().itinerary;
+                console.log($scope.itinerary);
                 $scope.itinerary = ShareDataService.getSharedData().itinerary;
-				$scope.itinerary.travelInfo.mealsPrice = 0;
-				$scope.itinerary.travelInfo.baggagePrice = 0;
                 var adultInfo = new Array($scope.itinerary.travellerDetails.adult);
                 var chidInfo = new Array($scope.itinerary.travellerDetails.child);
                 var infantInfo = new Array($scope.itinerary.travellerDetails.infant);
                 $scope.itinerary.travellerDetails.travellerInfo = [];
                 for (var a = 0; a < adultInfo.length; a++) {
                     var type1 = a + 1;
-                     $scope.itinerary.travellerDetails.travellerInfo.push({
+                    $scope.itinerary.travellerDetails.travellerInfo.push({
                         "type": "Adult " + type1,
                         "text": "Adult",
                         "firstName": '',
@@ -29,7 +28,6 @@
                         }]
                     });
                 }
-				console.log($scope.itinerary.travellerDetails.travellerInfo);
                 for (var a = 0; a < chidInfo.length; a++) {
                     var type2 = a + 1;
                     $scope.itinerary.travellerDetails.travellerInfo.push({
@@ -79,16 +77,15 @@
                 $scope.continueToNextPage = function() {
                     $scope.itinerary.localObj.showContainer = 'travellerDetails';
                     console.log($scope.itinerary);
-
                 };
                 $scope.backToReview = function() {
                     $scope.itinerary.localObj.showContainer = 'review';
                 };
-				
+
                 $scope.goToSummary = function() {
                     var moveNext = true;
-					$scope.itinerary.localObj.travellerSubmitted = true;
-                    if ($scope.itinerary.travellerDetails.contact && $scope.itinerary.travellerDetails.code) {
+                    $scope.itinerary.localObj.travellerSubmitted = true;
+                    if ($scope.itinerary.contact && $scope.itinerary.code) {
                         for (var c = 0; c < $scope.itinerary.travellerDetails.travellerInfo.length; c++) {
                             if (!$scope.itinerary.travellerDetails.travellerInfo[c].firstName || !$scope.itinerary.travellerDetails.travellerInfo[c].lastName || !$scope.itinerary.travellerDetails.travellerInfo[c].title) {
                                 moveNext = false;
@@ -96,34 +93,24 @@
                             }
                         }
                         if (moveNext) {
-							$scope.itinerary.localObj.travellerSubmitted = false;
+                            $scope.itinerary.localObj.travellerSubmitted = false;
                             $scope.itinerary.localObj.showContainer = 'summary';
                         }
                     }
 
                 };
-                
-
                 $scope.backToitinerary = function() {
                     $scope.itinerary.localObj.showContainer = 'travellerDetails';
                 };
                 $scope.submitBooking = function() {
                     console.log('booking done');
                 };
-                
-				
-                $scope.hideOlList = function() {
-                    $timeout(function() {
-                        $(".carousel ol").remove();
-                    }, 500);
-                };
-
             }];
 
             return {
                 scope: {},
                 restrict: 'E',
-                templateUrl: 'app-assets/flight/views/oneway/checkout.html',
+                templateUrl: 'app-assets/flight/views/common/summary.html',
                 controller: controller,
             }
         });

@@ -1,45 +1,47 @@
 <div class="checkoutbox checkoutbox-margin">
-            <h3 class="box-title normal clearfix ">
-                <span class="pull-left fs-md">Service Requests (Optional)</span> </h3>
-            <div class="box-content details-box">
-                <div class="row">
-                    <div class="col-lg-2  col-md-2 col-sm-6 col-xs-12">
-                        <button class="btn btn-u rounded" ng-click="mealSection=true;baggageSection=false">Add Meal(s) +</button>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <button class="btn btn-u rounded" ng-click="mealSection=false;baggageSection=true">Add Baggage +</button>
-                    </div>
-                </div>
+    <h3 class="box-title normal clearfix ">
+        <span class="pull-left fs-md">Service Requests (Optional)</span>
+    </h3>
+    <div class="box-content details-box">
+        <div class="row">
+            <div class="col-lg-2  col-md-2 col-sm-6 col-xs-12">
+                <button class="btn btn-u rounded" ng-click="mealSection=true;baggageSection=false">Add Meal(s) +</button>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <button class="btn btn-u rounded" ng-click="mealSection=false;baggageSection=true">Add Baggage +</button>
             </div>
         </div>
-        <div class="checkoutbox checkoutbox-margin" ng-if="mealSection">
-            <h3 class="box-title normal clearfix ">
-                <span class="pull-left fs-md">Meal(s)</span> </h3>
-            <div class="box-content details-box" ng-init="hideOlList()">
-                <div uib-carousel active="active" style="width:350px">
-                    <div uib-slide ng-repeat="slide in mealList track by $index" index="$index">
-                        <img ng-src="{{slide.imagePath}}" style="width:350px">
-                        <div class="carousel-caption">
-                            <p style="color: white !important;">{{slide.name}} - {{slide.price}}</p>
-                        </div>
-                        <input type="checkbox" class="form-control" ng-model="itinerary.travelInfo.mealDetails[$index]" data-ng-click="addMeals()" ng-true-value="{{slide}}" />
-                    </div>
+    </div>
+</div>
+<div class="checkoutbox checkoutbox-margin" ng-if="mealSection">
+    <h3 class="box-title normal clearfix ">
+        <span class="pull-left fs-md">Meal(s)</span>
+    </h3>
+    <div class="box-content details-box" ng-init="hideOlList()">
+        <div uib-carousel active="active" style="width:350px">
+            <div uib-slide ng-repeat="slide in mealList track by $index" index="$index">
+                <img ng-src="{{slide.imagePath}}" style="width:350px" />
+                <div class="carousel-caption">
+                    <p style="color: white !important;">{{slide.name}} - {{slide.price}}</p>
                 </div>
+                <input type="checkbox" class="form-control" ng-model="itinerary.travelInfo.mealDetails[$index]" data-ng-click="addMeals()" ng-true-value="{{slide}}" />
             </div>
         </div>
-
-        <div class="checkoutbox checkoutbox-margin" ng-if="baggageSection">
-            <h3 class="box-title normal clearfix ">
-                <span class="pull-left fs-md">Baggage</span> </h3>
-            <div class="box-content details-box" ng-init="hideOlList()">
-                <div uib-carousel active="active" style="width:350px">
-                    <div uib-slide ng-repeat="slide in baggageList track by $index" index="$index">
-                        <img ng-src="{{slide.imagePath}}" style="width:350px">
-                        <div class="carousel-caption">
-                            <p style="color: white !important;"> {{slide.weight}}</p>
-                        </div>
-                        <input type="checkbox" ng-click="unselectOther($index)" class="form-control" ng-model="itinerary.travelInfo.baggageDetails[$index]" ng-true-value="{{slide}}" />
-                    </div>
+    </div>
+</div>
+<div class="checkoutbox checkoutbox-margin" ng-if="baggageSection">
+    <h3 class="box-title normal clearfix ">
+        <span class="pull-left fs-md">Baggage</span>
+    </h3>
+    <div class="box-content details-box" ng-init="hideOlList()">
+        <div uib-carousel active="active" style="width:350px">
+            <div uib-slide ng-repeat="slide in baggageList track by $index" index="$index">
+                <img ng-src="{{slide.imagePath}}" style="width:350px" />
+                <div class="carousel-caption">
+                    <p style="color: white !important;"> {{slide.weight}}</p>
                 </div>
+                <input type="checkbox" ng-click="unselectOther($index)" class="form-control" ng-model="itinerary.travelInfo.baggageDetails[$index]" ng-true-value="{{slide}}" />
             </div>
         </div>
+    </div>
+</div>

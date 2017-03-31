@@ -7,9 +7,6 @@
             $scope.departing = "DEPARTING ON";
             $scope.leftMargin2 = 0;
             $scope.citiCount = 1;
-			//$scope.city = {};
-			//$scope.itinerary.itineraryDetails.cities = $scope.itinerary.itineraryDetails.cities?$scope.itinerary.itineraryDetails.cities:[];
-			//$scope.cities = new Array();
             if($scope.itinerary.itineraryDetails.cities.length === 0){
 				$scope.itinerary.itineraryDetails.cities.push({
 						id: 0,
@@ -51,13 +48,9 @@
             };
 
             $scope.search = function () {
-				//$scope.itinerary.itineraryDetails.cities = $scope.cities;
 				ShareDataService.setSharedData({
 					itinerary: $scope.itinerary
 	            }, 'itinerary');
-                /*ShareDataService.setSharedData({
-					cities: $scope.cities
-	            }, 'cities');*/
 				console.log($scope.itinerary);
 				flightService.mode = 3;
                 $state.go('searchflight');

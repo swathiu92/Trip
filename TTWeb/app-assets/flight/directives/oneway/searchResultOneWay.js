@@ -7,10 +7,8 @@
 			$scope.sortby = '';
 			$scope.sorted = '';
 			$scope.itinerary = ShareDataService.getSharedData().itinerary;
-			//$scope.itinerary.totalFares = 0;
             flightService.getOneWayAirlines().then(function(data) {
 			 $scope.itinerary.travelInfo.fares = data.travel.fares;
-			 //$scope.itinerary.travelDetails = data.travel;
 			 angular.forEach(data.travel.fares, function(value, key){
 				 $scope.itinerary.travelInfo.totalFares = $scope.itinerary.travelInfo.totalFares + parseInt(value.price);
 			 });

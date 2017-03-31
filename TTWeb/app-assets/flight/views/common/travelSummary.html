@@ -1,0 +1,19 @@
+<div class="checkoutbox checkoutbox-margin">
+    <h3 class="box-title normal clearfix ">
+        <span class="pull-left fs-md">Travel Summary</span>
+    </h3>
+    <div class="box-content details-box">
+        <div class="row">
+            <div ng-repeat="item in travellerInfo">
+                <div> {{item.text}}: {{item.title}} {{item.firstName}} {{item.middleName}} {{item.lastName}} </div>
+            </div>
+            <div>Contact: {{itinerary.code}} {{itinerary.contact}}</div>
+            <div>Mail ID: {{itinerary.mail}}</div>
+            <div>Travel From: {{itinerary.originSummary.origin}},{{itinerary.originSummary.country}} Airport: {{itinerary.originSummary.airport}}</div>
+            <div>Travel To: {{itinerary.destinationSummary.destination}},{{itinerary.destinationSummary.country}} Airport: {{itinerary.destinationSummary.airport}}</div>
+            <div>Insurance: <span ng-show="itinerary.insurance">Selected</span><span ng-show="!itinerary.insurance">Not Selected</span></div>
+            <div>Meal(s):<span ng-repeat="item in itinerary.meal"> {{$index+1}} - {{item.name}} : {{item.price}} <br> </span> </div>
+            <div>Baggage: {{itinerary.baggage.weight}}</div>
+        </div>
+    </div>
+</div>

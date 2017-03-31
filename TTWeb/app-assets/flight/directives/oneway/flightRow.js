@@ -15,9 +15,6 @@
 				$scope.itinerary.bookDetails = [];
 				$scope.itinerary.bookDetails.push(booked);
 				$scope.itinerary.localObj.showContainer ='review';
-				/* ShareDataService.setSharedData({
-					travel: $scope.data.travel
-	            }, 'travel'); */
 				ShareDataService.setSharedData({
 					itinerary: $scope.itinerary
 	            }, 'itinerary');

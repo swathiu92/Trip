@@ -7,21 +7,14 @@
 			$scope.sortby = '';
 			$scope.sorted = '';
 			$scope.itinerary = ShareDataService.getSharedData().itinerary;
-			$scope.itinerary.totalFares = 0;
+			$scope.itinerary.travelInfo.totalFares = 0;
 			$scope.itinerary.localObj.currentCity = $scope.itinerary.itineraryDetails.cities[0];
-			$scope.selectedCity = function(city){
-				$scope.itinerary.localObj.currentCity = city;
-			};
-			$scope.bookFlight = function(){
-				/*ShareDataService.setSharedData({
-					travel: $scope.data.travel
-	            }, 'travel');*/
+			$scope.itinerary.localObj.bookFlight = function(){
 				$scope.itinerary.bookDetails = [];
 				var selectedFlights = ShareDataService.getSharedData().selectedFlights;
 				angular.forEach(selectedFlights, function(value, key){
 					$scope.itinerary.bookDetails.push(value.booked);
 				});
-				//$scope.itinerary.bookDetails = ShareDataService.getSharedData().selectedFlights;
 				ShareDataService.setSharedData({
 					itinerary: $scope.itinerary
 	            }, 'itinerary');
@@ -37,7 +30,6 @@
 	            }, 'itinerary');
             flightService.getMultiAirlines().then(function(data) {
 			 $scope.itinerary.travelInfo.fares = data.travel.fares;
-			 //$scope.itinerary.travelDetails = data.travel;
 			 angular.forEach(data.travel.fares, function(value, key){
 				 $scope.itinerary.travelInfo.totalFares = $scope.itinerary.travelInfo.totalFares + parseInt(value.price);
 			 });

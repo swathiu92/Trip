@@ -13,7 +13,8 @@
 				return sort	;
 			};
 			flightService.getMultiAirlines().then(function(data) {
-			 $scope.itinerary.fares = data.travel.fares;
+			 $scope.data = data;
+			 $scope.itinerary.travelInfo.fares = data.travel.fares;
 			 angular.forEach(data.travel.fares, function(value, key){
 				 $scope.itinerary.travelInfo.totalFares = $scope.itinerary.travelInfo.totalFares + parseInt(value.price);
 			 });
@@ -51,33 +52,7 @@
 				});
 				var booked = $scope.itinerary.itineraryDetails.cities.findIndex(x => x.booked === undefined);
 				$scope.itinerary.localObj.allBooked = (booked===-1)?true:false;
-			};
-			$scope.bookFlight = function(booked, index){
-				$scope.itinerary.bookDetails = [];
-				$scope.itinerary.showContainer ='review';
-				//for(var i=0; i<$scope.itinerary.itineraryDetails.cities.length;i++){
-					$scope.itinerary.bookDetails = selectedFlights;
-				//}	
-				ShareDataService.setSharedData({
-					travel: $scope.data.travel
-	            }, 'travel');
-				ShareDataService.setSharedData({
-					itinerary: $scope.itinerary
-	            }, 'itinerary');
-				var selectedCity = true;
-				allBooked = true;
-				angular.forEach($scope.itinerary.itineraryDetails.cities, function(value, key){
-					if(!value.booked && selectedCity) {
-						allBooked = false;
-						selectedCity = false;
-						$scope.itinerary.localObj.currentCity = $scope.itinerary.itineraryDetails.cities[key];
-					}
-				});
-				if(allBooked) {
-					$state.go('flightdetails');
-				}
-				console.log($scope.itinerary);
-				//$state.go('flightdetails');
+				$scope.itinerary.localObj.bookFlight();
 			};
         }];
 
@@ -86,7 +61,6 @@
             templateUrl: 'app-assets/flight/views/multi/flightRowMulti.html',
             controller: controller,
 			scope: {
-                data: "=",
 				sortby: "=",
 				sorted:"=",
 				itinerary:"="

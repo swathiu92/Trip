@@ -1,0 +1,79 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="modify_search shadow_genrator margin-bottom-20" data-ng-if="itinerary.travelType!=='multi'">
+            <div class="box" style="padding-bottom:15px;">
+                <div class="modify_top col-md-12 col-sm-12 hidden-xs visible-stb">
+                    <div class="row">
+                        <a class="col-md-3 col-sm-3 col-xs-3 has_right_border" href="javascript:angular.noop();">
+                            <span data-ng-bind="(itinerary.travelType==='oneway')?'ONE WAY':'ROUND TRIP'"></span>
+                            <p class="">{{itinerary.itineraryDetails.from.name}} to {{itinerary.itineraryDetails.to.name}}</p>
+                        </a>
+                        <a class="has_right_border" data-ng-class="{'col-md-4 col-sm-4 col-xs-4': (itinerary.travelType==='oneway'), 'col-md-2 col-sm-2 col-xs-2': (itinerary.travelType==='roundtrip')}" data-ng-style="(itinerary.travelType==='oneway') && {'text-align':'center'}" href="javascript:angular.noop();">
+                            <span>DEPARTURE</span>
+                            <p class="" style="position: relative;">
+                                <span class="glyphicon glyphicon-calendar hidden-stb" style="font-size: 18px;"></span>
+                                <span class="date" style="font-size: 20px;line-height: 1;">{{itinerary.localObj.departureDetails.date}}</span>
+                                <span style="display: inline-block;line-height: 1.2em;padding-left: 5px;vertical-align: top;text-transform: uppercase;font-size: 12px;">
+									<span style="display: block;">{{itinerary.localObj.departureDetails.month}}&nbsp; {{itinerary.localObj.departureDetails.year}}</span>
+                                <span>{{itinerary.localObj.departureDetails.day}}</span>
+                                </span>
+                            </p>
+                        </a>
+                        <a class="col-md-2 col-sm-2 col-xs-2 has_right_border" href="javascript:angular.noop();" ng-click="showModifySearch();" data-ng-if="itinerary.travelType==='roundtrip'">
+                            <span>ARRIVAL</span>
+                            <p class="" style="position: relative;">
+                                <span class="glyphicon glyphicon-calendar hidden-stb" style="font-size: 18px;"></span>
+                                <span class="" style="font-size: 20px;line-height: 1;">{{itinerary.localObj.arrivalDetails.date}}</span>
+                                <span class=" " style="display: inline-block;line-height: 1.2em;padding-left: 5px;vertical-align: top;text-transform: uppercase;font-size: 12px;">
+									<span class="" style="display: block;">{{itinerary.localObj.arrivalDetails.month}}&nbsp; {{itinerary.localObj.arrivalDetails.year}}</span>
+                                <span class="">{{itinerary.localObj.arrivalDetails.day}}</span>
+                                </span>
+                            </p>
+                        </a>
+                        <div class="hidden-stb">
+                            <a class="col-md-1 col-sm-1 text-center" href="javascript:angular.noop();" ng-click="showModifySearch();">
+                                <p class="" style="font: normal 10px Tahoma, Geneva, sans-serif;margin-bottom: 4px;text-transform: uppercase;color: #878787;">Adult</p>
+                                <p class="">
+                                    <span class="">{{(itinerary.travellerDetails.adult !==0)?(itinerary.travellerDetails.adult):"--"}}</span>
+                                </p>
+                            </a>
+                            <a class="col-md-1 col-sm-1 text-center" href="javascript:angular.noop();" ng-click="showModifySearch();">
+                                <p class="" style="font: normal 10px Tahoma, Geneva, sans-serif;margin-bottom: 4px;text-transform: uppercase;color: #878787;">Child</p>
+                                <p class="">
+                                    <span class="">{{(itinerary.travellerDetails.child !==0)?(itinerary.travellerDetails.child):"--"}}</span>
+                                </p>
+                            </a>
+                            <a class="col-md-1 col-sm-1 text-center" href="javascript:angular.noop();" ng-click="showModifySearch();">
+                                <p class="" style="font: normal 10px Tahoma, Geneva, sans-serif;margin-bottom: 4px;text-transform: uppercase;color: #878787;">Infant</p>
+                                <p class="">
+                                    <span class="">{{(itinerary.travellerDetails.infant !==0)?(itinerary.travellerDetails.infant):"--"}}</span>
+                                </p>
+                            </a>
+                        </div>
+                        <div class="col-md-2 col-sm-2 modify">
+                            <button class="btn btn-default" ui-sref="dashboard">Modify Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modify_search shadow_genrator margin-bottom-20" data-ng-if="itinerary.travelType==='multi'">
+            <div class="box" style="padding-bottom:15px;">
+                <div ng-repeat="city in itinerary.itineraryDetails.cities">
+                    <div class="col-md-2" style="text-align:center">
+                        <button class="btn btn-default" data-ng-click="selectedCity(city)">
+							<h3 class="fs-md bold inlineblock" style="font-size: 13px;">
+								<i class="fa fa-plane gray-light"></i>
+								<span>{{city.from.key | uppercase}}</span> &nbsp;
+								<i class="glyphicon glyphicon-arrow-right"></i>{{city.to.key | uppercase}}
+							</h3>
+							<i style="color:green;" data-ng-show="city.booked" class="fa fa-1x fa-check-circle" aria-hidden="true"></i>
+						</button>
+                    </div>
+                </div>
+                <div class="price round-price" style="margin-left: 10px;" data-ng-disabled="!itinerary.localObj.allBooked" data-ng-click="itinerary.localObj.bookFlight()">Book</div>
+                <div class="price round-price" ui-sref="dashboard">Back</div>
+            </div>
+        </div>
+    </div>
+</div>
