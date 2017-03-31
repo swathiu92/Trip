@@ -7,7 +7,7 @@
                 transformedInput.date = input.getDate();
                 transformedInput.month = CONSTANTS.months[input.getMonth()];
                 transformedInput.day = CONSTANTS.days[input.getDay()];
-                transformedInput.year = $filter("date")(input, "yy");
+                transformedInput.year = $filter("date")(input, "yyyy");
                 return transformedInput;
             };
         });

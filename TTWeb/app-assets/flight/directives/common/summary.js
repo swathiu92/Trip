@@ -108,6 +108,7 @@
 					}, 'itinerary');
                     $state.go("submit");
                 };
+				
             }];
 
             return {

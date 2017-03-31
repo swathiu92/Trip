@@ -12,8 +12,8 @@
                 flightService.mode = 2
 				$scope.itinerary.itineraryDetails.from.key = $scope.itinerary.itineraryDetails.from.name.substring(0, 3);
 				$scope.itinerary.itineraryDetails.to.key = $scope.itinerary.itineraryDetails.to.name.substring(0, 3);
-				$scope.itinerary.localObj.departureDetails = $filter("dateSplit")($scope.itinerary.itineraryDetails.departure, "yy");
-				$scope.itinerary.localObj.arrivalDetails = $filter("dateSplit")($scope.itinerary.itineraryDetails.arrival, "yy");
+				$scope.itinerary.localObj.departureDetails = $filter("dateSplit")($scope.itinerary.itineraryDetails.departure, "yyyy");
+				$scope.itinerary.localObj.arrivalDetails = $filter("dateSplit")($scope.itinerary.itineraryDetails.arrival, "yyyy");
 				ShareDataService.setSharedData({
 					itinerary: $scope.itinerary
 	            }, 'itinerary');
