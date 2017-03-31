@@ -1119,3 +1119,18 @@ a {
 .modify_search label {
 	color:black;
 }
+.submit-traveller {
+	color: #A7A7A7;
+}
+.submit-traveller span {
+	font-size: 15px;
+}
+.submit-traveller p {
+	font-size: 12px;
+}
+.submit-fare {
+	margin-bottom:10px;
+}
+.submit-fare li {
+	color: #A7A7A7;
+}

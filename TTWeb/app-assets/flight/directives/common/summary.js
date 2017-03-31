@@ -85,7 +85,7 @@
                 $scope.goToSummary = function() {
                     var moveNext = true;
                     $scope.itinerary.localObj.travellerSubmitted = true;
-                    if ($scope.itinerary.contact && $scope.itinerary.code) {
+                    if ($scope.itinerary.travellerDetails.contact && $scope.itinerary.travellerDetails.code) {
                         for (var c = 0; c < $scope.itinerary.travellerDetails.travellerInfo.length; c++) {
                             if (!$scope.itinerary.travellerDetails.travellerInfo[c].firstName || !$scope.itinerary.travellerDetails.travellerInfo[c].lastName || !$scope.itinerary.travellerDetails.travellerInfo[c].title) {
                                 moveNext = false;
@@ -103,7 +103,10 @@
                     $scope.itinerary.localObj.showContainer = 'travellerDetails';
                 };
                 $scope.submitBooking = function() {
-                    console.log('booking done');
+					ShareDataService.setSharedData({
+						itinerary: $scope.itinerary
+					}, 'itinerary');
+                    $state.go("submit");
                 };
             }];
 

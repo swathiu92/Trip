@@ -126,6 +126,15 @@
 			}
 			
         })
+		.state('submit', {
+            url: '/submit',
+            templateUrl: 'app-assets/flight/views/common/submit.html',
+			controller: function($scope, ShareDataService) {
+				$scope.itinerary = ShareDataService.getSharedData().itinerary;
+				console.log($scope.itinerary);
+			}
+			
+        })
        
         .state('cruise', {
             url: '/cruise'

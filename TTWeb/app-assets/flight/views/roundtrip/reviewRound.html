@@ -34,14 +34,14 @@
                                         <br><span class="ng-binding">{{itinerary.itineraryDetails.to.name}} Airport</span></p>
                                 </div>
                                 <div class="col-xs-6 col-md-push-6 col-md-3 sm-border-left" data-ng-if="$index === 0">
-                                    <p class="ng-binding">{{booked.to.name}}, {{booked.to.state}}</p>
+                                    <p class="ng-binding">{{itinerary.itineraryDetails.to.name}}, {{itinerary.itineraryDetails.to.state}}</p>
                                     <h3 class="fs-base bold gray-dark">
-                                        {{booked.to.key | uppercase}}
+                                        {{itinerary.itineraryDetails.to.key | uppercase}}
                                         <span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.arrival}}
                                     </h3>
                                     <p class="fs-sm gray ng-binding">
                                         <span data-ng-if="itinerary.travelType === '2'">{{itinerary.arrival | date : "dd MMM yyyy"}}</span>
-                                        <br> <span>{{booked.to.name}} Airport</span> </p>
+                                        <br> <span>{{itinerary.itineraryDetails.to.name}} Airport</span> </p>
                                 </div>
                                 <div class="col-xs-6 col-md-push-6 col-md-3 sm-border-left" data-ng-if="$index === 1">
                                     <p class="ng-binding">{{itinerary.itineraryDetails.from.name}}, {{itinerary.itineraryDetails.from.state}}</p>
