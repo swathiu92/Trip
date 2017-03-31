@@ -2,7 +2,30 @@
     "use strict";
     angular.module("common.services")
     .directive('searchResultRoundTrip', function () {
-        var controller = ['$scope', '$log', 'flightService','ShareDataService', function ($scope, $log, flightService, ShareDataService) {
+        var controller = ['$scope', '$log', '$uibModal', '$interval', 'flightService','ShareDataService', function ($scope, $log, $uibModal, $interval, flightService, ShareDataService) {
+			$scope.showLoader = function() {
+				var modalInstance;
+				modalInstance = $uibModal.open({
+					animation: true,
+					templateUrl: 'loader.html',
+					backdrop: 'static',
+					controller: function($scope, $timeout, $uibModalInstance) {
+						var count  = 10;
+						$scope.progressValue = 0;
+						var interval = $interval(function (index) {
+							if ($scope.progressValue < 100) {
+								$scope.progressValue = count + 10;
+								count = count +10;
+							} else {
+							  $uibModalInstance.close();
+							  $interval.cancel(interval);
+							}
+						}, 500);
+					},
+					size: 'md'
+				});
+			};
+			$scope.showLoader();
 			$scope.results = {};
 			$scope.sortby = '';
 			$scope.sorted = '';

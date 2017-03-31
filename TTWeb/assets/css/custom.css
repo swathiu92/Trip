@@ -1116,3 +1116,6 @@ a {
 .error-class {
 	border: 1px solid #ef4639;
 }
+.modify_search label {
+	color:black;
+}
