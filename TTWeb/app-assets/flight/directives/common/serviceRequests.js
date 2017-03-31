@@ -2,7 +2,7 @@
     "use strict";
     angular.module("common.services")
         .directive('serviceRequests', function() {
-            var controller = ['$scope', 'flightService', function($scope, flightService) {
+            var controller = ['$scope', '$timeout', 'flightService', function($scope, $timeout, flightService) {
                 flightService.getMeals().then(function(data) {
                     $scope.mealList = data;
                 }, function(rejection) {});
@@ -35,6 +35,11 @@
                         $scope.itinerary.travelInfo.totalExtraPrice = parseInt($scope.itinerary.travelInfo.mealsPrice) + parseInt($scope.itinerary.travelInfo.baggagePrice);
                         $scope.itinerary.travelInfo.totalPrice = $scope.itinerary.travelInfo.totalTravellerPrice + $scope.itinerary.travelInfo.totalFares + $scope.itinerary.travelInfo.totalExtraPrice;
                     });
+                };
+				$scope.hideOlList = function() {
+                    $timeout(function() {
+                        $(".carousel ol").remove();
+                    }, 500);
                 };
             }];
 

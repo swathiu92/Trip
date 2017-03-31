@@ -2,7 +2,10 @@
     "use strict";
     angular.module("common.services")
         .directive('travelSummary', function() {
-            var controller = ['$scope', function($scope) {}];
+            var controller = ['$scope', 'ShareDataService', function($scope, ShareDataService) {
+				$scope.itinerary = ShareDataService.getSharedData().itinerary;
+                
+			}];
 
             return {
                 scope: {},
