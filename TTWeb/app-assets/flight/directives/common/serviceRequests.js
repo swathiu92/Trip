@@ -2,7 +2,7 @@
     "use strict";
     angular.module("common.services")
     .directive('serviceRequests', function () {
-        var controller = ['$scope', function ($scope) {
+        var controller = ['$scope','$timeout', function ($scope, $timeout) {
 			$scope.mealList = [{
                     "grp": "Vegetarian",
                     "name": "Veg Samosa and Chai",
@@ -125,6 +125,11 @@
 					$scope.itinerary.travelInfo.totalExtraPrice = parseInt($scope.itinerary.travelInfo.mealsPrice) + parseInt($scope.itinerary.travelInfo.baggagePrice);
 					$scope.itinerary.travelInfo.totalPrice = $scope.itinerary.travelInfo.totalTravellerPrice + $scope.itinerary.travelInfo.totalFares + $scope.itinerary.travelInfo.totalExtraPrice;
 				};
+				$scope.hideOlList = function() {
+                    $timeout(function() {
+                        $(".carousel ol").remove();
+                    }, 500);
+                };
 				$scope.unselectOther = function(id) {
 					$scope.itinerary.travelInfo.baggagePrice = 0;
                     angular.forEach($scope.itinerary.travelInfo.baggageDetails, function(value, key) {
