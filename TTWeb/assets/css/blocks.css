@@ -4848,7 +4848,7 @@
 ----------------------------------------------------*/
 #topcontrol {
   color: #fff;
-  z-index: 99;
+  z-index: 9999;
   width: 30px;
   height: 30px;
   font-size: 20px;
