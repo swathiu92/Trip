@@ -21,7 +21,7 @@
         <uib-progressbar class="progress-striped active" max="100" value="progressValue"></uib-progressbar>
 	</div>
 </script>
-<div class="stickyFooter custom-footer" data-ng-show=" itinerary && itinerary.localObj && (itinerary.localObj.originSelected && itinerary.localObj.destinationSelected)">
+<div class="stickyFooter custom-footer" data-ng-show="itinerary.localObj.selectedIndex>=0">
     <div class="container">
         <div class="row">
             <div class="col-md-5" style="border-right: 1px solid white;">
