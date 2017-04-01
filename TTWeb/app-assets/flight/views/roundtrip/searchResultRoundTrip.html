@@ -14,20 +14,20 @@
     </div>
 </section>
 <script type="text/ng-template" id="loader.html">
-    <div class="modal-header">
+ <div class="modal-header">
         <h4 class="modal-title">Please wait while we fetch the best airlines for you....</h4>
     </div>
     <div class="modal-body">
         <uib-progressbar class="progress-striped active" max="100" value="progressValue"></uib-progressbar>
-    </div>
+	</div>
 </script>
 <div class="stickyFooter custom-footer" data-ng-show=" itinerary && itinerary.localObj && (itinerary.localObj.originSelected && itinerary.localObj.destinationSelected)">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-5" style="border-right: 1px solid white;">
                 <div class="row">
-                    <div class="col-md-4">
-                        <p> <i class="L6E_sm logo pull-left {{itinerary.bookDetails[1].alias}}" style="float: none !important;display: inline-block;"></i>
+                    <div class="col-md-5" style="text-align:center;">
+                        <p> <i class="L6E_sm logo {{itinerary.bookDetails[1].alias}}" style="float: none !important;display: inline-block;"></i>
                             <span class="inlineblock ng-binding color-white">{{itinerary.bookDetails[1].airlines}} <br>
                               <span class="fs-xs gray ng-binding color-white">{{itinerary.bookDetails[1].flightno}}</span> </span>
                             <br class="hidden-xs-down">
@@ -44,7 +44,7 @@
                             <div>{{itinerary.itineraryDetails.to.key}}</div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div>Total Duration</div>
                         <div>{{itinerary.bookDetails[1].duration}}</div>
                     </div>
@@ -52,10 +52,10 @@
 
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-5" style="border-right: 1px solid white;">
                 <div class="row">
-                    <div class="col-md-4">
-                        <p> <i class="L6E_sm logo pull-left {{itinerary.bookDetails[0].alias}}" style="float: none !important;display: inline-block;"></i>
+                    <div class="col-md-5" style="text-align:center;">
+                        <p> <i class="L6E_sm logo {{itinerary.bookDetails[0].alias}}" style="float: none !important;display: inline-block;"></i>
                             <span class="inlineblock ng-binding color-white">{{itinerary.bookDetails[0].airlines}}<br>
                               <span class="fs-xs gray ng-binding color-white">{{itinerary.bookDetails[0].flightno}}</span> </span>
                             <br class="hidden-xs-down">
@@ -74,7 +74,7 @@
                             <div>{{itinerary.itineraryDetails.from.key}}</div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div>Total Duration</div>
                         <div>{{itinerary.bookDetails[0].duration}}</div>
                     </div>
@@ -82,7 +82,7 @@
 
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <div class="float-right fare-details-margin">
                     <button data-ng-click="itinerary.localObj.flightSelected()">Book</button>
                 </div>
