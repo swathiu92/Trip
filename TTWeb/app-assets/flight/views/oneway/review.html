@@ -1,6 +1,7 @@
-<div class="row">
-    <div class="checkoutbox " style="font-size:0.9em">
-        <h3 class="box-title fs-md normal">Review Your Booking&nbsp;</h3>
+<div ng-class="{'row':itinerary.localObj.showContainer!='summary'}">
+    <div ng-class="{'checkoutbox':itinerary.localObj.showContainer!='summary'}" style="font-size:0.9em">
+        <h3 ng-show="itinerary.localObj.showContainer!='summary'" class="box-title fs-md normal">Review Your Booking&nbsp;
+        </h3>
         <div class="box-content">
             <div class="accordion-sm">
                 <div class="acc-content" data-ng-repeat="booked in itinerary.bookDetails track by $index">

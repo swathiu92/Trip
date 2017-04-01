@@ -4,8 +4,9 @@
             <h3> Flight Confirmed!</h3>
 			<div style="margin-bottom:10px;">
 				<div style="font-weight: bold;font-size: 18px;margin-bottom: 20px;">
-					<span>Hello,</span>
-					<div>Your flight {{itinerary.itineraryDetails.from.name}} - {{itinerary.itineraryDetails.to.name}} one-way has been confirmed</div>
+					<span>Hello <span data-ng-repeat="traveller in itinerary.travellerDetails.travellerInfo" ng-if="$index==0"> {{traveller.firstName}} {{traveller.middleName}} {{traveller.lastName}},
+ 						</span></span>
+					<div>Your flight {{itinerary.itineraryDetails.from.name}} - {{itinerary.itineraryDetails.to.name}}, <span ng-if="itinerary.travelType=='roundtrip'">round</span><span ng-if="itinerary.travelType=='oneway'">one-way</span><span ng-if="itinerary.travelType=='multi'">multi-city</span>-trip has been confirmed</div>
 					<div> We will email your ticket shortly.</div>
 				</div>
 				<div style="color: #A7A7A7;font-size: 15px;">
@@ -19,7 +20,7 @@
             <div class="col-md-12" style="margin-top: 20px;">
                 <div class="col-md-6">
 					<div style="color: #a7a7a7;font-weight: bold;"> Flight Details </div>
-					<div class="" data-ng-repeat="flight in itinerary.bookDetails" style="margin-top: 10px;margin-bottom: 30px;">
+					<div class="" data-ng-repeat="flight in itinerary.bookDetails track by $index" style="margin-top: 10px;margin-bottom: 30px;">
 						<div style="display:inline;float:left"> 
 							<i class="L6E_sm logo pull-left {{flight.alias}}" style="float: none !important;display: inline-block;"></i> 
 							<span class="inlineblock" style="color: black;font-size: 13px;">
@@ -41,9 +42,11 @@
 								<span style="color: #A7A7A7;font-size: 12px;">{{itinerary.itineraryDetails.departure | date: 'dd MMM yyyy'}}</span>
 							</div> &nbsp;
 							<i class="fa fa-plane gray-light" style="margin-right: 50px;"></i>
+							<i  ng-if="itinerary.travelType=='roundtrip'" class="fa fa-plane gray-light fa-rotate-180"></i>
+
 							<div style="display: inline-block;">
 								<div>{{itinerary.itineraryDetails.to.name}}</div>
-								<span style="color: #A7A7A7;font-size: 12px;">{{itinerary.itineraryDetails.arrival | date: 'dd MMM yyyy'}}</span>
+								<span ng-show="itinerary.itineraryDetails.arrival" style="color: #A7A7A7;font-size: 12px;">{{itinerary.itineraryDetails.arrival | date: 'dd MMM yyyy'}}</span>
 							</div>
 						</h3>
                     </div>
