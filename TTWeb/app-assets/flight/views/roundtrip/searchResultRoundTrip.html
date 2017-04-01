@@ -21,3 +21,115 @@
         <uib-progressbar class="progress-striped active" max="100" value="progressValue"></uib-progressbar>
     </div>
 </script>
+<div class="stickyFooter custom-footer" data-ng-show=" itinerary && itinerary.localObj && itinerary.localObj.selectedIndex>=0 ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p> <i class="L6E_sm logo pull-left {{itinerary.bookDetails[1].alias}}" style="float: none !important;display: inline-block;"></i>
+                            <span class="inlineblock ng-binding color-white">{{itinerary.bookDetails[1].airlines}} <br>
+                              <span class="fs-xs gray ng-binding color-white">{{itinerary.bookDetails[1].flightno}}</span> </span>
+                            <br class="hidden-xs-down">
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="float-left">
+                            <div>{{itinerary.bookDetails[1].departure}}</div>
+                            <div>{{itinerary.itineraryDetails.from.key}}</div>
+                        </div>
+                        <div class="float-left icons--margin"><i class="fa fa-exchange ng-scope fa-long-arrow-right"></i></div>
+                        <div class="float-left">
+                            <div>{{itinerary.bookDetails[1].arrival}}</div>
+                            <div>{{itinerary.itineraryDetails.to.key}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div>Total Duration</div>
+                        <div>{{itinerary.bookDetails[1].duration}}</div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p> <i class="L6E_sm logo pull-left {{itinerary.bookDetails[0].alias}}" style="float: none !important;display: inline-block;"></i>
+                            <span class="inlineblock ng-binding color-white">{{itinerary.bookDetails[0].airlines}}<br>
+                              <span class="fs-xs gray ng-binding color-white">{{itinerary.bookDetails[0].flightno}}</span> </span>
+                            <br class="hidden-xs-down">
+                        </p>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="float-left">
+                            <div>{{itinerary.bookDetails[0].departure}}</div>
+                            <div>{{itinerary.itineraryDetails.to.key}}</div>
+                        </div>
+                        <div class="float-left icons--margin">
+						<i class="fa fa-exchange ng-scope fa-long-arrow-right"></i></div>
+                        <div class="float-left">
+                            <div>{{itinerary.bookDetails[0].arrival}}</div>
+                            <div>{{itinerary.itineraryDetails.from.key}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div>Total Duration</div>
+                        <div>{{itinerary.bookDetails[0].duration}}</div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="float-right fare-details-margin">
+                    <button data-ng-click="itinerary.localObj.flightSelected()">Book</button>
+                </div>
+                <div class="float-right">
+                    <div>Total Amount</div>
+                    <div>{{itinerary.localObj.fare | currency : '&#8377;'}}*</div>
+                    <!-- <div><a href="">fare Details</a></div> -->
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .stickyFooter {
+        background: rgba(74, 74, 74, 0.99);
+        border-top: solid 1px #fff;
+        color: #ffffff !important;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        z-index: 200;
+    }
+
+    .custom-footer .color-white {
+        color: #ffffff !important;
+    }
+
+    .float-left {
+        float: left;
+    }
+
+    .float-right {
+        float: right;
+    }
+
+    .icons--margin {
+        padding: 0 10px;
+    }
+
+    .fare-details-margin {
+        margin-left: 10px;
+    }
+</style>
