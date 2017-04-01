@@ -15,6 +15,9 @@
 			};
 			$scope.itinerary.cities = [];
 			$scope.itinerary.localObj.flightSelected = function(details, status, index){
+				$scope.itinerary.bookDetails = [];
+				$scope.itinerary.bookDetails.push($scope.itinerary.localObj.destinationBooked);
+				$scope.itinerary.bookDetails.push($scope.itinerary.localObj.originBooked);
 				$scope.itinerary.localObj.showContainer ='review';
 				ShareDataService.setSharedData({
 					itinerary: $scope.itinerary
@@ -23,14 +26,9 @@
 			};
 			$scope.showBookSection= [];
 			$scope.bookThis = function(details, status, index){
-				$scope.itinerary.bookDetails = [];
-				$scope.itinerary.bookDetails.push(details);
-				$scope.itinerary.localObj.selectedIndex = index;
-				$scope.itinerary.bookDetails.push($scope.data[status][index]);
-                /* $scope.itinerary.bookDetails[0].from = angular.copy($scope.itinerary.itineraryDetails.from);
-				$scope.itinerary.bookDetails[0].to = angular.copy($scope.itinerary.itineraryDetails.to);
-				$scope.itinerary.bookDetails[1].from = angular.copy($scope.itinerary.itineraryDetails.to);
-				$scope.itinerary.bookDetails[1].to = angular.copy($scope.itinerary.itineraryDetails.from);
+				$scope.itinerary.localObj[status+'Booked'] = {};
+				$scope.itinerary.localObj[status+'Booked'] = details;
+				$scope.itinerary.localObj[status+'Selected'] = details.flightno;
 				 */$scope.showBookSection[index] = true;
 				if($scope.showBookSection && $scope.showBookSection.length>1){
 					angular.forEach($scope.showBookSection,function(value,key){
@@ -39,18 +37,19 @@
 						}
 					});
 				}
-				var amount = '';
-				if($scope.itinerary.travellerDetails.adult){
-					amount = $scope.itinerary.bookDetails[0].adultprice*$scope.itinerary.travellerDetails.adult + $scope.itinerary.bookDetails[1].adultprice*$scope.itinerary.travellerDetails.adult
-				}
-				if($scope.itinerary.travellerDetails.child){
-					amount = amount + $scope.itinerary.bookDetails[0].childprice*$scope.itinerary.travellerDetails.child + $scope.itinerary.bookDetails[1].childprice*$scope.itinerary.travellerDetails.child
-				}
-				if($scope.itinerary.travellerDetails.infant){
-					amount = amount + $scope.itinerary.bookDetails[0].infantprice*$scope.itinerary.travellerDetails.infant + $scope.itinerary.bookDetails[1].infantprice*$scope.itinerary.travellerDetails.infant					
-				}
-				$scope.itinerary.localObj.fare = amount;
-				
+				var amount = 0;
+				if($scope.showBookSection[index]){
+					if($scope.itinerary.travellerDetails.adult){
+					amount = $scope.itinerary.localObj.originBooked.adultprice*$scope.itinerary.travellerDetails.adult + $scope.itinerary.localObj.destinationBooked.adultprice*$scope.itinerary.travellerDetails.adult
+					}
+					if($scope.itinerary.travellerDetails.child){
+						amount = amount + $scope.itinerary.localObj.originBooked.childprice*$scope.itinerary.travellerDetails.child + $scope.itinerary.localObj.destinationBooked.childprice*$scope.itinerary.travellerDetails.child
+					}
+					if($scope.itinerary.travellerDetails.infant){
+						amount = amount + $scope.itinerary.localObj.originBooked.infantprice*$scope.itinerary.travellerDetails.infant + $scope.itinerary.localObj.destinationBooked.infantprice*$scope.itinerary.travellerDetails.infant					
+					}
+					$scope.itinerary.localObj.fare = amount;
+					}
 			};
         }];
 
