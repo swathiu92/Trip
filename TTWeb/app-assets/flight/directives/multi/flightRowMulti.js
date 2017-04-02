@@ -26,12 +26,18 @@
           }, function(rejection) {
           });
 			$scope.selectFlight = function(booked, index){
+				$scope.itinerary.localObj.multiSelect = true;
 				var select = $scope.itinerary.localObj.selectedFlights.findIndex(x => x.id === $scope.itinerary.localObj.currentCity.id);
 				if(select === -1){
 					$scope.itinerary.localObj.selectedFlights.push({id:$scope.itinerary.localObj.currentCity.id, booked:booked});
 				} else {
 					$scope.itinerary.localObj.selectedFlights[select].booked = booked;
 				}
+				angular.forEach($scope.itinerary.itineraryDetails.cities,function(value, key){
+					if(!$scope.itinerary.localObj.selectedItinerary[value.id]) {
+						$scope.itinerary.localObj.selectedItinerary[value.id] = angular.copy(data);
+					}	
+				});
 				//selectedFlights.push({id:index, booked:booked});
 				ShareDataService.setSharedData({
 					selectedFlights: $scope.itinerary.localObj.selectedFlights
@@ -48,6 +54,13 @@
 					$scope.itinerary.itineraryDetails.cities[key].to.key = $scope.itinerary.itineraryDetails.cities[key].to.name.substring(0, 3);
 					if((value.from.name === $scope.itinerary.localObj.currentCity.from.name) && (value.to.name === $scope.itinerary.localObj.currentCity.to.name)) {
 						$scope.itinerary.itineraryDetails.cities[key].booked = true;
+					}
+				});
+				var selectedOne = false;
+				angular.forEach($scope.itinerary.itineraryDetails.cities, function(value, key){
+					if(!$scope.itinerary.itineraryDetails.cities[key].booked && !selectedOne) {
+						$scope.itinerary.localObj.currentCity = $scope.itinerary.itineraryDetails.cities[key];
+						selectedOne = true;
 					}
 				});
 				var booked = $scope.itinerary.itineraryDetails.cities.findIndex(x => x.booked === undefined);
