@@ -1,4 +1,4 @@
-/* Add here all your css styles (customizations) */
+    /* Add here all your css styles (customizations) */
 
 body {
     font-family: "Lato Regular";
@@ -982,15 +982,17 @@ input[type="radio"] {
 
 .content {
     padding-top: 44px;
-    padding-bottom:0;
+    padding-bottom: 0;
 }
-.counter-control{
-    font-size:25px;
-    font-weight:bold;
+
+.counter-control {
+    font-size: 25px;
+    font-weight: bold;
     color: white;
-    margin:10px;
+    margin: 10px;
     vertical-align: middle;
 }
+
 .details-box .passenger-label {
     padding-right: 5px;
 }
@@ -1113,61 +1115,53 @@ input[type="radio"] {
         margin: 8px 15px;
     }
 }
-@media (max-width:991px) and (min-width:768px){
-.content{
-    padding-top:0
-}
-/** swathi **/
 
-.popover {
-    width: 500px;
-}
-
-.remove {
-    cursor: pointer;
-    opacity: 0.6;
-    margin-right: 20px;
-    margin-left: -18px;
-}
-
-.remove:hover {
-    opacity: 1.0
-}
-
-.fare-chevron {
-    font-size: 12px;
-    font-weight: bold;
-    color: #A7A7A7;
-}
-
-a {
-    color: inherit;
-}
-
-.error-class {
-    border: 1px solid #ef4639;
-}
-
-.modify_search label {
-    color: black;
-}
-
-.submit-traveller {
-    color: #A7A7A7;
-}
-
-.submit-traveller span {
-    font-size: 15px;
-}
-
-.submit-traveller p {
-    font-size: 12px;
-}
-
-.submit-fare {
-    margin-bottom: 10px;
-}
-
-.submit-fare li {
-    color: #A7A7A7;
-}
+@media (max-width:991px) and (min-width:768px) {
+    .content {
+        padding-top: 0
+    }
+    .btn-sm {
+        width: 100%;
+    }
+    /** swathi **/
+    .popover {
+        width: 500px;
+    }
+    .remove {
+        cursor: pointer;
+        opacity: 0.6;
+        margin-right: 20px;
+        margin-left: -18px;
+    }
+    .remove:hover {
+        opacity: 1.0
+    }
+    .fare-chevron {
+        font-size: 12px;
+        font-weight: bold;
+        color: #A7A7A7;
+    }
+    a {
+        color: inherit;
+    }
+    .error-class {
+        border: 1px solid #ef4639;
+    }
+    .modify_search label {
+        color: black;
+    }
+    .submit-traveller {
+        color: #A7A7A7;
+    }
+    .submit-traveller span {
+        font-size: 15px;
+    }
+    .submit-traveller p {
+        font-size: 12px;
+    }
+    .submit-fare {
+        margin-bottom: 10px;
+    }
+    .submit-fare li {
+        color: #A7A7A7;
+    }
