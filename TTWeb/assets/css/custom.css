@@ -982,6 +982,7 @@ input[type="radio"] {
 
 .content {
     padding-top: 44px;
+    padding-bottom:0;
 }
 .counter-control{
     font-size:25px;
@@ -1112,8 +1113,10 @@ input[type="radio"] {
         margin: 8px 15px;
     }
 }
-
-
+@media (max-width:991px) and (min-width:768px){
+.content{
+    padding-top:0
+}
 /** swathi **/
 
 .popover {
