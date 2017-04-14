@@ -24,7 +24,8 @@
         <label for="flyingTo">Flying To</label>
         <div class="input-group margin-bottom-20" data-ng-class="{'error-class': submitted && !itinerary.to}">
             <span class="input-group-addon rounded-left"><i class="fa fa-plane fa-lg fa-rotate-90 color-blue"></i></span>
-            <input type="text" ng-model="itinerary.to" uib-popover="{{submitted && !itinerary.to?'Please enter required field':''}}" popover-trigger="'focus'" class="form-control rounded-right" id="flyingTo" placeholder="Going To (city, distirct or specific airport)" />
+            <!-- <input type="text" ng-model="itinerary.to" uib-popover="{{submitted && !itinerary.to?'Please enter required field':''}}" popover-trigger="'focus'" class="form-control rounded-right" id="flyingTo" placeholder="Going To (city, distirct or specific airport)" /> -->
+            <input type="text" ng-model="itinerary.to" uib-popover="{{submitted && !itinerary.to?'Please enter required field':''}}" popover-trigger="'focus'" autocomplete="off" uib-typeahead="state as state.name for state in states | filter:$viewValue | limitTo:8" typeahead-editable="false" class="form-control rounded-right" id="flyingTo" placeholder="Going To (city, distirct or specific airport)" />
         </div>
     </div>
 </div>

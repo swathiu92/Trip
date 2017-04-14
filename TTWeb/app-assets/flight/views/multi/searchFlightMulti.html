@@ -7,7 +7,7 @@
         <div class="col-md-1" ng-show="city.showRemove" style="margin-top:5px;cursor:pointer;">
             <div class="form-group">
                 <label for="flyingFrom">&nbsp; </label>
-                <a data-ng-if="$index !== 0" ng-click="removeCity(city)"> &nbsp;<i class="fa fa-times-circle fa-2x fa-inverse"></i></a>
+                <a data-ng-if="$index !== 0 && $last" ng-click="removeCity(city)"> &nbsp;<i class="fa fa-times-circle fa-2x fa-inverse"></i></a>
             </div>
         </div>
     </div>

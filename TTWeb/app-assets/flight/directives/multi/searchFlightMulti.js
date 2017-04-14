@@ -21,10 +21,10 @@
                     return;
                 //hide remove button of previous city
                 var index = $scope.citiCount - 2;//array is zero based, 1 item is statically added
-                if (index >= 0) {
+                /* if (index >= 0) {
                     if (!angular.isUndefined($scope.itinerary.itineraryDetails.cities[index]))
                         $scope.itinerary.itineraryDetails.cities[index].showRemove = false;
-                }
+                } */
                 $scope.itinerary.itineraryDetails.cities.push({
                     id: $scope.citiCount,
 					from: '',
@@ -41,8 +41,8 @@
                     return;
                 //show remove button of previous city
                 var index = $scope.citiCount - 3;//array is zero based, 1st item is statically added, cann't be removed
-                if (!angular.isUndefined($scope.itinerary.itineraryDetails.cities[index]))
-                    $scope.itinerary.itineraryDetails.cities[index].showRemove = true;
+                /* if (!angular.isUndefined($scope.itinerary.itineraryDetails.cities[index]))
+                    $scope.itinerary.itineraryDetails.cities[index].showRemove = true; */
                 $scope.itinerary.itineraryDetails.cities.splice($scope.itinerary.itineraryDetails.cities.indexOf(city), 1);
                 $scope.citiCount -= 1;
             };

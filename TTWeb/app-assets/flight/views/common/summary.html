@@ -11,29 +11,26 @@
         <review data-ng-if="itinerary.travelType==='oneway'" itinerary="itinerary"></review>
         <review-round data-ng-if="itinerary.travelType==='roundtrip'" itinerary="itinerary"></review-round>
         <review-multi data-ng-if="itinerary.travelType==='multi'" itinerary="itinerary"></review-multi>
-        <div class="center-block text-center mt-1 mb-1 sticky-sm-bottom hide-under-overlay">
-            <button class="button primary" ui-sref="searchflight" href="#/search">Back</button>
-            <button class="button primary" ng-click="continueToNextPage();">Continue </button>
-        </div>
     </div>
     <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" ng-if="itinerary.localObj.showContainer=='travellerDetails'">
         <traveller-details itinerary="itinerary"></traveller-details>
         <service-requests itinerary="itinerary"></service-requests>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <button class="button primary" ng-click="continueClicked=false;backToReview()">Back</button>
-                <button class="button primary" ng-click="continueClicked=true;goToSummary()">Continue</button>
-            </div>
-        </div>
     </div>
     <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" ng-if="itinerary.localObj.showContainer=='summary'">
         <travel-summary itinerary="itinerary"></travel-summary>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <button class="button primary" ng-click="continueClicked=false;backToitinerary()">Back</button>
-                <button class="button primary" ng-click="submitBooking()">Submit</button>
-            </div>
-        </div>
     </div>
     <fare-details itinerary="itinerary"></fare-details>
+	
+	<div class="col-md-3 text-center pull-right" ng-if="itinerary.localObj.showContainer=='review'">
+            <button class="button primary" style="min-width:100px" ui-sref="searchflight" href="#/search">Back</button>
+            <button class="button primary" style="min-width:100px" ng-click="continueToNextPage();">Continue </button>
+    </div>
+	 <div class="col-md-3 text-center pull-right" ng-if="itinerary.localObj.showContainer=='travellerDetails'">
+		<button class="button primary"  style="min-width:100px" ng-click="continueClicked=false;backToReview()">Back</button>
+		<button class="button primary" style="min-width:100px" ng-click="continueClicked=true;goToSummary()">Continue</button>
+	</div>
+	<div class="col-md-3 text-center pull-right" ng-if="itinerary.localObj.showContainer=='summary'">
+		<button class="button primary" style="min-width:100px" ng-click="continueClicked=false;backToitinerary()">Back</button>
+		<button class="button primary" style="min-width:100px"  ng-click="submitBooking()">Submit</button>
+	</div>
 </main>
