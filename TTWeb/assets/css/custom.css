@@ -588,8 +588,10 @@ ul.search-tabs li a {
     margin-right: 8px;
 }
 
-.container-fluid {
-    max-width: 1180px;
+.container-fluid.home-container {
+    max-width: 1600px;
+    width: 100%;
+    padding: 0;
 }
 
 .review-article h3,
@@ -970,6 +972,24 @@ input[type="radio"] {
 
 /*======Css by Aparna======*/
 
+
+/*======DashBoard Page Styling========*/
+
+.home-banner {
+    background-image: url("../../assets/images/home.jpg");
+    background-position: 50% 50%;
+}
+
+.content {
+    padding-top: 44px;
+}
+.counter-control{
+    font-size:25px;
+    font-weight:bold;
+    color: white;
+    margin:10px;
+    vertical-align: middle;
+}
 .details-box .passenger-label {
     padding-right: 5px;
 }
@@ -1092,45 +1112,59 @@ input[type="radio"] {
         margin: 8px 15px;
     }
 }
+
+
 /** swathi **/
+
 .popover {
     width: 500px;
 }
+
 .remove {
-	cursor: pointer;
-	opacity: 0.6;
-	margin-right: 20px;
+    cursor: pointer;
+    opacity: 0.6;
+    margin-right: 20px;
     margin-left: -18px;
 }
+
 .remove:hover {
-  opacity: 1.0
+    opacity: 1.0
 }
+
 .fare-chevron {
-	font-size: 12px;
+    font-size: 12px;
     font-weight: bold;
     color: #A7A7A7;
 }
+
 a {
-	color: inherit;
+    color: inherit;
 }
+
 .error-class {
-	border: 1px solid #ef4639;
+    border: 1px solid #ef4639;
 }
+
 .modify_search label {
-	color:black;
+    color: black;
 }
+
 .submit-traveller {
-	color: #A7A7A7;
+    color: #A7A7A7;
 }
+
 .submit-traveller span {
-	font-size: 15px;
+    font-size: 15px;
 }
+
 .submit-traveller p {
-	font-size: 12px;
+    font-size: 12px;
 }
+
 .submit-fare {
-	margin-bottom:10px;
+    margin-bottom: 10px;
 }
+
 .submit-fare li {
-	color: #A7A7A7;
+    color: #A7A7A7;
 }
