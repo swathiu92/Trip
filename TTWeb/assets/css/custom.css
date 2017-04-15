@@ -1113,7 +1113,9 @@ input[type="radio"] {
 .search-inline{
     margin-top:10px
 }
-
+.flight-detail-margin{
+    margin-top:5px;
+}
 @media (max-width:991px) {
     .float-none-sm {
         float: none !important;
