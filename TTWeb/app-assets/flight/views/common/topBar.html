@@ -1,14 +1,14 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="modify_search shadow_genrator margin-bottom-20" data-ng-if="itinerary.travelType!=='multi'">
-            <div class="box" style="padding-bottom:15px;">
+            <div class="search-summary">
                 <div class="modify_top col-md-12 col-sm-12 hidden-xs visible-stb">
                     <div class="row">
                         <a class="col-md-3 col-sm-3 col-xs-3 has_right_border" href="javascript:angular.noop();">
                             <span data-ng-bind="(itinerary.travelType==='oneway')?'ONE WAY':'ROUND TRIP'"></span>
                             <p class="">{{itinerary.itineraryDetails.from.name}} to {{itinerary.itineraryDetails.to.name}}</p>
                         </a>
-                        <a class="has_right_border" data-ng-class="{'col-md-4 col-sm-4 col-xs-4': (itinerary.travelType==='oneway'), 'col-md-2 col-sm-2 col-xs-2': (itinerary.travelType==='roundtrip')}" data-ng-style="(itinerary.travelType==='oneway') && {'text-align':'center'}" href="javascript:angular.noop();">
+                        <a class="has_right_border" data-ng-class="{'col-md-4 col-sm-4 col-xs-4': (itinerary.travelType==='oneway'), 'col-md-2 col-sm-3 col-xs-2': (itinerary.travelType==='roundtrip')}" data-ng-style="(itinerary.travelType==='oneway') && {'text-align':'center'}" href="javascript:angular.noop();">
                             <span>DEPARTURE</span>
                             <p class="" style="position: relative;">
                                 <span class="glyphicon glyphicon-calendar hidden-stb" style="font-size: 18px;"></span>
@@ -19,7 +19,7 @@
                                 </span>
                             </p>
                         </a>
-                        <a class="col-md-2 col-sm-2 col-xs-2 has_right_border" href="javascript:angular.noop();" ng-click="showModifySearch();" data-ng-if="itinerary.travelType==='roundtrip'">
+                        <a class="col-md-2 col-sm-3 col-xs-2 has_right_border" href="javascript:angular.noop();" ng-click="showModifySearch();" data-ng-if="itinerary.travelType==='roundtrip'">
                             <span>RETURN</span>
                             <p class="" style="position: relative;">
                                 <span class="glyphicon glyphicon-calendar hidden-stb" style="font-size: 18px;"></span>
@@ -30,7 +30,8 @@
                                 </span>
                             </p>
                         </a>
-                        <div class="hidden-stb">
+                        
+                        <div class="hidden-stb search-inline">
                             <a class="col-md-1 col-sm-1 text-center" href="javascript:angular.noop();" ng-click="showModifySearch();">
                                 <p class="" style="font: normal 10px Tahoma, Geneva, sans-serif;margin-bottom: 4px;text-transform: uppercase;color: #878787;">Adult</p>
                                 <p class="">
@@ -50,11 +51,15 @@
                                 </p>
                             </a>
                         </div>
-                        <div class="col-md-2 col-sm-2 modify">
-                            <button class="btn btn-default" ui-sref="dashboard">Modify Search</button>
+                        <div class="clearfix visible-sm"></div>
+                        <div class="col-md-2 col-sm-12 modify modify-sm">
+                            <button class="btn btn-default btn-sm" ui-sref="dashboard">Modify Search</button>
                         </div>
+                        <div class="clearfix"></div>
                     </div>
+                    <div class="clearfix"></div>
                 </div>
+                <div class="clearfix"></div>
             </div>
         </div>
 		<div style="text-align: center;" data-ng-if="itinerary.travelType==='multi'">

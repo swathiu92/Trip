@@ -1106,6 +1106,13 @@ input[type="radio"] {
 .plane-row {
     padding: 3px 0;
 }
+/*=======Search 0ne way css=======*/
+.search-summary p{
+    margin-bottom:0;
+}
+.search-inline{
+    margin-top:10px
+}
 
 @media (max-width:991px) {
     .float-none-sm {
@@ -1122,6 +1129,14 @@ input[type="radio"] {
     }
     .btn-sm {
         width: 100%;
+    }
+    .search-inlne-sm{
+        margin-top:20px;
+        clear:both;
+        
+    }
+    .modify-sm{
+        margin-top:10px;
     }
     /** swathi **/
     .popover {
