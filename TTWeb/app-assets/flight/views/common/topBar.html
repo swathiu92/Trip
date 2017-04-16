@@ -52,9 +52,9 @@
                             </a>
                         </div>
                         <div class="clearfix visible-sm"></div>
-                        <div class="col-md-2 col-sm-12 modify modify-sm">
+                        <!-- <div class="col-md-2 col-sm-12 modify modify-sm">
                             <button class="btn btn-default btn-sm" ui-sref="dashboard">Modify Search</button>
-                        </div>
+                        </div> -->
                         <div class="clearfix"></div>
                     </div>
                     <div class="clearfix"></div>
@@ -65,17 +65,18 @@
 		<div style="text-align: center;" data-ng-if="itinerary.travelType==='multi'">
 			<h2 style="color: #A7A7A7;">Multicity Trip ticket from {{itinerary.localObj.currentCity.from.name}} to {{itinerary.localObj.currentCity.to.name}}</h2>
 		</div>
-        <div class="modify_search shadow_genrator margin-bottom-20" data-ng-if="itinerary.travelType==='multi' && itinerary.localObj.multiSelect">
-            <div class="box" style="padding-bottom:15px;margin-bottom:0px">
+        <div class="modify_search shadow_genrator margin-bottom-20" 
+		style="    overflow-x: hidden;-webkit-font-smoothing: antialiased;-ms-overflow-style: scrollbar;oveflow-y: scroll;max-height: 153px;" data-ng-if="itinerary.travelType==='multi' && itinerary.localObj.multiSelect">
+            <div class="box" style="padding-bottom: 0px;margin-bottom:0px;">
 				<div style="color: #A7A7A7;font-weight:bold"> Already selected flights</div>
 				<hr>
                 <div ng-repeat="city in itinerary.itineraryDetails.cities track by $index" class="selectedFlight">
 					<div class="clearFix" style="color: #A7A7A7;" data-ng-if="city.booked === true">
-						<div class="col-md-3">{{city.from.key}} to {{city.to.key}}</div>
-						<div class="col-md-3">{{city.departure | date:'dd MMM yyyy'}}</div>
-						<div class="col-md-3"><a href="javascript:void(0)" uib-popover-template="'popoverDetails.html'" data-ng-click= "viewDetails(city)" popover-placement="bottom" popover-trigger="outsideClick" popover-title="Departure Details: {{city.departure | date:'dd MMM yyyy'}}">View Details</a></div>
-						<div class="col-md-3"><a href="javascript:void(0)" data-ng-click="selectedCity(city)">Change this departure</a></div>
-						<hr style="clear:both">
+						<div class="col-md-3 col-sm-3">{{city.from.key}} to {{city.to.key}}</div>
+						<div class="col-md-3 col-sm-3">{{city.departure | date:'dd MMM yyyy'}}</div>
+						<div class="col-md-3 col-sm-3"><a href="javascript:void(0)" uib-popover-template="'popoverDetails.html'" data-ng-click= "viewDetails(city)" popover-placement="bottom" popover-trigger="outsideClick" popover-title="Departure Details: {{city.departure | date:'dd MMM yyyy'}}">View Details</a></div>
+						<div class="col-md-3 col-sm-3"><a href="javascript:void(0)" data-ng-click="selectedCity(city)">Change this departure</a></div>
+						<hr ng-if="!$last" style="clear:both;margin-top: 0px;margin-bottom: 10px">
 					</div>
 					<script type="text/ng-template" id="popoverDetails.html">
                         <div class="form-group">
