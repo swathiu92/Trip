@@ -1,27 +1,29 @@
 <main class="container-fluid pad-sm-bottom">
-    <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
-        <div class="checkoutbox checkoutbox-margin" style="margin-top: 30px;height: 800px;margin-left: 30px;padding: 30px;font-family: lato-regular,Arial,Helvetica,sans-serif;">
+ <div class="row">
+    <div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 col-sm-8 col-md-offset-2  col-xs-12">
+        <div class="checkoutbox confirmation-section" >
             <h3> Flight Confirmed!</h3>
-			<div style="margin-bottom:10px;">
-				<div style="font-weight: bold;font-size: 18px;margin-bottom: 20px;">
+			<div>
+				<div class="confirmation-margin font-bold font-size-medium" >
 					<span>Hello <span data-ng-repeat="traveller in itinerary.travellerDetails.travellerInfo" ng-if="$index==0"> {{traveller.firstName}} {{traveller.middleName}} {{traveller.lastName}},
  						</span></span>
 					<div>Your flight {{itinerary.itineraryDetails.from.name}} - {{itinerary.itineraryDetails.to.name}}, <span ng-if="itinerary.travelType=='roundtrip'">round</span><span ng-if="itinerary.travelType=='oneway'">one-way</span><span ng-if="itinerary.travelType=='multi'">multi-city</span>-trip has been confirmed</div>
 					<div> We will email your ticket shortly.</div>
 				</div>
-				<div style="color: #A7A7A7;font-size: 15px;">
+				<div class="readonly-medium  confirmation-margin">
 					<div> You trip Id is SD90239480284. Please use this trip ID for any communication with us.</div>
 					<div class="col-md-10" data-ng-if="itinerary.travellerDetails.insurance" style="background: #e2e2e2;padding: 10px;margin-top: 10px;">
-						<h3 class="fs-md bold checkbox-custom-margin" style="color: #A7A7A7;"><i class="fa fa-umbrella"></i> Insurance included</h3>
+						<h3 class="fs-md bold checkbox-custom-margin text-grey"><i class="fa fa-umbrella"></i> Insurance included</h3>
 						<div>Your will receive a seperate email from United India Insurance Co. Ltd. with your policy certificate.</div>
 					</div>
 				</div>
-            </div>
-            <div class="col-md-12" style="margin-top: 20px;">
-                <div class="col-md-6">
-					<div style="color: #a7a7a7;font-weight: bold;"> Flight Details </div>
-					<div class="" data-ng-repeat="flight in itinerary.bookDetails track by $index" style="margin-top: 10px;margin-bottom: 30px;">
-						<div style="display:inline;float:left"> 
+    </div>
+     <div class="col-md-12">
+      <div class="row">
+       <div class="col-md-6">
+					<div class="font-bold text-grey"> Flight Details </div>
+					<div class="" data-ng-repeat="flight in itinerary.bookDetails track by $index" style="margin-top: 10px;">
+						<div class="pull-left inlineblock"> 
 							<i class="L6E_sm logo pull-left {{flight.alias}}" style="float: none !important;display: inline-block;"></i> 
 							<span class="inlineblock" style="color: black;font-size: 13px;">
 								{{flight.airlines}} {{flight.flightno}}<br>
@@ -29,11 +31,12 @@
 							</span>
 							<br class="hidden-xs-down">
 						</div>
-						<div style="color: #a7a7a7;font-size: 15px; float :right">
+						<div class="readonly-medium pull-right">
 							<div>{{flight.departure}} - {{flight.arrival}}</div>
 							<span color:="" #a7a7a7;="">{{flight.duration}} Non-Stop</span>
 						</div>
-						<hr style="clear: both;"> 
+      <div class="clearfix"></div>
+						<hr class="hr-mini clearfix"> 
 					</div>
                     <div class="submit-traveller" style="clear: both;">
                         <h3 class="fs-md bold inlineblock" style="font-size: 21px;color: #A7A7A7;">
@@ -44,14 +47,14 @@
 							<i class="fa fa-plane gray-light" style="margin-right: 50px;"></i>
 							<i  ng-if="itinerary.travelType=='roundtrip'" class="fa fa-plane gray-light fa-rotate-180"></i>
 
-							<div style="display: inline-block;">
+							<div class="inlineblock">
 								<div>{{itinerary.itineraryDetails.to.name}}</div>
 								<span ng-show="itinerary.itineraryDetails.arrival" style="color: #A7A7A7;font-size: 12px;">{{itinerary.itineraryDetails.arrival | date: 'dd MMM yyyy'}}</span>
 							</div>
 						</h3>
                     </div>
 					<div style="clear: both;color: #a7a7a7;font-weight: bold;margin-bottom: 10px;">
-						<hr>
+						<hr class="hr-mini">
 						<div>Travellers</div>
 						<ul data-ng-repeat="traveller in itinerary.travellerDetails.travellerInfo">
 							<li>
@@ -65,14 +68,14 @@
 						</ul>
 						</div>
                 </div>
-                <div class="col-md-6" style="width: 300px;height: 450px;margin-top: 20px;border: 1px solid #A7A7A7;border-radius:3%;box-sizing: border-box;color: #a7a7a7;font-weight: bold;padding-top: 10px;font-size: 18px;">
+                <div class="col-md-5 pull-right confirmation-paybox font-bold text-grey font-size-medium">
                     <div class="text-center"> Payment Receipt</div>
-					<hr>
+					<hr class="hr-mini">
 					<div>
 						<div class="text-center">Total Charge</div>
 						<div class="text-center">{{itinerary.travelInfo.totalPrice | currency : '&#8377;'}}</div>
 					</div>
-					<hr>
+					<hr class="hr-mini">
 					<div>
 						<div class="text-center">Fare Breakup</div>
 						<ul class="submit-fare">
@@ -80,17 +83,17 @@
 								<span>Base Fare</span>
 								<span class="pull-right">{{itinerary.travelInfo.totalTravellerPrice | currency : '&#8377;'}}</span>
 							</li>
-							<hr>
+							<hr class="hr-mini">
 							<li>
 								<span >Fee & Surcharges</span>
 								<span class="pull-right">{{itinerary.travelInfo.totalFares | currency : '&#8377;'}}</span>
 							</li>
-							<hr data-ng-if="itinerary.travelInfo.totalExtraPrice !== 0">
+							<hr class="hr-mini" data-ng-if="itinerary.travelInfo.totalExtraPrice !== 0">
 							<li data-ng-if="itinerary.travelInfo.totalExtraPrice !== 0">
 								<span >Other Charges</span>
 								<span class="pull-right">{{itinerary.travelInfo.totalExtraPrice | currency : '&#8377;'}}</span>
 							</li>
-							<hr>
+							<hr class="hr-mini">
 							<li>
 								<span >Total</span>
 								<span class="pull-right">{{itinerary.travelInfo.totalPrice | currency : '&#8377;'}}</span>
@@ -99,12 +102,17 @@
 						
 					</div>
 				</div>
+       <div class="clearfix"></div>
+       </div>
 			</div>
+         <div class="clearfix"></div>
 		</div>
 	</div>
-	<div class="col-md-12">
-	    <div style="margin-left: 307px;cursor: pointer;" data-ng-click="print()">
+  <div class="clearfix"></div>
+   <div class="col-md-12 text-center">
+	 <div data-ng-click="print()">
 			<img style="width: 200px;height: 75px;" src="assets/images/icon/print.jpg"/>
 		</div>
 	</div>
+  </div>
 </main>

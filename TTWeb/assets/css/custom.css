@@ -1150,7 +1150,36 @@ input[type="radio"] {
 .font-small {
  font-size: 12px;
 }
-
+/*========Confirmation Page css=====*/
+.confirmation-section{
+  margin-top:30px;
+  padding:20px;
+  font-family: lato-regular,Arial,Helvetica,sans-serif;
+}
+.confirmation-margin{
+  margin-bottom:30px;
+}
+.font-bold{
+  font-weight:bold;
+}
+.font-size-medium{
+  font-size:18px;
+}
+.readonly-medium{
+  color: #A7A7A7;
+  font-size: 15px;
+}
+.confirmation-paybox{
+  padding:10px;
+ border-radius:10px;
+ border: 1px solid #A7A7A7;
+}
+.text-grey{
+  color: #A7A7A7;
+}
+.hr-mini{
+  margin:10px 0;
+}
 @media (max-width: 991px) {
  .float-none-sm {
   float: none !important;
