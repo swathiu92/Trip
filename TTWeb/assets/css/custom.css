@@ -1150,6 +1150,10 @@ input[type="radio"] {
 .font-small {
  font-size: 12px;
 }
+.margin-none{
+ margin-top:0 !important;
+ margin-bottom:0 !important;
+}
 /*========Confirmation Page css=====*/
 .confirmation-section{
   margin-top:30px;
