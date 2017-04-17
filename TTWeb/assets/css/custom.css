@@ -1154,6 +1154,9 @@ input[type="radio"] {
  margin-top:0 !important;
  margin-bottom:0 !important;
 }
+.float-left{
+ float:left;
+}
 /*========Confirmation Page css=====*/
 .confirmation-section{
   margin-top:30px;
