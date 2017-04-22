@@ -20,20 +20,20 @@
 
             $scope.inlineOptions = {
                 customClass: getDayClass,
-                minDate: new Date(),
+                minDate: $scope.minDate?$scope.minDate:new Date(),
                 showWeeks: true
             };
 
             $scope.dateOptions = {
                 formatYear: 'yy',
                 maxDate: new Date(2080, 12, 31),
-                minDate: new Date(),
+                minDate: $scope.minDate?$scope.minDate:new Date(),
                 startingDay: 1
             };
 
             $scope.toggleMin = function () {
                 $scope.inlineOptions.minDate = $scope.inlineOptions.minDate ? null : new Date();
-                $scope.dateOptions.minDate = new Date();
+                $scope.dateOptions.minDate = $scope.minDate?$scope.minDate:new Date();
             };
 
             $scope.toggleMin();
@@ -93,7 +93,8 @@
             restrict: 'E',
             scope: {
                 displayText: "=",
-                itinerary: "=?itinerary"
+                itinerary: "=?itinerary",
+                minDate: "="
             },
             templateUrl: 'app-assets/common/ttuDateTime.html',
             controller: controller,

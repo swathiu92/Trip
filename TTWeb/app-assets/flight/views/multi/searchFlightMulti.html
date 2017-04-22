@@ -2,7 +2,7 @@
     <div class="row">
         <travel-location itinerary="city"></travel-location>
         <div class="col-md-2 col-sm-6">
-            <ttu-date-time display-text="departing" itinerary="city.departure"></ttu-date-time>
+            <ttu-date-time display-text="departing" itinerary="city.departure" min-date="city.minDate"></ttu-date-time>
         </div>
         <div class="col-md-1 col-sm-6" ng-show="city.showRemove" style="margin-top:5px;cursor:pointer;">
             <div class="form-group">

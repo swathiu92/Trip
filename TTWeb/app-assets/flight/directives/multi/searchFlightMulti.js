@@ -17,6 +17,7 @@
 					});
 			}
             $scope.addCity = function () {
+				var departureDate = "";
                 if ($scope.citiCount > 4)
                     return;
                 //hide remove button of previous city
@@ -25,11 +26,15 @@
                     if (!angular.isUndefined($scope.itinerary.itineraryDetails.cities[index]))
                         $scope.itinerary.itineraryDetails.cities[index].showRemove = false;
                 } */
+				var length  = $scope.itinerary.itineraryDetails.cities.length - 1;
+				departureDate = angular.copy($scope.itinerary.itineraryDetails.cities[length].departure);
+				departureDate.setDate(departureDate.getDate())
                 $scope.itinerary.itineraryDetails.cities.push({
                     id: $scope.citiCount,
 					from: '',
                     to: '',
-                    departure: '',
+					minDate: departureDate?departureDate:"",
+                    departure: departureDate?departureDate:"",
                     showRemove: true
                 });
 
