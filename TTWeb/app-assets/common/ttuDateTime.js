@@ -8,7 +8,12 @@
                 if (keyEvent.which === 13)
                     $scope.open();
             }
-            //$log.info($scope);
+            $scope.$watch('minDate', function(oldValue, newValue) {
+				if(oldValue !== newValue) {
+					$scope.dateOptions.minDate = $scope.minDate;
+				}
+			});
+
             $scope.today = function () {
                 $scope.itinerary = ($scope.itinerary)?$scope.itinerary:new Date();
             };

@@ -1,6 +1,6 @@
 <div class=" form-group">
     <label for="ttuDateTime" class="control-label" ng-bind="displayText"></label>
-    <div class="input-group margin-bottom-20"><span data-ng-click="open($event)" class="input-group-addon rounded-left"><i class="fa fa-calendar color-blue"></i></span>
+	<div class="input-group margin-bottom-20"><span data-ng-click="open($event)" class="input-group-addon rounded-left"><i class="fa fa-calendar color-blue"></i></span>
         <input type="text" class="form-control rounded-right" readonly="readonly" name="ttuDateTime" id="ttuDateTime" ng-model="itinerary" uib-datepicker-popup="{{format}}" is-open="popup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-keypress="onEnter($event)" ng-click="open()">
     </div>
 </div>

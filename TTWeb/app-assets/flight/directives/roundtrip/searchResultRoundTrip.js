@@ -68,9 +68,6 @@
 
         return {
             restrict: 'E',
-			scope:{
-				searchDataModel:"="
-			},
             templateUrl: 'app-assets/flight/views/roundtrip/searchresultroundtrip.html',
             controller: controller,
         }

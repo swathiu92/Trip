@@ -3,10 +3,10 @@
 </div>
 <div class="row">
     <div class="col-md-2 col-sm-6">
-        <ttu-date-time display-text="departing" itinerary="itinerary.itineraryDetails.departure"></ttu-date-time>
+        <ttu-date-time n-change="test()" display-text="departing" itinerary="itinerary.itineraryDetails.departure" min-date=""></ttu-date-time>
     </div>
     <div class="col-md-2 col-sm-6">
-        <ttu-date-time display-text="returning" itinerary="itinerary.itineraryDetails.arrival"></ttu-date-time>
+        <ttu-date-time display-text="returning" itinerary="itinerary.itineraryDetails.arrival" min-date="itinerary.itineraryDetails.departure"></ttu-date-time>
     </div>
     <div class="col-md-1"> </div>
     <traveler-detail itinerary="itinerary.travellerDetails" submitted="submitted"></traveler-detail>

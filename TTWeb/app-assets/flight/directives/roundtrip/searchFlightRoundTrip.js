@@ -8,6 +8,11 @@
             $scope.returning = "Returing On";
 			var months = ShareDataService.getSharedData().months;
 			var days = ShareDataService.getSharedData().days;
+			$scope.$watch('itinerary.itineraryDetails.departure', function(oldValue, newValue) {
+				if(oldValue !== newValue) {
+					$scope.itinerary.itineraryDetails.arrival = $scope.itinerary.itineraryDetails.departure;
+				}
+			});
             $scope.search = function () {
                 flightService.mode = 2
 				$scope.itinerary.itineraryDetails.from.key = $scope.itinerary.itineraryDetails.from.name.substring(0, 3);

@@ -9,6 +9,9 @@
                 $scope.selectedTab = event.currentTarget.id;
 				$scope.sortby = $scope.selectedTab;
 				$scope.sorted = !$scope.sorted;
+				if($scope.itinerary.travelType === "roundtrip" && angular.isObject($scope.itinerary)) {
+					$scope.itinerary.localObj.selectedIndex = "";
+				}
                 $("#" + event.currentTarget.id).find('i').toggleClass('fa-angle-down fa-angle-up');
             }
         }];
@@ -16,7 +19,8 @@
         return {
             scope: {
 				sortby:'=',
-				sorted: '='
+				sorted: '=',
+				itinerary: '='
 			},
             restrict: 'E',
             templateUrl: 'app-assets/flight/views/common/sortingtab.html',

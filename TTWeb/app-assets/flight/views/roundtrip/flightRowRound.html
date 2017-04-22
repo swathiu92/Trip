@@ -16,7 +16,7 @@
 </div>
 <div class="row">
     <div class="col-xs-12 col-sm-6, col-md-6 col-lg-6">
-        <sorting-tab sortby="sortby" sorted="sorted"></sorting-tab>
+        <sorting-tab sortby="sortby" sorted="sorted" itinerary="itinerary"></sorting-tab>
         <div class="flight-list listing-style3 flight">
             <div ng-repeat="originResult in data.origin | orderBy:sorting:sorted">
                 <div class="box shadow_genrator">
@@ -86,7 +86,7 @@
         </div>
     </div>
     <div class="col-xs-12 col-sm-6, col-md-6 col-lg-6">
-        <sorting-tab sortby="sortby1" sorted="sorted1"></sorting-tab>
+        <sorting-tab sortby="sortby1" sorted="sorted1" itinerary="itinerary"></sorting-tab>
         <div class="flight-list listing-style3 flight">
             <div ng-repeat="destinationResult in data.destination | orderBy:sorting1:sorted1">
                 <div class="box shadow_genrator">
