@@ -8,16 +8,16 @@
 </section>
 <main class="container pad-sm-bottom container-padding-bottom">
     <div class="row">
-        <div class="col-md-9" ng-if="itinerary.localObj.showContainer=='review'">
+        <div class="col-md-9 col-sm-7 col-xs-12" ng-if="itinerary.localObj.showContainer=='review'">
             <review data-ng-if="itinerary.travelType==='oneway'" itinerary="itinerary"></review>
             <review-round data-ng-if="itinerary.travelType==='roundtrip'" itinerary="itinerary"></review-round>
             <review-multi data-ng-if="itinerary.travelType==='multi'" itinerary="itinerary"></review-multi>
         </div>
-        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" ng-if="itinerary.localObj.showContainer=='travellerDetails'">
+        <div class="col-lg-9 col-md-9 col-sm-7 col-xs-12" ng-if="itinerary.localObj.showContainer=='travellerDetails'">
             <traveller-details itinerary="itinerary"></traveller-details>
             <service-requests itinerary="itinerary"></service-requests>
         </div>
-        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" ng-if="itinerary.localObj.showContainer=='summary'">
+        <div class="col-lg-9 col-md-9 col-sm-7 col-xs-12" ng-if="itinerary.localObj.showContainer=='summary'">
             <travel-summary itinerary="itinerary"></travel-summary>
         </div>
         <fare-details itinerary="itinerary"></fare-details>
