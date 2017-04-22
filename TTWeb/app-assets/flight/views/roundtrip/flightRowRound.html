@@ -133,12 +133,7 @@
 								<span class="logo_name">{{destinationResult.airlines}}</span>
                             <span class="block logo_name">{{destinationResult.flightno}}</span>
                             </span>
-                        </div>
-                       <!--  <div>
-                            <span class="pull-right" style="border-top:1px;margin-right:15px" data-ng-show="itinerary.localObj.selectedIndex === $index">
-								<span class="price round-price margin-bottom-10" data-ng-click="flightSelected(destinationResult, 'origin', $index)">Book</span>
-                            </span>
-                        </div> -->
+                        </div> 
                     </div>
                 </div>
                 <div class="col-md-12 flight-details">
@@ -155,3 +150,79 @@
         </div>
     </div>
 </div>
+ <div class="stickyFooter custom-footer" data-ng-show="itinerary.localObj.selectedIndex!=='' && itinerary.localObj.selectedIndex!==undefined && showBookSection && showBookSection.length>0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5" style="border-right: 1px solid white;">
+                <div class="row">
+                    <div class="col-md-5" style="text-align:center;">
+                        <p> <i class="L6E_sm logo {{itinerary.bookDetails[1].alias}}" style="float: none !important;display: inline-block;"></i>
+                            <span class="inlineblock ng-binding color-white">{{itinerary.bookDetails[1].airlines}} <br>
+                              <span class="fs-xs gray ng-binding color-white">{{itinerary.bookDetails[1].flightno}}</span> </span>
+                            <br class="hidden-xs-down">
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="float-left">
+                            <div>{{itinerary.bookDetails[1].departure}}</div>
+                            <div>{{itinerary.itineraryDetails.from.key}}</div>
+                        </div>
+                        <div class="float-left icons--margin"><i class="fa fa-exchange ng-scope fa-long-arrow-right"></i></div>
+                        <div class="float-left">
+                            <div>{{itinerary.bookDetails[1].arrival}}</div>
+                            <div>{{itinerary.itineraryDetails.to.key}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div>Total Duration</div>
+                        <div>{{itinerary.bookDetails[1].duration}}</div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+            <div class="col-md-5" style="border-right: 1px solid white;">
+                <div class="row">
+                    <div class="col-md-5" style="text-align:center;">
+                        <p> <i class="L6E_sm logo {{itinerary.bookDetails[0].alias}}" style="float: none !important;display: inline-block;"></i>
+                            <span class="inlineblock ng-binding color-white">{{itinerary.bookDetails[0].airlines}}<br>
+                              <span class="fs-xs gray ng-binding color-white">{{itinerary.bookDetails[0].flightno}}</span> </span>
+                            <br class="hidden-xs-down">
+                        </p>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="float-left">
+                            <div>{{itinerary.bookDetails[0].departure}}</div>
+                            <div>{{itinerary.itineraryDetails.to.key}}</div>
+                        </div>
+                        <div class="float-left icons--margin">
+						<i class="fa fa-exchange ng-scope fa-long-arrow-right"></i></div>
+                        <div class="float-left">
+                            <div>{{itinerary.bookDetails[0].arrival}}</div>
+                            <div>{{itinerary.itineraryDetails.from.key}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div>Total Duration</div>
+                        <div>{{itinerary.bookDetails[0].duration}}</div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="float-right fare-details-margin">
+                    <button data-ng-click="itinerary.localObj.flightSelected()">Book</button>
+                </div>
+                <div class="float-right">
+                    <div>Total Amount</div>
+                    <div>{{itinerary.localObj.fare | currency : '&#8377;'}}*</div>
+                 </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+

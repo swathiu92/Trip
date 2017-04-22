@@ -17,6 +17,39 @@ body {
     border-radius: 5px !important;
 }
 
+    .stickyFooter {
+        background: rgba(74, 74, 74, 0.99);
+        border-top: solid 1px #fff;
+        color: #ffffff !important;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        z-index: 200;
+    }
+
+    .custom-footer .color-white {
+        color: #ffffff !important;
+    }
+
+    .float-left {
+        float: left;
+    }
+
+    .float-right {
+        float: right;
+    }
+
+    .icons--margin {
+        padding: 0 10px;
+    }
+
+    .fare-details-margin {
+        margin-left: 10px;
+    }
+
 /*inline block*/
 
 .b_vertAlign {
