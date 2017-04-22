@@ -62,7 +62,7 @@
                 <div class="clearfix"></div>
             </div>
         </div>
-		<div class="text-center" data-ng-if="itinerary.travelType==='multi'">
+		<div class="text-center" data-ng-if="itinerary.travelType==='multi' && itinerary.localObj.showContainer===''">
 			<h2 class="text-grey">Multicity Trip ticket from {{itinerary.localObj.currentCity.from.name}} to {{itinerary.localObj.currentCity.to.name}}</h2>
 		</div>
         <div class="modify_search shadow_genrator margin-bottom-20" 
@@ -74,7 +74,7 @@
 						<div class="float-left multicity-row">{{city.from.key}} to {{city.to.key}}</div>
 						<div class="float-left multicity-row">{{city.departure | date:'dd MMM yyyy'}}</div>
 						<div class="float-left multicity-row"><a href="javascript:void(0)" uib-popover-template="'popoverDetails.html'" data-ng-click= "viewDetails(city)" popover-placement="bottom" popover-trigger="outsideClick" popover-title="Departure Details: {{city.departure | date:'dd MMM yyyy'}}">View Details</a></div>
-						<div class="float-left multicity-row"><a href="javascript:void(0)" data-ng-click="selectedCity(city)">Change this departure</a></div>
+						<div ng-show="itinerary.localObj.showContainer===''" class="float-left multicity-row"><a href="javascript:void(0)" data-ng-click="selectedCity(city)">Change this departure</a></div>
 						<hr ng-if="!$last" style="clear:both;margin-top: 0px;margin-bottom: 10px">
 					</div>
 					<script type="text/ng-template" id="popoverDetails.html">

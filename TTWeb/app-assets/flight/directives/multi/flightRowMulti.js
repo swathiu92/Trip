@@ -3,7 +3,8 @@
     angular.module("common.services")
     .directive('flightRowMulti', function () {
         var controller = ['$scope', '$log', '$state', 'flightService', 'ShareDataService', function ($scope, $log, $state, flightService, ShareDataService) {
-			var allBooked = false
+			var allBooked = false;
+			$scope.itinerary.localObj.showContainer = '';
 			$scope.itinerary.localObj.selectedItinerary = $scope.itinerary.localObj.selectedItinerary?$scope.itinerary.localObj.selectedItinerary:[];
 			$scope.itinerary.localObj.allBooked = $scope.itinerary.localObj.allBooked?$scope.itinerary.localObj.allBooked:false;
 			$scope.itinerary.localObj.selectedFlights = $scope.itinerary.localObj.selectedFlights?$scope.itinerary.localObj.selectedFlights:[];
