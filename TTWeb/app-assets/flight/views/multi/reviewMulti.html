@@ -16,22 +16,29 @@
                       <p class="pull-right ng-binding">Total Time: {{booked.duration}} </p>
                      </div>
                      <div class="clearfix"></div>
-                        <div class="text-sm-center col-sm-2 text-xs-left text-center">
+                        <div class="text-sm-center col-sm-6 col-md-2 text-xs-left text-center">
                             <p> <i class="L6E_sm logo pull-left {{booked.alias}}" style="float: none !important;display: inline-block;"></i> <span class="inlineblock ng-binding">{{booked.airlines}} <br>
                               <span class="fs-xs gray">{{booked.flightno}}</span> </span>
                                 <br class="hidden-xs-down">
                             </p>
                         </div>
-                        <div class="col-sm-10">
-                            <div class="row">
-                                <div class="col-xs-6 col-md-3">
+                        
+                                <div class="col-xs-12 col-md-3 col-sm-6">
                                     <p class="ng-binding">{{itinerary.itineraryDetails.cities[$index].from.name}}, {{itinerary.itineraryDetails.cities[$index].from.state}}</p>
                                     <h3 class="fs-base bold gray-dark ng-binding">{{itinerary.itineraryDetails.cities[$index].from.key | uppercase}}<span class="normal gray-light">&nbsp;|&nbsp;</span>{{booked.departure}}</h3>
                                     <p class="fs-sm gray ng-binding font-size-xs flight-details-margin">{{itinerary.itineraryDetails.cities[$index].departure | date : "dd MMM yyyy"}}
                                      <span class="ng-binding">{{itinerary.itineraryDetails.cities[$index].from.name}} Airport</span>
                                     </p>
                                 </div>
-                                <div class="col-xs-6 col-md-push-6 col-md-3 sm-border-left">
+                                <div class="col-xs-12 text-center col-sm-6 col-md-4">
+                                    <p> <i class="fa fa-clock-o"></i> &nbsp; {{booked.duration}} &nbsp;|&nbsp; Non Stop</p>
+                                    <p class="hidden-sm-down two-dots plane-row-custom"> <i class="fa fa-plane"></i> </p>
+                                    <p> Economy&nbsp;|&nbsp;
+                                        <span class="ref-ui">{{booked.refundable === true?'Refundable':'Non Refundable'}}</span>
+                                        <span data-ng-if="booked.freemeals===true"> | Free Meals</span>
+                                    </p>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3 sm-border-left">
                                     <p class="ng-binding">{{itinerary.itineraryDetails.cities[$index].to.name}}, {{itinerary.itineraryDetails.cities[$index].to.state}}</p>
                                     <h3 class="fs-base bold gray-dark">
                                         {{itinerary.itineraryDetails.cities[$index].to.key | uppercase}}
@@ -41,16 +48,7 @@
                                       <span>{{itinerary.itineraryDetails.cities[$index].to.name}} Airport</span>
                                     </p>
                                 </div>
-                                <div class="col-sm-12 text-center col-md-pull-3 col-md-6">
-                                    <p> <i class="fa fa-clock-o"></i> &nbsp; {{booked.duration}} &nbsp;|&nbsp; Non Stop</p>
-                                    <p class="hidden-sm-down two-dots plane-row-custom"> <i class="fa fa-plane"></i> </p>
-                                    <p> Economy&nbsp;|&nbsp;
-                                        <span class="ref-ui">{{booked.refundable === true?'Refundable':'Non Refundable'}}</span>
-                                        <span data-ng-if="booked.freemeals===true"> | Free Meals</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                           
                     </article>
                     <hr data-ng-if="!$last"></hr>
                 </div>
