@@ -62,6 +62,7 @@
 					}
 				}
 				if(!eflag){
+					$scope.submitted = true;
 					ShareDataService.setSharedData({
 						itinerary: $scope.itinerary
 					}, 'itinerary');

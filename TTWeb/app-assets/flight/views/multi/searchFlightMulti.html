@@ -1,6 +1,6 @@
 <div ng-repeat="city in itinerary.itineraryDetails.cities">
     <div class="row">
-        <travel-location itinerary="city"></travel-location>
+        <travel-location itinerary="city" submitted="submitted"></travel-location>
         <div class="col-md-2 col-sm-6">
             <ttu-date-time display-text="departing" itinerary="city.departure" min-date="city.minDate"></ttu-date-time>
         </div>
