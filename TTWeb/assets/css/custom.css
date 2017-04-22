@@ -12,7 +12,10 @@ body {
  -ms-overflow-style: scrollbar;
  oveflow-y: scroll;
 }
-
+ .error-class {
+    border: 2px solid #ef4639;
+    border-radius: 5px !important;
+}
 
 /*inline block*/
 
@@ -1249,8 +1252,9 @@ input[type="radio"] {
   color: inherit;
  }
  .error-class {
-  border: 1px solid #ef4639;
- }
+    border: 2px solid #ef4639;
+    border-radius: 5px !important;
+}
  .modify_search label {
   color: black;
  }
