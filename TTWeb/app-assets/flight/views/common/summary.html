@@ -21,15 +21,15 @@
             <travel-summary itinerary="itinerary"></travel-summary>
         </div>
         <fare-details itinerary="itinerary"></fare-details>
-        <div class="col-md-12 text-center" ng-if="itinerary.localObj.showContainer=='review'">
+        <div class="col-md-3 text-center pull-right" ng-if="itinerary.localObj.showContainer=='review'">
             <button class="button primary" style="min-width:100px" ui-sref="searchflight" href="#/search">Back</button>
             <button class="button primary" style="min-width:100px" ng-click="continueToNextPage();">Continue </button>
         </div>
-        <div class="col-md-12 text-center" ng-if="itinerary.localObj.showContainer=='travellerDetails'">
+        <div class="col-md-3 text-center pull-right" ng-if="itinerary.localObj.showContainer=='travellerDetails'">
             <button class="button primary" style="min-width:100px" ng-click="continueClicked=false;backToReview()">Back</button>
             <button class="button primary" style="min-width:100px" ng-click="continueClicked=true;goToSummary()">Continue</button>
         </div>
-        <div class="col-md-12 text-center" ng-if="itinerary.localObj.showContainer=='summary'">
+        <div class="col-md-3 text-center pull-right" ng-if="itinerary.localObj.showContainer=='summary'">
             <button class="button primary" style="min-width:100px" ng-click="continueClicked=false;backToitinerary()">Back</button>
             <button class="button primary" style="min-width:100px" ng-click="submitBooking()">Submit</button>
         </div>
