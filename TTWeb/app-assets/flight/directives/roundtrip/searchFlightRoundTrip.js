@@ -14,16 +14,18 @@
 				}
 			});
             $scope.search = function () {
-                flightService.mode = 2
-				$scope.itinerary.itineraryDetails.from.key = $scope.itinerary.itineraryDetails.from.name.substring(0, 3);
-				$scope.itinerary.itineraryDetails.to.key = $scope.itinerary.itineraryDetails.to.name.substring(0, 3);
-				$scope.itinerary.localObj.departureDetails = $filter("dateSplit")($scope.itinerary.itineraryDetails.departure, "yyyy");
-				$scope.itinerary.localObj.arrivalDetails = $filter("dateSplit")($scope.itinerary.itineraryDetails.arrival, "yyyy");
-				ShareDataService.setSharedData({
-					itinerary: $scope.itinerary
-	            }, 'itinerary');
-                $state.go('searchflight');
-            }
+                flightService.mode = 2;
+				if($scope.itinerary.itineraryDetails.from && $scope.itinerary.itineraryDetails.to){
+					$scope.itinerary.itineraryDetails.from.key = $scope.itinerary.itineraryDetails.from.name.substring(0, 3);
+					$scope.itinerary.itineraryDetails.to.key = $scope.itinerary.itineraryDetails.to.name.substring(0, 3);
+					$scope.itinerary.localObj.departureDetails = $filter("dateSplit")($scope.itinerary.itineraryDetails.departure, "yyyy");
+					$scope.itinerary.localObj.arrivalDetails = $filter("dateSplit")($scope.itinerary.itineraryDetails.arrival, "yyyy");
+					ShareDataService.setSharedData({
+						itinerary: $scope.itinerary
+					}, 'itinerary');
+					$state.go('searchflight');
+				}
+			}
         }];
 
         return {

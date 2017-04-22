@@ -53,12 +53,23 @@
             };
 
             $scope.search = function () {
-				ShareDataService.setSharedData({
-					itinerary: $scope.itinerary
-	            }, 'itinerary');
-				console.log($scope.itinerary);
-				flightService.mode = 3;
-                $state.go('searchflight');
+				var eflag = false;
+				if($scope.itinerary.itineraryDetails.cities && $scope.itinerary.itineraryDetails.cities.length>0){
+					for(var a=0;a<$scope.itinerary.itineraryDetails.cities.length;a++){
+						if(!$scope.itinerary.itineraryDetails.cities[a].from || !$scope.itinerary.itineraryDetails.cities[a].to){
+							eflag = true;
+						}
+					}
+				}
+				if(!eflag){
+					ShareDataService.setSharedData({
+						itinerary: $scope.itinerary
+					}, 'itinerary');
+					console.log($scope.itinerary);
+					flightService.mode = 3;
+					$state.go('searchflight');
+				}
+				
             }
         }];
 
